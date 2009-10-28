@@ -11,24 +11,25 @@ body {
 	font-size: 13px;
 	font-family: "Trebuchet MS", Georgia, "Times New Roman", Times, serif;
 	text-align: justify;
-	color: #FFFFFF;
+	color: #000000;
 }
 
-h1, h2, h3 {
-	margin: 0;
-	text-transform: lowercase;
-	font-weight: normal;
-	color: #FFFFFF;
+#user{
+    position: fixed;
+    width: 100%;
+    border: 3px solid yellow;
+    padding: 5px;
+	font-size: 16px;
+	background-color:#FFFFCC;
 }
 
-h1 {
-	letter-spacing: -1px;
-	font-size: 32px;
+#usermenu{
+    float: center;
 }
 
-h2 {
-	font-size: 23px;
-}
+
+
+
 
 p, ul, ol {
 	margin: 0 0 2em 0;
@@ -37,7 +38,7 @@ p, ul, ol {
 }
 
 a:link {
-	color: #8BD80E;
+	color: #0000FF;
 }
 
 a:hover, a:active {
@@ -63,7 +64,9 @@ img.right {
 	margin-left: 15px;
 }
 
-/* Form */
+
+
+
 
 form {
 	margin: 0;
@@ -89,186 +92,31 @@ input, textarea, select {
 #wrapper {
 	margin: 0;
 	padding: 0;
-	background: #000000;
 }
 
-/* Header */
-
-#header {
-	width: 713px;
-	margin: 0 auto;
-	height: 42px;
-}
-
-/* Menu */
-
-#menu {
-	float: left;
-	width: 713px;
-	height: 50px;
-	background: url(images/img02.gif) no-repeat left top;
-}
-
-#menu ul {
-	margin: 0;
-	padding: 0px 0 0 10px;
-	list-style: none;
-	line-height: normal;
-}
-
-#menu li {
-	display: block;
-	float: left;
-}
-
-#menu a {
-	display: block;
-	float: left;
-	background: url(images/img04.gif) no-repeat right 55%;
-	margin-top: 5px;
-	margin-right: 3px;
-	padding: 8px 17px;
-	text-decoration: none;
-	font-size: 13px;
-	color: #000000;
-}
-
-#menu a:hover { 
-	color: #000000;
-}
-
-#menu .current_page_item a {
-	color: #000000;
-}
-
-/** LOGO */
-
-#logo {
-	width: 713px;
-	height: 80px;
-	margin: 0 auto;
-}
-
-#logo h1, #logo h2 {
-	float: left;
-	margin: 0;
-	padding: 30px 0 0 0px;
-	line-height: normal;
-}
-
-#logo h1 { 
-	font-family: Georgia, "Times New Roman", Times, serif;
-	font-size:40px;
-}
-
-#logo h1 a {
-	text-decoration: none;
-	color: #4C4C4C; 
-}
-
-#logo h1 a:hover { text-decoration: underline; }
-
-#logo h2 {
-	float: left;
-	padding: 45px 0 0 18px;
-	font: 18px Georgia, "Times New Roman", Times, serif;
-	color: #8BD80E; 
-}
-
-#logo p a {
-	text-decoration: none;
-	color: #8BD80E;
-}
-
-#logo p a:hover { text-decoration: underline; }
 
 
 
-/* Page */
 
 #page {
-	width: 663px;
-	margin: 0 auto;
-	background: #4C4C4C url(images/img03.gif) no-repeat left bottom;
-	padding: 0 25px;
-}
-
-/* Content */
-
-#content {
-	float: left;
-	width: 410px;
 	
-}
-
-/* Post */
-
-.post {
-	padding: 15px 0px;
-	margin-bottom: 20px;
-}
-
-.post .title {
-	margin-bottom: 20px;
-	padding-bottom: 5px;
-}
-
-.post h1 {
-	padding: 0px 0 0 0px;
-	background: url(images/img08.jpg) no-repeat left top;
-	font-size: 24px;
-	color: #FFFFFF;
-}
-
-.post h2 {
-	padding: 0px 0 0 0px;
-	font-size: 22px;
-	color: #FFFFFF;
-}
-
-.post .entry {
-}
-
-.post .meta {
-	padding: 15px 15px 30px 0px;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 11px;
-}
-
-.post .meta p {
-	margin: 0;
-	padding-top: 15px;
-	line-height: normal;
-	color: #FFFFFF;
-}
-
-.post .meta .byline {
-	float: left;
-}
-
-.post .meta .links {
-	float: right;
-}
-
-.post .meta .more {
-	padding: 0 10px 0 18px;
-}
-
-.post .meta .comments {
-}
-
-.post .meta b {
-	display: none;
+	width: auto;
+	margin: 0 auto;
+	padding: 0 5px;
 }
 
 
-/* Sidebar */
+
 
 #sidebar {
-	width: 210px;
-	float: right;
+	position: fixed;
+	width: 100px;
+	float: left;
 	margin: 0;
 	padding: 0;
+	margin-top:50px;
+	background-color: #DDDDDD;
+	
 }
 
 #sidebar ul {
@@ -278,7 +126,7 @@ input, textarea, select {
 }
 
 #sidebar li {
-	margin-bottom: 40px;
+	margin-bottom: 10px;
 }
 
 #sidebar li ul {
@@ -292,12 +140,12 @@ input, textarea, select {
 	width: 250px;
 	padding: 8px 0 0 0px;
 	margin-bottom: 10px;
-	background: url(images/img07.jpg) no-repeat left top;
+	background-color: #FFFFFF left top;
 	font-size: 20px;
 	color: #FFFFFF;
 }
 
-/* Search */
+
 
 #search {
 
@@ -323,7 +171,7 @@ input, textarea, select {
 	color: #FFFFFF;
 }
 
-/* Boxes */
+
 
 .box1 {
 	padding: 20px;
@@ -349,32 +197,5 @@ input, textarea, select {
 	color: #EDEDED;
 }
 
-/* Footer */
-#footer-wrap {
-}
 
-#footer {
-	margin: 0 auto;
-	padding: 20px 0 10px 0;
-	background: #000000;
-}
 
-html>body #footer {
-	height: auto;
-}
-
-#footer p {
-	font-size: 11px;
-}
-
-#legal {
-	clear: both;
-	padding-top: 17px;
-	text-align: center;
-	color: #FFFFFF;
-}
-
-#legal a {
-	font-weight: normal;
-	color: #FFFFFF;
-}
