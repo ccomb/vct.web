@@ -6,11 +6,18 @@
   <subscriber for="repoze.bfg.interfaces.INewRequest"
     handler=".run.handle_teardown"/>
 
-  <route 
+  <route
     path=""
     name="home"
     view=".views.my_view"
     renderer="templates/mytemplate.pt"
+    />
+
+  <route
+    path="patient/:nom"
+    name="patient view"
+    view=".views.vue_patient"
+    renderer="templates/patient.pt"
     />
 
   <static

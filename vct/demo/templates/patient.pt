@@ -1,0 +1,11 @@
+<html>
+
+<body>
+<ul>
+<li tal:repeat="p patients" tal:content="p">nom</li>
+</ul>
+
+
+</body>
+
+</html>
