@@ -1,5 +1,5 @@
-from vctdemo.models import DBSession
-from vctdemo.models import Model
+from vct.demo.models import DBSession
+from vct.demo.models import Model
 
 def my_view(request):
     dbsession = DBSession()
