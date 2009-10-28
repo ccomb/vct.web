@@ -3,4 +3,4 @@
 ^.installed.cfg$
 ^vct.demo.egg-info/
 .*\.pyc$
-
+^vct.demo.db$
