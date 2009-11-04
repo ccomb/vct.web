@@ -48,3 +48,53 @@ def initialize_sql(db_string, echo=False):
         populate()
     except IntegrityError:
         pass
+        
+class Item:
+	itemID = 1
+	version = 1
+	time = None
+	author = "saliez"
+	certainty = 0.5
+	type = "generic"
+	
+class Agent(Item):
+	type = "Professional"
+	
+class CareProvider(Agent):
+	careProviderID = None
+	
+class CareTeam(CareProvider):
+	careTeamID = None
+	careteamname = "PatientCareTeam"
+
+class Patient(Agent):
+	patientID = "123456"
+	lastName = DUPONT
+	firstname = "Jean"
+	partner = None
+	birthday = None
+	sex = None
+	
+class MedData(Item):
+	medDataID = None
+	patient = None
+	type = None
+	
+class Observation(MedData):
+	type = None
+	linkProblems = None
+	linkActions = None
+	
+class Problem(MedData):
+	type = None
+	linkObservations = None
+	linkActions = None
+	
+class Action(MedData):
+	type = None
+	linkProblems = None
+	linkObservations = None
+	status = None
+	
+class Overview(Item):
+	overviewName = None

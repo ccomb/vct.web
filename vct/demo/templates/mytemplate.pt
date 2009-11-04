@@ -12,15 +12,33 @@
 
 <div id="user">
 <table border= "1">
-User= saliez <a href="BFG-main-page.html">(BFG doc)</a>
+User= saliez 
     <table id="usermenu" border= "1"  style="text-align: left; width: 100%;">
         <tr>
-            <td>Patient: New -- Next -- Previous -- Group</td>
-            <td><a href="Notifications-Help.html">Notifications</a></td>
-            <td>Agenda</td>
-            <td>Preferences</td>        
-            <td><a href="http://www.bmia.be"> BMIA </a>            </td>
-            <td>Close Session</td>
+            <td>Patient <a href="static/Help/Patient-Help.html">(?)</a>: Next -- Previous <br/>
+                <form method="GET" >
+                <select name="patientGroup" size="4" tabindex="1" >
+		            <option>New Patient Search</option>
+	    	        <option>My current Care Teams</option>
+	    	        <option>Critical</option>
+	    	        <option>Recent</option>
+	    	        <option>Appointments today</option>
+		            <option>Requiring Visit</option>
+		            <option>admitted</option>
+		            <option>having mail</option>
+	    	        <option>Something to do</option>
+	    	        <option>vaccination to do</option>
+		            <option>Same Family</option>
+	    	        <option>Neighborhood</option>
+	    	        <option>..............</option>
+                </select>
+                </form>
+                </td>
+            <td><a href="static/Help/Todo-Help.html">My tasks and Agenda</a></td>
+            <td><a href="static/Help/Notifications-Help.html">Incoming Notifications</a></td>
+            <td>Administration, <a href="static/BFG-main-page.html">(BFG doc)</a>
+                <br/><a href="static/Help/Preferences-Help.html">Preferences</a></td>        
+            <td>Close<br/>Session</td>
         </tr>
     </table>
 </table>
@@ -28,6 +46,8 @@ User= saliez <a href="BFG-main-page.html">(BFG doc)</a>
 </div>
 <div style="clear: both;">&nbsp;</div>
 
+<div id="data">
+</div>
 
 <div id="patient">
 Patient: VAN ROOD Pieter
