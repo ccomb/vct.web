@@ -58,7 +58,7 @@ class Item:
 	type = "generic"
 	
 class Agent(Item):
-	type = "Professional"
+	type = None
 	
 class CareProvider(Agent):
 	careProviderID = None
