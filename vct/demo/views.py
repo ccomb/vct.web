@@ -1,7 +1,8 @@
-from webob import Response
-
+from formalchemy.ext import couchdb
 from repoze.bfg.chameleon_zpt import render_template_to_response
 from repoze.bfg.view import static
+from webob import Response
+from models import Patient
 static_view = static('templates/static')
 
 
@@ -10,11 +11,31 @@ def home_view(context, request):
 
 
 def patient_add(context, request):
-    return {'request':request, 'context':context}
+    p = Patient()
+    form = couchdb.FieldSet(p)
+    form.bind(p, data=request.POST or None)
+    if request.POST and form.validate():
+        pass
+
+    return {'request':request,
+            'context':context,
+            'form':form}
 
 
-def patient_list(context, request):
-    return {'request':request, 'context':context}
+class PatientList(object):
+    FieldSet = couchdb.FieldSet
+    Grid = couchdb.Grid
+    model = [Patient]
+
+    def __init__(self, context, request):
+        self.context = context
+        self.request = request
+
+    def __call__(self):
+        grid = self.Grid(Patient)
+        return {'request':self.request,
+                'context':self.context,
+                'grid':grid}
 
 
 def patient_edit(context, request):

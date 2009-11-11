@@ -28,7 +28,7 @@
   <route
     path="patients/list"
     name="patient list"
-    view=".views.patient_list"
+    view=".views.PatientList"
     renderer="templates/patient_list.pt"
     />
 

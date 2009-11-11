@@ -11,6 +11,7 @@
 
 liste des patients
 
+<tal:block replace="structure python:grid.render()"/>
 
 </body>
 </html>

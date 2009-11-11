@@ -5,10 +5,10 @@ from webob import Response
 
 server = None
 
-class Patient(couchdb.Document):
+class Patient(couchdbkit.schema.Document):
     lastName = couchdbkit.StringProperty(required=True)
     firstname = couchdbkit.StringProperty(required=True)
-    birthday = couchdbkit.DateProperty(required=True)
+    birthday = couchdbkit.DateProperty()
     sex = couchdbkit.StringProperty()
 
 

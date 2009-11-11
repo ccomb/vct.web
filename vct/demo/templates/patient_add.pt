@@ -9,8 +9,10 @@
 <body>
 <h1>Adding a patient</h1>
 
-formulaire
-
+<form method="post" action="">
+<tal:block replace="structure python:form.render()" />
+<input type="submit" value="Add"/>
+</form>
 
 </body>
 </html>
