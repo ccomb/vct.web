@@ -1,4 +1,6 @@
 ^bin/
+^lib/
+^include/
 ^develop-eggs/
 ^.installed.cfg$
 ^vct.demo.egg-info/
