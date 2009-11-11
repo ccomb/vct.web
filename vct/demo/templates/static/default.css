@@ -1,17 +1,11 @@
-/*
-Design by Free CSS Templates
-http://www.freecsstemplates.org
-Released for free under a Creative Commons Attribution 2.5 License
-*/
-
 body {
-	margin: 0;
-	padding: 0;
-	background: url(images/img01.gif) repeat-x left top;
-	font-size: 13px;
-	font-family: "Trebuchet MS", Georgia, "Times New Roman", Times, serif;
-	text-align: justify;
-	color: #000000;
+    margin: 0;
+    padding: 0;
+    background: url(images/img01.gif) repeat-x left top;
+    font-size: 13px;
+    font-family: "Trebuchet MS", Georgia, "Times New Roman", Times, serif;
+    text-align: justify;
+    color: #000000;
 }
 
 #user{
@@ -19,22 +13,14 @@ body {
     width: 100%;
     border: 3px solid yellow;
     padding: 5px;
-	font-size: 16px;
-	background-color:#FFFFCC;
+    font-size: 16px;
+    background-color:#FFFFCC;
 }
-
-#usermenu{
-    float: center;
-}
-
-
-
-
 
 p, ul, ol {
-	margin: 0 0 2em 0;
-	text-align: justify;
-	line-height: 26px;
+margin: 0 0 2em 0;
+text-align: justify;
+line-height: 26px;
 }
 
 a:link {
@@ -154,23 +140,6 @@ input, textarea, select {
 #search h2 {
 	margin-bottom: 20px;
 }
-
-#s {
-	width: 140px;
-	margin-right: 5px;
-	padding: 3px;
-	border: 1px solid #BED99C;
-}
-
-#x {
-	padding: 3px;
-	border: none;
-	background: #8BD80E;
-	text-transform: lowercase;
-	font-size: 11px;
-	color: #FFFFFF;
-}
-
 
 
 .box1 {

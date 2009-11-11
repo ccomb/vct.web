@@ -3,12 +3,16 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>${project} Application</title>
-<meta name="keywords" content="python web application" />
-<meta name="description" content="repoze.bfg web application" />
+<title>Virtual Care Team</title>
 <link href="${request.application_url}/static/default.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<h1>item.pt</h1>
+<h1>Virtual Care Team</h1>
+
+<ul>
+<li><a href="/patients/list">Patient list</a></li>
+<li><a href="/patients/add">Add a patient</a></li>
+</ul>
+
 </body>
 </html>

@@ -3,16 +3,14 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>${project} Application</title>
-<meta name="keywords" content="python web application" />
-<meta name="description" content="repoze.bfg web application" />
+<title>Patient list</title>
 <link href="${request.application_url}/static/default.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<h1>TEST PATIENT</h1>
-<ul>
-<li tal:repeat="p patients" tal:content="p">nom</li>
-</ul>
+<h1>List of patients</h1>
+
+liste des patients
+
 
 </body>
 </html>

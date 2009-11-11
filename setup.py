@@ -13,11 +13,10 @@ CHANGES = open(os.path.join(here, 'CHANGES.txt')).read()
 requires = [
     'setuptools',
     'repoze.bfg',
-    'SQLAlchemy',
     'transaction',
     'repoze.tm2',
-    'zope.sqlalchemy',
     'couchdbkit',
+    'FormAlchemy',
     'PasteDeploy',
     ]
 

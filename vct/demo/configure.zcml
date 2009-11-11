@@ -6,49 +6,31 @@
   <subscriber for="repoze.bfg.interfaces.INewRequest"
     handler=".run.handle_teardown"/>
 
-  <route
-    path=""
-    name="home"
-    view=".views.my_view"
-    renderer="templates/mytemplate.pt"
-    />
-
-  <route
-    path="patient/:nom"
-    name="patient view"
-    view=".views.vue_patient"
-    renderer="templates/patient.pt"
-    />
-
   <static
     name="static"
     path="templates/static"
     />
 
-  <view
-    name="hello"    
-    view=".views.hello"
-    renderer= "string"
+  <route
+    path=""
+    name="home"
+    view=".views.home_view"
+    renderer="templates/home.pt"
     />
 
-  <view
-    for= ".models.HELLO"
-    name="HELLO"    
-    view=".views.HELLO"
-    renderer="templates/HELLO.pt"
+  <route
+    path="patients/add"
+    name="patient add"
+    view=".views.patient_add"
+    renderer="templates/patient_add.pt"
     />
 
-  <view
-    for=".models.Item"
-    name="item"    
-    view=".views.item"
+  <route
+    path="patients/list"
+    name="patient list"
+    view=".views.patient_list"
+    renderer="templates/patient_list.pt"
     />
 
-  <view
-    for=".models.Patient"
-    name="patient"    
-    view=".views.patient_view"
-    renderer="templates/patient.pt"
-    />
 
 </configure>
