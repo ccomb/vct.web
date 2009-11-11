@@ -4,12 +4,13 @@ from formalchemy.ext import couchdb
 from webob import Response
 
 server = None
+db = None
 
 class Patient(couchdbkit.schema.Document):
-    lastName = couchdbkit.StringProperty(required=True)
-    firstname = couchdbkit.StringProperty(required=True)
-    birthday = couchdbkit.DateProperty()
-    sex = couchdbkit.StringProperty()
+    lastName = couchdbkit.schema.StringProperty(required=True)
+    firstname = couchdbkit.schema.StringProperty(required=True)
+    birthday = couchdbkit.schema.DateProperty()
+    sex = couchdbkit.schema.StringProperty()
 
 
 def initialize_couchdb(db_string):

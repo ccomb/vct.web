@@ -13,7 +13,7 @@ def home_view(context, request):
 def patient_add(context, request):
     p = Patient()
     form = couchdb.FieldSet(p)
-    form.bind(p, data=request.POST or None)
+    form = form.bind(p, data=request.POST or None)
     if request.POST and form.validate():
         pass
 
