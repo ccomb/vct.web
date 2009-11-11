@@ -18,4 +18,30 @@
     path="templates/static"
     />
 
+  <view
+    name="hello"    
+    view=".views.hello"
+    renderer= "string"
+    />
+
+  <view
+    for= ".models.HELLO"
+    name="HELLO"    
+    view=".views.HELLO"
+    renderer="templates/HELLO.pt"
+    />
+
+  <view
+    for=".models.Item"
+    name="item"    
+    view=".views.item"
+    />
+
+  <view
+    for=".models.Patient"
+    name="patient"    
+    view=".views.patient_view"
+    renderer="templates/patient.pt"
+    />
+
 </configure>

@@ -1,6 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:tal="http://xml.zope.org/namespaces/tal">
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      
+      xmlns:metal="http://xml.zopz.org/namespaces/metal">
+      
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>${project} Application</title>
@@ -10,14 +13,19 @@
 </head>
 <body>
 
+<p metal:define-macro="HELLO"> HELLO !</p>
+<p metal:use-macro="HELLO">Test of use of the macro HELLO ! this line should not appear !</p>
+
 <div id="user">
 <table border= "1">
 User= saliez 
     <table id="usermenu" border= "1"  style="text-align: left; width: 100%;">
         <tr>
-            <td>Patient <a href="static/Help/Patient-Help.html">(?)</a>: Next -- Previous <br/>
+            <td><a href="patient">Patient</a>  
+            <a href="static/Help/Patient-Help.html">(?)</a>: 
+            Next -- Previous 
                 <form method="GET" >
-                <select name="patientGroup" size="4" tabindex="1" >
+                <select name="patientGroup" size="3" tabindex="1" >
 		            <option>New Patient Search</option>
 	    	        <option>My current Care Teams</option>
 	    	        <option>Critical</option>
@@ -36,8 +44,11 @@ User= saliez
                 </td>
             <td><a href="static/Help/Todo-Help.html">My tasks and Agenda</a></td>
             <td><a href="static/Help/Notifications-Help.html">Incoming Notifications</a></td>
-            <td>Administration, <a href="static/BFG-main-page.html">(BFG doc)</a>
-                <br/><a href="static/Help/Preferences-Help.html">Preferences</a></td>        
+            <td>Administration:
+                <a href="static/Help/Preferences-Help.html">Preferences</a>
+                <br/>Tests:  <a href="static/BFG-main-page.html">(BFG doc)</a>, 
+                <a href="item">item</a> 
+                </td>    
             <td>Close<br/>Session</td>
         </tr>
     </table>

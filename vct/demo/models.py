@@ -1,5 +1,7 @@
 import transaction
 
+from webob import Response
+
 from sqlalchemy import create_engine
 from sqlalchemy import Column
 from sqlalchemy import Integer
@@ -38,7 +40,7 @@ def populate():
     session.add(model)
     session.flush()
     transaction.commit()
-    
+
 def initialize_sql(db_string, echo=False):
     engine = create_engine(db_string, echo=echo)
     DBSession.configure(bind=engine)
@@ -48,53 +50,65 @@ def initialize_sql(db_string, echo=False):
         populate()
     except IntegrityError:
         pass
-        
+
+class HELLO:
+    def __init__(self, context, request):
+        self.context = context
+        self.request = request
+    def __call__(self):
+        return Response("class HELLO def __call__(self)")
+
 class Item:
-	itemID = 1
-	version = 1
-	time = None
-	author = "saliez"
-	certainty = 0.5
-	type = "generic"
-	
+    itemID = 1
+    version = 1
+    time = None
+    author = "saliez"
+    certainty = 0.5
+    type = "generic-type"
+    def __init__(self, context, request):
+        self.context = context
+        self.request = request
+#    def __call__(self):
+#        return Response("Item Response") 
+
 class Agent(Item):
-	type = None
-	
+    type = None
+
 class CareProvider(Agent):
-	careProviderID = None
-	
+    careProviderID = None
+
 class CareTeam(CareProvider):
-	careTeamID = None
-	careteamname = "PatientCareTeam"
+    careTeamID = None
+    careteamname = "PatientCareTeam"
 
 class Patient(Agent):
-	patientID = "123456"
-	lastName = DUPONT
-	firstname = "Jean"
-	partner = None
-	birthday = None
-	sex = None
-	
+    patientID = "123456"
+    lastName = "DUPONT"
+    firstname = "Jean"
+    partner = None
+    birthday = None
+    sex = None
+
 class MedData(Item):
-	medDataID = None
-	patient = None
-	type = None
-	
+    medDataID = None
+    patient = None
+    type = None
+
 class Observation(MedData):
-	type = None
-	linkProblems = None
-	linkActions = None
-	
+    type = None
+    linkProblems = None
+    linkActions = None
+
 class Problem(MedData):
-	type = None
-	linkObservations = None
-	linkActions = None
-	
+    type = None
+    linkObservations = None
+    linkActions = None
+
 class Action(MedData):
-	type = None
-	linkProblems = None
-	linkObservations = None
-	status = None
-	
+    type = None
+    linkProblems = None
+    linkObservations = None
+    status = None
+
 class Overview(Item):
-	overviewName = None
+    overviewName = None
