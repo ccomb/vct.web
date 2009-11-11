@@ -1,7 +1,10 @@
-import transaction
-import couchdbkit
+from couchdbkit.loaders import FileSystemDocsLoader
 from formalchemy.ext import couchdb
 from webob import Response
+import couchdbkit
+import os
+import transaction
+import vct.demo
 
 server = None
 db = None
@@ -17,5 +20,8 @@ def initialize_couchdb(db_string):
     server = couchdbkit.Server()
     db = server.get_or_create_db('patients')
     couchdbkit.contain(db, Patient)
+    vctdir = os.path.dirname(vct.demo.__file__)
+    loader = FileSystemDocsLoader(os.path.join(vctdir, '_design'))
+    loader.sync(db, verbose=True)
 
 

@@ -34,9 +34,12 @@ class PatientList(object):
         self.request = request
 
     def __call__(self):
-        grid = self.Grid(Patient)
+        patients = Patient.view('patient/all')
+        grid = self.Grid(Patient, instances=patients)
+
         return {'request':self.request,
                 'context':self.context,
+                'patients':patients,
                 'grid':grid}
 
 
