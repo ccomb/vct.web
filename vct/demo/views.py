@@ -18,9 +18,9 @@ def user_authentication(context, request):
     user_ID= request.params.get('user_ID')
     password = request.params.get('user_password')
     if password == "toto":
-        return HTTPFound(location= "/patients/user_session")    
-    else: 
-        return HTTPFound(location= "/")    
+        return HTTPFound(location= "/patients/user_session")
+    else:
+        return HTTPFound(location= "/")
 
 def user_session(context, request):
     return {'request':request, 'context':context}
@@ -71,12 +71,10 @@ def user_preferences(context, request):
     return {'request':request, 'context':context}
 
 def BFG_main_page(context, request):
-    print "BFG"    
     return {'request':request, 'context':context}
 
 def patient_add(context, request):
     p = Patient()
-    print "Here Patient Add"
     form = couchdb.FieldSet(p).bind(p, data=request.POST or None)
     if request.POST and form.validate():
         form.sync()
