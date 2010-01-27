@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:tal="http://xml.zope.org/namespaces/tal"
+ xmlns:metal="http://xml.zope.org/namespaces/metal"
+ >
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Patient ID Validation</title>
+  <link href="$%7Brequest.application_url%7D/static/default.css"
+ rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="patient">
+<h3>Group of patients:  "Having an appointment"</h3>
+<br />
+<table style="text-align: left; width: 100%;" border="1" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;"><br />
+      <table style="text-align: left; width: 100%;" border="0"
+ cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr style="font-style: italic; color: silver;"><small>
+            <td style="vertical-align: top;">ID<br />
+            </td>
+            <td style="vertical-align: top;">Last Name<br />
+            </td>
+            <td style="vertical-align: top;">First Name<br />
+            </td>
+            <td style="vertical-align: top;">Birth Date<br />
+            </td>
+            <td style="vertical-align: top;">Sex<br />
+            </td>
+            <td style="vertical-align: top;">Address<br />
+            </td>
+            <td style="vertical-align: top;">Comments<br />
+            </td>
+            </small>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;">1234567<br />
+            </td>
+            <td style="vertical-align: top;">
+            <a href="/patients/current_patient">SMITH<br /></a>
+            </td>
+            <td style="vertical-align: top;">Mary<br />
+            </td>
+            <td style="vertical-align: top;">01/01/1950<br />
+            </td>
+            <td style="vertical-align: top;">F<br />
+            </td>
+            <td style="vertical-align: top;">Bridge Street 11, Bridgecity<br />
+            </td>
+            <td style="vertical-align: top;">........<br />
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;">4567890<br />
+            </td>
+            <td style="vertical-align: top;">JOHNSON<br />
+            </td>
+            <td style="vertical-align: top;">Brian<br />
+            </td>
+            <td style="vertical-align: top;">01/01/1945<br />
+            </td>
+            <td style="vertical-align: top;">M<br />
+            </td>
+            <td style="vertical-align: top;">Bridge Street 33, River City<br />
+            </td>
+            <td style="vertical-align: top;">known to have a twin<br />
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;">2354744<br />
+            </td>
+            <td style="vertical-align: top;">DUPONT<br />
+            </td>
+            <td style="vertical-align: top;">?Jean<br />
+            </td>
+            <td style="vertical-align: top;">01/01/19555<br />
+            </td>
+            <td style="vertical-align: top;">M<br />
+            </td>
+            <td style="vertical-align: top;">rue du Moulin 44, Moulinville<br />
+            </td>
+            <td style="vertical-align: top;">
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;">5689111<br />
+            </td>
+            <td style="vertical-align: top;">VAN DIJK<br />
+            </td>
+            <td style="vertical-align: top;">Jan<br />
+            </td>
+            <td style="vertical-align: top;">03/03/1960<br />
+            </td>
+            <td style="vertical-align: top;">M<br />
+            </td>
+            <td style="vertical-align: top;">Brugstraat 55, Brugstad<br />
+            </td>
+            <td style="vertical-align: top;">
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;">235698<br />
+            </td>
+            <td style="vertical-align: top;">BUGMANN<br />
+            </td>
+            <td style="vertical-align: top;">Thomas<br />
+            </td>
+            <td style="vertical-align: top;">02/02/1965<br />
+            </td>
+            <td style="vertical-align: top;">M<br />
+            </td>
+            <td style="vertical-align: top;">Brückestrasse 66, Brückendorf<br />
+            </td>
+            <td style="vertical-align: top;">
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;">.......<br />
+            </td>
+            <td style="vertical-align: top;">......<br />
+            </td>
+            <td style="vertical-align: top;">.....<br />
+            </td>
+            <td style="vertical-align: top;">.......<br />
+            </td>
+            <td style="vertical-align: top;">..<br />
+            </td>
+            <td style="vertical-align: top;">..............<br />
+            </td>
+            <td style="vertical-align: top;">...</td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+    <tr><td style="vertical-align: top;"><span style="font-weight: bold;">Add or delete a member in this group</span>
+    </td></tr>
+  </tbody>
+</table>
+<br />
+<table>
+</table>
+</div>
+</body>
+</html>

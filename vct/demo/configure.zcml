@@ -3,6 +3,7 @@
   <!-- this must be included for the view declarations to work -->
   <include package="repoze.bfg.includes" />
 
+    <!-- ..................-->  
   <subscriber for="repoze.bfg.interfaces.INewRequest"
     handler=".run.handle_teardown"/>
 
@@ -13,9 +14,128 @@
 
   <route
     path=""
-    name="home"
-    view=".views.home_view"
-    renderer="templates/home.pt"
+    name="index"
+    view=".views.index_view"
+    renderer="templates/index.pt"
+    />
+
+  <route
+    path="patients/user_session"
+    name="user_session"
+    view=".views.user_session"
+    renderer="templates/user_session.pt"
+    />
+
+  <route
+    path="patients/patient_search"
+    name="patientSearch"
+    view=".views.patient_search"
+    renderer="templates/patient_search.pt"
+    />
+    
+  <route
+    path="patients/patient_groups"
+    name="patientGroups"
+    view=".views.patient_groups"
+    renderer="templates/patient_groups.pt"
+    />
+    
+  <route
+    path="patients/patient_group"
+    name="patientGroup"
+    view=".views.patient_group"
+    renderer="templates/patient_group.pt"
+    />
+    
+  <route
+    path="patients/patient_ID_validation"
+    name="patient ID validation"
+    view=".views.patient_ID_validation"
+    renderer="templates/patient_ID_validation.pt"
+    />
+    
+  <route
+    path="patients/current_patient"
+    name="current patient"
+    view=".views.current_patient"
+    renderer="templates/current_patient.pt"
+    />
+    
+  <route
+    path="patients/patient_menu"
+    name="patient menu"
+    view=".views.patient_menu"
+    renderer="templates/patient_menu.pt"
+    />
+
+  <route
+    path="patients/medData_template"
+    name="medData_template"
+    view=".views.medData_template"
+    renderer="templates/medData_template.pt"
+    />
+
+  <route
+    path="patients/event_list"
+    name="event_list"
+    view=".views.event_list"
+    renderer="templates/event_list.pt"
+    />
+
+  <route
+    path="patients/topics"
+    name="topics"
+    view=".views.topics"
+    renderer="templates/topics.pt"
+    />
+
+  <route
+    path="patients/problem_list"
+    name="problem_list"
+    view=".views.problem_list"
+    renderer="templates/problem_list.pt"
+    />
+
+  <route
+    path="patients/care_plan"
+    name="care_plan"
+    view=".views.care_plan"
+    renderer="templates/care_plan.pt"
+    />
+
+  <route
+    path="patients/care_team"
+    name="care_team"
+    view=".views.care_team"
+    renderer="templates/care_team.pt"
+    />
+
+  <route
+    path="patients/todo_help"
+    name="todo_help"
+    view=".views.todo_help"
+    renderer="templates/help/todo_help.pt"
+    />
+    
+  <route
+    path="patients/notification_help"
+    name="notification_help"
+    view=".views.notification_help"
+    renderer="templates/help/notification_help.pt"
+    />
+
+  <route
+    path="patients/user_preferences"
+    name="user_preferences"
+    view=".views.user_preferences"
+    renderer="templates/user_preferences.pt"
+    />
+
+  <route
+    path="patients/test"
+    name="test"
+    view=".views.test_view"
+    renderer="templates/test.pt"
     />
 
   <route
@@ -31,6 +151,5 @@
     view=".views.PatientList"
     renderer="templates/patient_list.pt"
     />
-
 
 </configure>

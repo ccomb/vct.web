@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>test - Virtual Care Team</title>
+<link href="${request.application_url}/static/default.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<h1>Tests in Virtual Care Team</h1>
+
+<ul>
+<li><a href="http://docs.repoze.org/bfg/current/">BFG, </a></li>
+<li><a href="/patients/list">Patient list</a></li>
+<li><a href="/patients/add">Add a patient</a></li>
+<li><a href="/patients/patient_search">Search a PatientRecord</a></li>
+<li><a href="/patients/patient_menu">Patient Menu</a></li>
+<li>TEST OF PATHOLOGY INTEGRATION
+    <table style="width: 100%;" border="1">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top; height: 100%; width: 300px;">
+      xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx <br/>
+<!--
+    <object 
+        style="width: 800px; height: 800px;" 
+        data="http://telemed.ipath.ch/ipath/object/view/273721&user=saliez" >
+        embedded test application not found
+    </object>
+-->
+    <img 
+        style="width: 600px; height: 400px;" 
+        src="05-dsc05395.jpg"  alt="embedded image not found" />
+      <br />
+      xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+      </td>
+    </tr>
+  </tbody>
+</table>
+</li>
+</ul>
+
+</body>
+</html>

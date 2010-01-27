@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:tal="http://xml.zope.org/namespaces/tal">
+ 
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Patient Searh</title>
+  <link href="${request.application_url}/static/default.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<h3>Examples of Groups of Patients</h3>
+<table style="text-align: left; width: 60%; background-color: #EEEEEE" border="1" cellpadding="2"
+ cellspacing="2"><tbody>
+    <tr>
+      <td style="vertical-align: top;">Criticals</td>
+      <td style="vertical-align: top;">2<br />
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">Having new notifications<br />
+      </td>
+      <td style="vertical-align: top;">9<br />
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">Having currently some reminder
+to do something<br />
+      </td>
+      <td style="vertical-align: top;">43<br />
+      </td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top;">
+          <a href="/patients/patient_group">Appointments this afternoon</a><br />
+      </td>
+      <td style="vertical-align: top;">14<br /></td>
+    </tr>
+
+    <tr>
+      <td style="vertical-align: top;">Waiting for an appointment<br />
+      </td>
+      <td style="vertical-align: top;">none<br />
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">To be visited at home<br />
+      </td>
+      <td style="vertical-align: top;">9<br />
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">Waitng for a report<br />
+      </td>
+      <td style="vertical-align: top;">23<br />
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">Diabetes<br />
+      </td>
+      <td style="vertical-align: top;">20<br />
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">Vacccination to do<br />
+      </td>
+      <td style="vertical-align: top;">85<br />
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">Family of the current patient<br />
+      </td>
+      <td style="vertical-align: top;">none<br />
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">Same neiborhood as the current
+patient<br />
+      </td>
+      <td style="vertical-align: top;">.....<br />
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">Having an administration problem<br />
+      </td>
+      <td style="vertical-align: top;">12<br />
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">Admitted in my ward<br />
+      </td>
+      <td style="vertical-align: top;">....<br />
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">My patients in hospital St Peter<br />
+      </td>
+      <td style="vertical-align: top;">4<br />
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">My patients in the elderly home
+St John<br />
+      </td>
+      <td style="vertical-align: top;">16<br />
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">( Group's admininistration, more
+groups could be defined ) .....................<br />
+      </td>
+      <td style="vertical-align: top;"><br />
+      </td>
+    </tr>
+  </tbody></table>
+</body>
+</html>

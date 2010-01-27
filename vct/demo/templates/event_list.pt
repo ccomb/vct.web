@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:tal="http://xml.zope.org/namespaces/tal">
+ 
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Patient Searh</title>
+  <link href="${request.application_url}/static/default.css" rel="stylesheet" type="text/css" />
+</head>
+<!--
+<body style="background-color: rgb(204, 204, 204); color: rgb(0, 0, 0);"
+ alink="#ee0000" link="#0000ee" vlink="#551a8b">
+<body id= "patient-search-f">
+-->
+<body id="test-bg">
+
+
+<div id="user" metal:define-macro="user_macro">
+  <table border= "1"  style="text-align: left; width: 100%"><tbody>
+     <tr><td>
+         <div id="user_ID">
+             User = ........ / organization <br/>
+         </div>
+         <div id="user_menu">
+             <table id="usermenu" border= "1"  style="text-align: left; width: 100%;"><tbody>
+                <tr>
+                <td><a href="/patients/patient_search">Patient Search</a>
+                <!--
+                <a href="/patients/patient_search"></a>Patient</a>
+                -->
+                <a href="static/Help/Patient-Help.html">(?)</a> 
+                <br/><a href="/patients/patient_groups">Group</a> = ........ 
+                   -- <a href="/patients/current_patient">Previous </a>
+                   -- Next
+                </td>
+                <td><a href="/patients/todo_help">My tasks <br/>and Agenda</a></td>
+                <td><a href="/patients/notification_help">Incoming <br/>Notifications</a></td>
+                <td>Administration: <br/>
+                    <a href="/patients/user_preferences"> Preferences</a><br/>
+                    <a href="/patients/test">Test menu</a></td>        
+                <td><a href="/">Close<br/>Session</a></td>
+                </tr>
+            </tbody></table>
+         </div>
+     </td></tr>
+    </tbody></table>
+</div>
+
+
+
+<div id="patient">
+  <table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2"><tbody>
+    <tr>
+      <td style="vertical-align: top;">
+          <div id= "patient_ID">
+              Patient= <span style="font-weight: bold;">1234567 - SMITH Mary, F, 1 Jan 1950,
+              </span> addr: Bridge Street 11, CityOne, .........  <br /> 
+          </div>         
+          <div id="patient_menu">
+              <table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2"><tbody>
+                <tr>
+                 <td style="vertical-align: top;">
+                     Observations</td>
+                 <td style="vertical-align: top;">
+                     Problems</td>
+                 <td style="vertical-align: top;">
+                     Care Plan</td>
+                 <td style="vertical-align: top;">
+                     Care Team</td>
+                 <td style="vertical-align: top;">
+                     Adminitration</td>
+                 <td style="vertical-align: top;">
+                     <a href="/patients/user_session">Close Patient</a></td>
+                </tr>
+              </tbody></table>
+          </div>
+      </td>
+    </tr>
+  </tbody></table>
+</div>
+
+
+<table style="text-align: left; background-color: rgb(255, 255, 255); width: 100%;"
+      border="1" cellpadding="5" cellspacing="5"><tbody>
+    <tr>
+	    <td bgcolor="#dcdcdc"><i>Date</i></td> 
+	    <td bgcolor="#dcdcdc"><i>Type and author</i></td>
+	    <td bgcolor="#dcdcdc"><i>Motivation and problems considered</i></td>
+	    </tr>
+    <tr>
+	    <td bgcolor="#ffffcc">11-12-2001</td>
+	    <td bgcolor="#ffffcc">Visit GP, Dr Lemoir</td>
+	    <td bgcolor="#ffffcc">#1 Asthme</td>
+	    </tr>
+    <tr>
+    	<td bgcolor="#ffffcc">02-03-2002</td>
+    	<td bgcolor="#ffffcc">Consult &agrave; domicile Dr Lebrun</td>
+	    <td bgcolor="#ffffcc">............................</td>
+	    </tr>
+    <tr>
+    	<td bgcolor="#ccffff">05-02-2003<br/>12-02-2003</td>
+    	<td bgcolor="#ccffff">Admisson, Hopital St Pierre, service gastro, Dr Lerouge</td>
+    	<td bgcolor="#ccffff">#3-2 observation douleur abdominale suspecte d\'un probl&egrave;me 
+    	    de voies biliaires; finalement pas de pathologie mise en &eacute;vidence</td>
+	    </tr>
+    <tr>
+	    <td bgcolor="#ffdcff">01-03-2004</td>
+	    <td bgcolor="#ffdcff">Service social, Mme Dupuis</td>
+	    <td bgcolor="#ffdcff">recherche d\'une place dans une maison de repos</td>
+	    </tr>
+    <tr>
+    	<td bgcolor="#ffffcc">18-04-2005</td>
+    	<td bgcolor="#ffffcc">Tel, GP, Dr Lebrun, rempla&ccedil;ant du Dr Lenoir</td>
+    	<td bgcolor="#ffffcc">#3-3 s\'inqui&egrave;te en raison 
+    	    de r&eacute;cidive de douleurs abdominale</td>
+	    </tr>
+    <tr>
+	    <td>19-04-2006</td>
+	    <td>Labo XXXX</td>
+	    <td><u>H&eacute;mato, urine, test h&eacute;patiques, ....</u></td>
+	</tr>
+    <tr>
+	    <td bgcolor="#dcffdc">20-04-2007</td>
+	    <td bgcolor="#dcffdc">Consult, demrmato, Dr Leblanc</td>
+	    <td bgcolor="#dcffdc">#6 xxxxxxxxxxx xxxxxxxxxxxx xxxxxxxxxxxxx 
+	        xxxxxxxxxx xxxxxxxxxxx xx xxxxxxxxxx xxxxxxxxxxx</td>
+	</tr>
+    <tr>
+    	<td bgcolor="#dcffdc">15-05-2008</td>
+	    <td bgcolor="#dcffdc">Consult, Gastro, d&eacute;pistage, Dr Levvert</td>
+    	<td bgcolor="#dcffdc">#7 tumeur .........................................</td>
+	</tr>
+    <tr>
+    	<td bgcolor="#ccffff">26-05-2008</td>
+    	<td bgcolor="#ccffff">Hopital de jour, Dr Legris</td>
+    	<td bgcolor="#ccffff">Chimioth&eacute;rapie : s&eacute;ance nr 1:<br/>Proc&eacute;
+    	    dure: R/ xxxxxxxx 500 mg, perfusion en 4 heures<br/>Obervations: rien &agrave; signaler</td>
+	</tr>
+    <tr>
+    	<td bgcolor="#ccffff">30/5/2008</td>
+    	<td bgcolor="#ccffff">Hopital de jour, Dr Legris</td>
+    	<td bgcolor="#ccffff">Chimioth&eacute;rapie : s&eacute;ance nr 2:
+    	    <br/>Labo : ras<br/>Proc&eacute;dure: R/ xxxxxxxx 500 mg, perfusion en 4 heures
+    	    <br/> Obervations: rien &agrave; signaler</td>
+	</tr>
+    <tr>
+    	<td bgcolor="#ccffff">05-06/2008</td>
+    	<td bgcolor="#ccffff">Hopital de jour, Dr Legris</td>
+    	<td bgcolor="#ccffff">
+        	<table border="1" width="100%"><tbody>
+            	<tr>
+	            	<td>Motif</td>
+	            	<td>Chimioth&eacute;rapie : s&eacute;ance nr 3</td>
+	        	</tr>
+	            <tr>
+	            	<td>Observations avant</td>
+	            	<td>Fatigue, <br/>Labo : dans limites encores normales.</td>
+	        	</tr>
+	            <tr>
+	            	<td>Proc&eacute;dure</td>
+	            	<td>R/ xxxxxxxx 500 mg, perfusion en 4 heures</td>
+	        	</tr>
+	            <tr>
+	            	<td>Observations </td>
+	            	<td>vomissements, vertiges, </td>
+	        	</tr>
+	        </tbody></table>
+        </td>
+    </tr>
+    <tr>
+	    <td bgcolor="#ccffff">10-06-2008</td>
+	    <td bgcolor="#ccffff">Hopital de jour, Dr Legris</td>
+	    <td bgcolor="#ccffff">
+	        <table border="1" width="100%"><tbody>
+	            <tr>
+	            	<td>Motif</td>
+	            	<td>Chimioth&eacute;rapie : s&eacute;ance nr 4</td>
+	        	</tr>
+	            <tr>
+	            	<td>Observations avant</td>
+	            	<td>Fatigue, perte de cheveux<br/>Labo : leukocytes tomb&eacute; &agrave; 2.500</td>
+	        	</tr>
+	            <tr>
+	            	<td>Proc&eacute;dure</td>
+	            	<td>R/ xxxxxxxx dose r&eacute;duite &agrave; 300 mg, perfusion en 6 heures</td>
+		        </tr>
+	            <tr>
+	            	<td>Observations </td>
+	            	<td>vomissements, vertiges, </td>
+	        	</tr>
+	        </tbody></table>
+	    </td>
+	</tr>
+    <tr>
+	    <td>11-06-2008</td>
+	    <td>XRay Thorax</td>
+	    <td>Conclusion : xxxxxxxxxxxxxxx<br/><a href="RXThoraxL.html">Image</a></td>
+	</tr>
+    <tr>
+	    <td bgcolor="#ffdcff">15/06-2009</td>
+	    <td bgcolor="#ffdcff">Assistante sociale, Mme Dupuis</td>
+    	<td bgcolor="#ffdcff">Recherche d\'un service de revalidation, ............... ..............</td>
+	</tr>
+    <tr>
+    	<td bgcolor="#ffffcc">01-07-2009</td>
+    	<td bgcolor="#ffffcc">Consult GP, Dr Lenoir</td>
+	    <td bgcolor="#ffffcc">
+	        <table border="1"><tbody>
+	            <tr>
+	            	<td>Motif</td>
+		            <td>Observations</td>
+		            <td>Probl&egrave;mes consid&eacute;r&eacute;s</td>
+		            <td>Proc&eacute;dures prescrites</td>
+		        </tr>
+	            <tr>
+	            	<td>vomissements</td>
+	            	<td>naus&eacute;es depuis 3 jours,<br/>abdomen: 
+	            	    douleur dans le quadrant sup&eacute;rieur droit</td>
+	            	<td>#7 cons&eacute;quences de la chimioth&eacute;rapie ?<br/>#3-4: 
+	            	    peut-&ecirc;tre aussi lithiase biliaire ?</td>
+		            <td>controles labo<br/>faire revoir dans le service de gastro</td>
+		        </tr>
+	            <tr>
+		            <td>vertiges</td>
+		            <td>TA 16/11</td>
+		            <td>#3 Hypertension</td>
+		            <td>r&eacute;duction temporaire dose Lasix ....</td>
+		        </tr>
+	            <tr>
+	            	<td>&nbsp;</td>
+	            	<td>&nbsp;</td>
+	            	<td>&nbsp;</td>
+	            	<td>&nbsp;</td>
+	        	</tr>
+	        </tbody></table>
+	    </td>
+    </tr>
+    <tr>
+	    <td>(today)</td>
+	    <td><a href="../Mock-up/Patient1/Contact-Input.html">Add a new contact</a></td>
+	    <td>&nbsp;</td>
+	</tr>
+</tbody></table>
+
+
+</body>
+</html>

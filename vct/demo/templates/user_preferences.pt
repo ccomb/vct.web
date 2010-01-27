@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:tal="http://xml.zope.org/namespaces/tal">
+ 
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Patient Searh</title>
+  <link href="${request.application_url}/static/default.css" rel="stylesheet" type="text/css" />
+</head>
+<!--
+<body style="background-color: rgb(204, 204, 204); color: rgb(0, 0, 0);"
+ alink="#ee0000" link="#0000ee" vlink="#551a8b">
+<body id= "patient-search-f">
+-->
+<body id="test-bg">
+
+
+<div id="user" metal:define-macro="user_macro">
+  <table border= "1"  style="text-align: left; width: 100%"><tbody>
+     <tr><td>
+         <div id="user_ID">
+             User = ........ / organization <br/>
+         </div>
+         <div id="user_menu">
+             <table id="usermenu" border= "1"  style="text-align: left; width: 100%;"><tbody>
+                <tr>
+                <td><a href="/patients/patient_search">Patient Search</a>
+                <!--
+                <a href="/patients/patient_search"></a>Patient</a>
+                -->
+                <a href="static/Help/Patient-Help.html">(?)</a> 
+                <br/><a href="/patients/patient_groups">Group</a> = ........ 
+                   -- <a href="/patients/current_patient">Previous </a>
+                   -- Next
+                </td>
+                <td><a href="/patients/todo_help">My tasks <br/>and Agenda</a></td>
+                <td><a href="/patients/notification_help">Incoming <br/>Notifications</a></td>
+                <td>Administration: <br/>
+                    <a href="/patients/user_preferences"> Preferences</a><br/>
+                    <a href="/patients/test">Test menu</a></td>        
+                <td><a href="/">Close<br/>Session</a></td>
+                </tr>
+            </tbody></table>
+         </div>
+     </td></tr>
+    </tbody></table>
+</div>
+
+
+
+<h3>User Preferences</h3>
+<br />
+
+<form method="post" action="patient_ID_validation">
+  <table style="text-align: left; width: 922px; height: 178px; "
+ border="1" cellpadding="2" cellspacing="2">
+    <tbody style="background-color: #EEEEEE">
+      <tr>
+        <td style="vertical-align: top; text-align: right;">User ID
+        </td>
+        <td style="vertical-align: top;">xxxxxxxxxxxxx
+        </td>
+      </tr>
+      
+      <tr>
+        <td style="vertical-align: top; text-align: right;">Preferred language
+        </td>
+        <td style="vertical-align: top;">        
+            <input type="radio" name="language" value="DE" /> Deutch - 
+            <input type="radio" name="language" value="EN" CHECKED = "1" /> English        
+            <input type="radio" name="language" value="ES" /> Español - 
+            <input type="radio" name="language" value="FR" /> Français -  
+            <input type="radio" name="language" value="NL" /> Nederlands
+        </td>
+      </tr>
+
+      <tr>
+        <td style="vertical-align: top; text-align: right;"> Screen presentation for</td>
+        <td style="vertical-align: top;">
+         <input type="radio" name="presentation" value="S" CHECKED = "1" /> Default Standard        
+         <input type="radio" name="presentation" value="D" /> Doctor - 
+         <input type="radio" name="presentation" value="N" /> Nurse - 
+         <input type="radio" name="presentation" value="A" /> Administration 
+        </td>
+      </tr>
+
+ <!--     
+ -->      
+   
+      <tr>
+        <td style="vertical-align: top; text-align: right;">Patient record first page</td>
+        <td style="vertical-align: top;">
+         <input type="radio" name="PatRecFirstPage" value="PRL" CHECKED = "1" /> Problem List -         
+         <input type="radio" name="PatRecFirstPage" value="LEV" /> Latest Events - 
+         <input type="radio" name="PatRecFirstPage" value="ADM" /> Administration - 
+         <input type="radio" name="PatRecFirstPage" value="CP" /> Care Plan - 
+         <input type="radio" name="PatRecFirstPage" value="LAB" /> Lab 
+        </td>
+      </tr>
+      
+      <tr>
+        <td style="vertical-align: top; text-align: right;">...............</td>
+        <td style="vertical-align: top;"><input name="yyyyyyy" /></td>
+      </tr>
+      <tr>
+        <td style="vertical-align: top; text-align: right;">.............
+        </td>
+        <td style="vertical-align: top;"><input name="xxxxxx" />
+        </td>
+      </tr>
+      
+      
+      <tr>
+        <td style="vertical-align: top; text-align: right;">&nbsp;
+        </td>
+        <td style="vertical-align: top;"><input type= "submit" value = "Submit" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <br />
+</form>
+
+</body>
+</html>
