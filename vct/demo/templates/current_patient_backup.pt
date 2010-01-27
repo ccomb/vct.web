@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  xmlns:metal="http://xml.zope.org/namespaces/metal">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Current Patient</title>
+  <link href="$%7Brequest.application_url%7D/static/default.css"
+ rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<!--
+<div metal:use-macro="user_macro">the user macro should be here</div>
+-->
+ 
+<!--
+<div id="user">
+    <table border= "1"  style="text-align: left; width: 100%">
+    <tbody>
+        <tr><td>User = ............ / organization</td></tr>
+        <tr>
+            <div id="user_menu">
+            <table id="usermenu" border= "1"  style="text-align: left; width: 100%;">
+            <tbody>
+                <tr>
+                    <td>=================</td>
+                    <td>
+                        <a href="/patients/patient_search">Patient Search</a>
+                        <a href="/patients/patient_search"></a>Patient</a>
+                        <a href="static/Help/Patient-Help.html">(?)</a>
+                        :
+                         -- Next
+                         -- Previous <br/>
+                        Critical Patients -- 
+                        Appointments today --
+                        Other Groups...
+                    </td>
+                    <td><a href="/patients/todo_help">My tasks <br/>and Agenda</a></td>
+                    <td><a href="/patients/notification_help">Incoming <br/>Notifications</a></td>
+                    <td>Administration: <br/>
+                        <a href="/patients/user_preferences"> Preferences</a><br/>
+                        <a href="/patients/test">Test menu</a></td>        
+                    <td><a href="/">Close<br/>Session</a></td>
+                </tr>
+            </tbody>
+            </table>
+            </div>
+        </tr>
+    </tbody>
+    </table>
+</div>
+-->
+ 
+ 
+ 
+ 
+ 
+<!--
+
+<div id="user_session>
+
+<div id="user_ID">
+<table border= "1"  style="text-align: left; width: 100%">
+    <tbody>
+        <tr><td>User = $user / organization</td></tr>
+    </tbody>
+</table>
+</div>
+
+<div id="user_menu">
+    <table id="usermenu" border= "1"  style="text-align: left; width: 100%;">
+    <tbody>
+        <tr>
+            <td>
+            <a href="/patients/patient_search">Patient Search</a>
+            <a href="/patients/patient_search"></a>Patient</a>
+            <a href="static/Help/Patient-Help.html">(?)</a>
+            :
+             -- Next
+             -- Previous <br/>
+            Critical Patients -- 
+            Appointments today --
+            Other Groups...
+            </td>
+            <td><a href="/patients/todo_help">My tasks <br/>and Agenda</a></td>
+            <td><a href="/patients/notification_help">Incoming <br/>Notifications</a></td>
+            <td>Administration: <br/>
+                <a href="/patients/user_preferences"> Preferences</a><br/>
+                <a href="/patients/test">Test menu</a></td>        
+            <td><a href="/">Close<br/>Session</a></td>
+        </tr>
+    </tbody>
+    </table>
+</div>
+</div>
+
+-->
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+<!--
+<p>Current Patient Menu</p>
+<table style="text-align: left; width: 100%;" border="1" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">1234567 - SMITH Mary, F, Bridge Street 11, CityOne, .........<br />
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br />
+      <table style="text-align: left; width: 100%;" border="1" cellpadding="2"
+ cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;"><br />
+      </td>
+      <td style="vertical-align: top;"><br />
+      </td>
+      <td style="vertical-align: top;"><br />
+      </td>
+      <td style="vertical-align: top;"><br />
+      </td>
+      <td style="vertical-align: top;"><br />
+      </td>
+      <td style="vertical-align: top;"><br />
+      </td>
+    </tr>
+  </tbody>
+</table>
+</td>
+    </tr>
+  </tbody>
+</table>
+
+-->
+
+end ==============================
+<br />
+<br />
+</body>
+</html>
