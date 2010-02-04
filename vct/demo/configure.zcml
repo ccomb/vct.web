@@ -20,6 +20,12 @@
     />
 
   <route
+    path="patients/user_authentication"
+    name="user_authentication"
+    view=".views.user_authentication"
+    />
+
+  <route
     path="patients/user_session"
     name="user_session"
     view=".views.user_session"
@@ -108,6 +114,13 @@
     name="care_team"
     view=".views.care_team"
     renderer="templates/care_team.pt"
+    />
+
+  <route
+    path="patients/patient_administration"
+    name="patient_administration"
+    view=".views.patient_administration"
+    renderer="templates/patient_administration.pt"
     />
 
   <route

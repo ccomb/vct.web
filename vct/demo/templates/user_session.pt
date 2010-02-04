@@ -16,7 +16,7 @@
   <table border= "1"  style="text-align: left; width: 100%"><tbody>
      <tr><td>
          <div id="user_ID">
-             User = ........ / organization <br/>
+             User = (User Name) / organization <br/>
          </div>
          <div id="user_menu">
              <table id="usermenu" border= "1"  style="text-align: left; width: 100%;"><tbody>

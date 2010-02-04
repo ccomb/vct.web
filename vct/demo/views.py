@@ -17,7 +17,7 @@ def test_view(context, request):
 def user_authentication(context, request):
     user_ID= request.params.get('user_ID')
     password = request.params.get('user_password')
-    if password == "toto":
+    if password == "test":
         return HTTPFound(location= "/patients/user_session")
     else:
         return HTTPFound(location= "/")
@@ -56,6 +56,9 @@ def care_plan(context, request):
     return {'request':request, 'context':context}
 
 def care_team(context, request):
+    return {'request':request, 'context':context}
+
+def patient_administration(context, request):
     return {'request':request, 'context':context}
 
 def medData_template(context, request):

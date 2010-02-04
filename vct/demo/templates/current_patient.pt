@@ -71,7 +71,7 @@
                  <td style="vertical-align: top;">
                      <a href="/patients/care_team">Care Team</a></td>
                  <td style="vertical-align: top;">
-                     <a href="/patients/medData_template">Administration</a></td>
+                     <a href="/patients/patient_administration">Administration</a></td>
                  <td style="vertical-align: top;">
                      <a href="/patients/user_session">Close Patient</a></td>
                 </tr>
