@@ -1,43 +1,54 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:tal="http://xml.zope.org/namespaces/tal">
-
+<html 
+    xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal">
+ 
 <head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>Virtual Care Team</title>
-<link href="${request.application_url}/static/default.css" rel="stylesheet" type="text/css" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>User session</title>
+  <link href="${request.application_url}/static/default.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body style= "background-image:url('static/index_background.jpg');background-repeat:no-repeat;width: 100%; height: 100%;">
+<body id="test-bg" >
 
-<br /><br /><br />
-<h1 style="text-align: center;">Virtual Care Team</h1>
-<br /><br /><br /><br />
-<form method="post" action="/patients_old/user_authentication">
-<table style="text-align: left; width: 50%; margin-left: auto; margin-right: auto;"
-     border="0" cellpadding="4" cellspacing="0">
-  <tbody style="vertical-align: top; background-color: white;">
-    <tr>
-      <td style="vertical-align: top; text-align: right;">User :
-      </td>
-      <td><input type= "text" name="user_ID" /><br />
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align: right">Password (test) : 
-      </td>
-      <td>
-      <input type= "password" name="user_password" />
-      </td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td><span style="horizontal-align: center">
-      <big><input type= "submit" value = "Submit" /></big>
-      </span></td>
-    </tr>
-  </tbody>
-</table>
-</form>
+<div id="user" metal:define-macro="user_macro">
+  <table border= "1"  style="text-align: left; width: 100%"><tbody>
+     <tr><td>
+         <div id="user_ID">
+             User = (User Name) / organization <br/>
+         </div>
+         <div id="user_menu">
+             <table id="usermenu" border= "1"  style="text-align: left; width: 100%;"><tbody>
+                <tr>
+                <td><a href="/patients_old/patient_search">Patient Search</a>
+                <!--
+                <a href="/patients_old/patient_search"></a>Patient</a>
+                -->
+                <a href="static/Help/Patient-Help.html">(?)</a> 
+                <br/><a href="/patients_old/patient_groups">Group</a> = ........ 
+                   -- <a href="/patients_old/current_patient">Previous </a>
+                   -- Next
+                </td>
+                <td><a href="/patients_old/todo_help">My tasks <br/>and Agenda</a></td>
+                <td><a href="/notification_help">Incoming <br/>Notifications</a></td>
+                <td>Administration: <br/>
+                    <a href="/patients_old/user_preferences"> Preferences</a><br/>
+                    <a href="/patients_old/test">Test menu</a></td>        
+                <td><a href="/">Close<br/>Session</a></td>
+                </tr>
+            </tbody></table>
+         </div>
+     </td></tr>
+    </tbody></table>
+
+<p metal:define-slot="user_content"></p>
+    
+</div>
+
+<!--
+<div style="clear: both;">&nbsp;</div>
+-->
+
 </body>
 </html>
