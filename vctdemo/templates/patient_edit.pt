@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Adding a patient</title>
+<link href="${request.application_url}/static/default.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<h1>Patient</h1>
+
+<form id="patient_form" method="post" action="">
+  <div tal:content="structure python:form.render()" />
+  <div class="fa_field ui-widget">
+    <input class="ui-button ui-state-default ui-corner-all"
+           value="Valider" type="submit" />
+  </div>
+</form>
+
+
+
+</body>
+</html>

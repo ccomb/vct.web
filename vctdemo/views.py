@@ -1,8 +1,10 @@
+from formalchemy.ext.zope import FieldSet
 from repoze.bfg.chameleon_zpt import render_template_to_response
+from repoze.bfg.url import model_url
 from repoze.bfg.view import static
 from webob import Response
 from webob.exc import HTTPFound
-from models import Patient
+import models
 
 static_view = static('templates/static')
 
@@ -26,7 +28,7 @@ def patient_add(context, request):
         while id in context:
             id += 1
         id = str(id)
-        patient = Patient()
+        patient = models.Patient()
         patient.id = id
         patient.name = name
         context[str(id)] = patient
@@ -37,8 +39,17 @@ def patient_view(context, request):
     return {'request':request,
             'context':context}
 
+PatientEditForm = FieldSet(models.IPatient)
+
 def patient_edit(context, request):
-    return Response(u'patient edit')
+    print model_url(context, request)
+    form = PatientEditForm.bind(context, data=request.POST or None)
+    if request.POST and form.validate():
+        form.sync()
+        return HTTPFound(location=model_url(context, request))
+    return {'context': context,
+            'request': request,
+            'form': form}
 
 
 

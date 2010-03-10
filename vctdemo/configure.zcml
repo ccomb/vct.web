@@ -42,6 +42,13 @@
     renderer="templates/patient_view.pt"
     />
 
+<view
+    context=".models.Patient"
+    view=".views.patient_edit"
+    name="edit"
+    renderer="templates/patient_edit.pt"
+    />
+
 
 <!-- old routes -->
 

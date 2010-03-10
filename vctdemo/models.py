@@ -1,3 +1,4 @@
+from zope.interface import Interface, implements
 from persistent.mapping import PersistentMapping
 from persistent import Persistent
 from repoze.folder import Folder
@@ -12,6 +13,8 @@ def appmaker(zodb_root):
         zodb_root['app_root'] = app_root
         if not 'patients' in app_root:
             app_root['patients'] = PatientContainer()
+            app_root['patients'].__parent__ = app_root
+            app_root['patients'].__name__ = 'patients'
         import transaction
         transaction.commit()
     return zodb_root['app_root']
@@ -21,9 +24,12 @@ class PatientContainer(Folder):
     pass
 
 
-class Patient(Folder):
+class IPatient(Interface):
     id = TextLine(title=u'Id', description=u'Identifier of the patient')
     name = TextLine(title=u'Name', description=u'Name of the patient')
+
+class Patient(Folder):
+    implements(IPatient)
 
 
 class MedItem(Persistent):
