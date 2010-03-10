@@ -41,10 +41,12 @@ def patient_view(context, request):
 
 PatientEditForm = FieldSet(models.IPatient)
 
+
 def patient_edit(context, request):
-    print model_url(context, request)
     form = PatientEditForm.bind(context, data=request.POST or None)
+    form.id.set(readonly=True)
     if request.POST and form.validate():
+        request.POST.pop('Patient--id', None)
         form.sync()
         return HTTPFound(location=model_url(context, request))
     return {'context': context,
