@@ -1,5 +1,5 @@
 from formalchemy.ext.zope import FieldSet
-from repoze.bfg.chameleon_zpt import render_template_to_response
+from repoze.bfg.chameleon_zpt import render_template_to_response, get_template
 from repoze.bfg.security import remember, forget, authenticated_userid
 from repoze.bfg.url import model_url
 from repoze.bfg.view import static
@@ -12,8 +12,10 @@ static_view = static('templates/static')
 
 
 def index_view(context, request):
+    master = get_template('templates/master.pt')
     return {'request':request,
             'context':context,
+            'master': master,
             'logged_in': authenticated_userid(request)}
 
 

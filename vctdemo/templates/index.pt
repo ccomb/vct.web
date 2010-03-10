@@ -12,39 +12,11 @@
 
 <body id="test-bg" >
 
-<div id="user" metal:define-macro="user_macro">
-  <table border= "1"  style="text-align: left; width: 100%"><tbody>
-     <tr><td>
-         <div id="user_ID">
-             User = ${logged_in} / organization <br/>
-         </div>
-         <div id="user_menu">
-             <table id="usermenu" border= "1"  style="text-align: left; width: 100%;"><tbody>
-                <tr>
-                <td>
-                <a href="/patients_old/patient_search">Patient Search</a>
-                <a href="/patients/list">Patient List</a>
-                <a href="/help/patient_help.html">(?)</a>
-                <br/><a href="/patients_old/patient_groups">Group</a> = ........
-                   -- <a href="/patients_old/current_patient">Previous </a>
-                   -- Next
-                </td>
-                <td><a href="/patients_old/todo_help">My tasks <br/>and Agenda</a></td>
-                <td><a href="/notification_help">Incoming <br/>Notifications</a></td>
-                <td>Administration: <br/>
-                    <a href="/patients_old/user_preferences"> Preferences</a><br/>
-                    <a href="/patients_old/test">Test menu</a></td>
-                <td><span tal:condition="logged_in">
-                       <a href="${request.application_url}/logout">Logout</a>
-                    </span>
-                </td>
-                </tr>
-            </tbody></table>
-         </div>
-     </td></tr>
-    </tbody></table>
+<div id="user" metal:use-macro="master.macros['master']">
 
-<p metal:define-slot="user_content"></p>
+<div metal:fill-slot="content">
+toto
+</div>
 
 </div>
 
