@@ -17,7 +17,7 @@ def user_authentication(context, request):
     print "user_ID = " + user_ID
     password = request.params.get('user_password')
     if password == "test":
-        return HTTPFound(location= "/patients/user_session")
+        return HTTPFound(location= "/patients_old/user_session")
     else:
         return HTTPFound(location= "/")
 
