@@ -1,9 +1,7 @@
-from formalchemy.ext import couchdb
 from repoze.bfg.chameleon_zpt import render_template_to_response
 from repoze.bfg.view import static
 from webob import Response
 from webob.exc import HTTPFound
-from models import Patient
 
 static_view = static('templates/static')
 
@@ -78,34 +76,19 @@ def BFG_main_page(context, request):
     return {'request':request, 'context':context}
 
 def patient_add(context, request):
-    p = Patient()
-    form = couchdb.FieldSet(p).bind(p, data=request.POST or None)
-    if request.POST and form.validate():
-        form.sync()
-        p.save()
-        return HTTPFound(location="/patients/list")
     return {'request':request,
-            'context':context,
-            'form':form}
+            'context':context }
 
 
 class PatientList(object):
-    FieldSet = couchdb.FieldSet
-    Grid = couchdb.Grid
-    model = [Patient]
 
     def __init__(self, context, request):
         self.context = context
         self.request = request
 
     def __call__(self):
-        patients = Patient.view('patient/all')
-        grid = self.Grid(Patient, instances=patients)
-
         return {'request':self.request,
-                'context':self.context,
-                'patients':patients,
-                'grid':grid}
+                'context':self.context}
 
 
 def patient_edit(context, request):
