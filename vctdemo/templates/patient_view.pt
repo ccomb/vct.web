@@ -12,6 +12,8 @@
 <div>Patient id: <span tal:content="python:context.id" /></div>
 <div>Patient name: <span tal:content="python:context.name" /></div>
 
+<a href="edit">Edit</a> - 
+<a href="../list">List</a>
 
 </body>
 </html>

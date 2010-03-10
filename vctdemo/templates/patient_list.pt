@@ -17,7 +17,7 @@ liste des patients
   <tal:block repeat="patient patients">
     <li>
       <span>${patient.id}</span>
-      <a href="${patient.id}">
+      <a href="${patient.id}/">
         <span>${patient.name}</span>
       </a>
     </li>
