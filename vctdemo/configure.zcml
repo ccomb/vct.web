@@ -1,25 +1,35 @@
 <configure xmlns="http://namespaces.repoze.org/bfg">
 
-  <!-- this must be included for the view declarations to work -->
-  <include package="repoze.bfg.includes" />
+<!-- this must be included for the view declarations to work -->
+<include package="repoze.bfg.includes" />
 
-  <authtktauthenticationpolicy
-       secret="gfkselklgglskj"/>
+<authtktauthenticationpolicy
+     secret="gfkselklgglskj"/>
 
-  <aclauthorizationpolicy/>
+<aclauthorizationpolicy/>
 
 
-  <static
+<static
     name="static"
     path="templates/static"
     />
 
-  <view
+<view
     context=".models.VctRoot"
     view=".views.index_view"
     name=""
     renderer="templates/index.pt"
     />
+
+<view 
+    context=".models.PatientContainer"
+    view=".views.patient_list"
+    name="list"
+    renderer="templates/patient_list.pt"
+    />
+
+
+
 
   <route
     path="patients_old/user_authentication"
@@ -27,12 +37,6 @@
     view=".views.user_authentication"
     />
 
-  <route
-    path="patients_old/user_session"
-    name="user_session"
-    view=".views.user_session"
-    renderer="templates/user_session.pt"
-    />
 
   <route
     path="patients_old/todo_help"

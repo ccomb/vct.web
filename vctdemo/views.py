@@ -9,6 +9,17 @@ static_view = static('templates/static')
 def index_view(context, request):
     return {'request':request, 'context':context}
 
+
+def patient_list(context, request):
+    patients = context.items()
+    return {'request':request,
+            'context':context,
+            'patients':patients}
+
+
+
+
+
 def test_view(context, request):
     return {'request':request, 'context':context}
 

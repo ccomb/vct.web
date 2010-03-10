@@ -22,7 +22,8 @@ class PatientContainer(Folder):
 
 
 class Patient(Folder):
-    pass
+    id = TextLine(title=u'Id', description=u'Identifier of the patient')
+    name = TextLine(title=u'Name', description=u'Name of the patient')
 
 
 class MedItem(Persistent):

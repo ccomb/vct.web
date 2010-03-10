@@ -13,7 +13,14 @@
 
 liste des patients
 
-<tal:block replace="structure python:grid.render()"/>
+<ul>
+  <tal:block repeat="patient patients">
+    <li>
+      <span tal:content="python:patient.id" />
+      <span tal:content="python:patient.name" />
+    </li>
+  </tal:block>
+</ul>
 
 </body>
 </html>
