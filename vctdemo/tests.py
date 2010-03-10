@@ -2,6 +2,7 @@ import unittest
 
 from repoze.bfg.configuration import Configurator
 from repoze.bfg import testing
+import models
 
 class ViewTests(unittest.TestCase):
     def setUp(self):
@@ -11,9 +12,9 @@ class ViewTests(unittest.TestCase):
     def tearDown(self):
         self.config.end()
 
-    def test_my_view(self):
-        from vctdemo.views import my_view
+    def test_index(self):
+        from vctdemo.views import index_view
         request = testing.DummyRequest()
-        info = my_view(request)
-        self.assertEqual(info['project'], 'vct.demo')
+        info = index_view(models.VctRoot(), request)
+        self.assertEqual(info['logged_in'], None)
 
