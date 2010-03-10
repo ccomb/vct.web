@@ -35,7 +35,15 @@
     renderer="templates/patient_add.pt"
     />
 
+<view
+    context=".models.Patient"
+    view=".views.patient_view"
+    name=""
+    renderer="templates/patient_view.pt"
+    />
 
+
+<!-- old routes -->
 
   <route
     path="patients_old/user_authentication"

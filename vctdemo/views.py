@@ -33,15 +33,12 @@ def patient_add(context, request):
     return {'request':request,
             'context':context}
 
+def patient_view(context, request):
+    return {'request':request,
+            'context':context}
 
 def patient_edit(context, request):
     return Response(u'patient edit')
-
-
-def patient_view(context, request):
-    return render_template_to_response("templates/patient.pt",
-        request = request,
-        project = 'vct.demo')
 
 
 
