@@ -9,7 +9,10 @@
 <body>
 <h1>Adding a patient</h1>
 
-<form method="post" action="">
+<form method="post" action="add">
+Patient name: <input type="textline" name="name" />
+
+<br/>
 <input type="submit" value="Add"/>
 </form>
 

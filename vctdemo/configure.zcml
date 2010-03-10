@@ -156,18 +156,4 @@
     renderer="templates/care_team.pt"
     />
 
-  <route
-    path="patients_old/add"
-    name="patient add"
-    view=".views.patient_add"
-    renderer="templates/patient_add.pt"
-    />
-
-  <route
-    path="patients_old/list"
-    name="patient list"
-    view=".views.PatientList"
-    renderer="templates/patient_list.pt"
-    />
-
 </configure>

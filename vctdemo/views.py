@@ -2,6 +2,7 @@ from repoze.bfg.chameleon_zpt import render_template_to_response
 from repoze.bfg.view import static
 from webob import Response
 from webob.exc import HTTPFound
+from models import Patient
 
 static_view = static('templates/static')
 
@@ -11,17 +12,36 @@ def index_view(context, request):
 
 
 def patient_list(context, request):
-    patients = context.items()
+    patients = context.values()
     return {'request':request,
             'context':context,
             'patients':patients}
 
 
 def patient_add(context, request):
+    name = None
+    if 'name' in request.params:
+        name = request.params['name']
+        id = len(context)
+        while id in context:
+            id += 1
+        id = str(id)
+        patient = Patient()
+        patient.id = id
+        patient.name = name
+        context[str(id)] = patient
     return {'request':request,
             'context':context}
 
 
+def patient_edit(context, request):
+    return Response(u'patient edit')
+
+
+def patient_view(context, request):
+    return render_template_to_response("templates/patient.pt",
+        request = request,
+        project = 'vct.demo')
 
 
 
@@ -88,33 +108,6 @@ def notification_help(context, request):
 def user_preferences(context, request):
     return {'request':request, 'context':context}
 
-def BFG_main_page(context, request):
-    return {'request':request, 'context':context}
-
-def patient_add(context, request):
-    return {'request':request,
-            'context':context }
 
 
-class PatientList(object):
-
-    def __init__(self, context, request):
-        self.context = context
-        self.request = request
-
-    def __call__(self):
-        return {'request':self.request,
-                'context':self.context}
-
-
-def patient_edit(context, request):
-    return Response(u'patient edit')
-
-
-def patient_view(context, request):
-    return render_template_to_response("templates/patient.pt",
-        request = request,
-        project = 'vct.demo')
-
-    #return("templates/static/Help/Notifications-Help.html")
 
