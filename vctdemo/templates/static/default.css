@@ -1,4 +1,4 @@
-#test-bg {
+body {
     background-color:#BBBBBB;    
     }
 
@@ -24,6 +24,15 @@ margin-left: auto;
 margin-right: auto;
 margin-top: 20%;
 background: #BBBBBB;
+padding: 2em;
+border: solid 1px black;
+}
+div#content {
+width: 90%;
+margin-left: auto;
+margin-right: auto;
+margin-top: 2%;
+background: white;
 padding: 2em;
 border: solid 1px black;
 }

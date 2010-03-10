@@ -15,14 +15,17 @@ def index_view(context, request):
     master = get_template('templates/master.pt')
     return {'request':request,
             'context':context,
-            'master': master,
-            'logged_in': authenticated_userid(request)}
+            'master': get_template('templates/master.pt'),
+            'logged_in': authenticated_userid(request),
+           }
 
 
 def patient_list(context, request):
     patients = context.values()
     return {'request':request,
             'context':context,
+            'master': get_template('templates/master.pt'),
+            'logged_in': authenticated_userid(request),
             'patients':patients}
 
 
@@ -44,11 +47,15 @@ def patient_add(context, request):
         return HTTPFound(location=model_url(patient, request))
     return {'request':request,
             'context':context,
+            'master': get_template('templates/master.pt'),
+            'logged_in': authenticated_userid(request),
             'form': form}
 
 
 def patient_view(context, request):
     return {'request':request,
+            'master': get_template('templates/master.pt'),
+            'logged_in': authenticated_userid(request),
             'context':context}
 
 
@@ -63,6 +70,8 @@ def patient_edit(context, request):
         return HTTPFound(location=model_url(context, request))
     return {'context': context,
             'request': request,
+            'master': get_template('templates/master.pt'),
+            'logged_in': authenticated_userid(request),
             'form': form}
 
 

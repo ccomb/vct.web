@@ -8,7 +8,9 @@
 <link href="${request.application_url}/static/default.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body>
+<body metal:use-macro="master.macros['master']">
+
+<div id="content" metal:fill-slot="content">
 <h1>List of patients</h1>
 
 liste des patients
@@ -23,6 +25,8 @@ liste des patients
     </li>
   </tal:block>
 </ul>
+
+</div>
 
 </body>
 </html>

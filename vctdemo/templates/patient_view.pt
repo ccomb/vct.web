@@ -6,7 +6,8 @@
 <title>Adding a patient</title>
 <link href="${request.application_url}/static/default.css" rel="stylesheet" type="text/css" />
 </head>
-<body>
+<body metal:use-macro="master.macros['master']">
+<div id="content" metal:fill-slot="content">
 <h1>Patient</h1>
 
 <div>Patient id: <span tal:content="python:context.id" /></div>
@@ -15,5 +16,6 @@
 <a href="edit">Edit</a> - 
 <a href="../list">List</a>
 
+</div>
 </body>
 </html>

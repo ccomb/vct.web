@@ -6,7 +6,8 @@
 <title>Adding a patient</title>
 <link href="${request.application_url}/static/default.css" rel="stylesheet" type="text/css" />
 </head>
-<body>
+<body metal:use-macro="master.macros['master']">
+<div id="content" metal:fill-slot="content">
 <h1>New patient</h1>
 
 <form id="patient_form" method="post" action="">
@@ -19,5 +20,6 @@
 
 
 
+</div>
 </body>
 </html>
