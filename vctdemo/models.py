@@ -3,9 +3,12 @@ from persistent.mapping import PersistentMapping
 from persistent import Persistent
 from repoze.folder import Folder
 from zope.schema import TextLine, Int
+from repoze.bfg.security import Allow
 
 class VctRoot(PersistentMapping):
     __parent__ = __name__ = None
+    __acl__ = [ (Allow, 'admin', 'view'), (Allow, 'admin', 'edit') ]
+
 
 def appmaker(zodb_root):
     if not 'app_root' in zodb_root:

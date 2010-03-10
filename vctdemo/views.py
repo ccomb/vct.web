@@ -1,16 +1,20 @@
 from formalchemy.ext.zope import FieldSet
 from repoze.bfg.chameleon_zpt import render_template_to_response
+from repoze.bfg.security import remember, forget, authenticated_userid
 from repoze.bfg.url import model_url
 from repoze.bfg.view import static
 from webob import Response
 from webob.exc import HTTPFound
 import models
+from security import USERS
 
 static_view = static('templates/static')
 
 
 def index_view(context, request):
-    return {'request':request, 'context':context}
+    return {'request':request,
+            'context':context,
+            'logged_in': authenticated_userid(request)}
 
 
 def patient_list(context, request):
@@ -40,6 +44,7 @@ def patient_add(context, request):
             'context':context,
             'form': form}
 
+
 def patient_view(context, request):
     return {'request':request,
             'context':context}
@@ -57,6 +62,45 @@ def patient_edit(context, request):
     return {'context': context,
             'request': request,
             'form': form}
+
+
+def login(context, request):
+    login_url = model_url(context, request, 'login')
+    referrer = request.url
+    if referrer == login_url:
+        referrer = '/' # never use the login form itself as came_from
+    came_from = request.params.get('came_from', referrer)
+    message = ''
+    login = ''
+    password = ''
+    if 'form.submitted' in request.params:
+        login = request.params['login']
+        password = request.params['password']
+        if USERS.get(login) == password:
+            headers = remember(request, login)
+            return HTTPFound(location = came_from,
+                             headers = headers)
+        message = 'Failed login'
+
+    return dict(
+        message = message,
+        url = request.application_url + '/login',
+        came_from = came_from,
+        login = login,
+        password = password,
+        )
+
+
+def logout(context, request):
+    headers = forget(request)
+    return HTTPFound(location = model_url(context, request),
+                     headers = headers)
+
+
+
+
+
+
 
 
 

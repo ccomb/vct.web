@@ -12,3 +12,24 @@
 #patient {
     background-color:#FFFFEE;   
     }
+
+h1 {
+text-align: center;
+margin-top: 2em;
+}
+
+div#wrapper {
+width: 400px;
+margin-left: auto;
+margin-right: auto;
+margin-top: 20%;
+background: #BBBBBB;
+padding: 2em;
+border: solid 1px black;
+}
+
+.fieldname {
+display: inline-block;
+width: 7em;
+text-align: right;
+}

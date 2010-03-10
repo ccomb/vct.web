@@ -8,36 +8,21 @@
 <link href="${request.application_url}/static/default.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body style= "background-image:url('static/index_background.jpg');background-repeat:no-repeat;width: 100%; height: 100%;">
+<body style= "background-image:url('/static/index_background.jpg');background-repeat:no-repeat;width: 100%; height: 100%;">
 
-<br /><br /><br />
-<h1 style="text-align: center;">Virtual Care Team</h1>
-<br /><br /><br /><br />
-<form method="post" action="/patients_old/user_authentication">
-<table style="text-align: left; width: 50%; margin-left: auto; margin-right: auto;"
-     border="0" cellpadding="4" cellspacing="0">
-  <tbody style="vertical-align: top; background-color: white;">
-    <tr>
-      <td style="vertical-align: top; text-align: right;">User :
-      </td>
-      <td><input type= "text" name="user_ID" /><br />
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align: right">Password (test) : 
-      </td>
-      <td>
-      <input type= "password" name="user_password" />
-      </td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td><span style="horizontal-align: center">
-      <big><input type= "submit" value = "Submit" /></big>
-      </span></td>
-    </tr>
-  </tbody>
-</table>
+<h1 style="color: white">Virtual Care Team</h1>
+
+<div id="wrapper">
+
+<form method="post" action="${url}">
+    <input type="hidden" name="came_from" value="${came_from}"/>
+    <span class="fieldname">User :</span>
+    <input type= "text" name="login" value="${login}" /><br />
+    <span class="fieldname">Password :</span>
+    <input type= "password" name="password" value="${password}" />
+    <input type="submit" name="form.submitted" value = "Log In" />
 </form>
+
+</div>
 </body>
 </html>

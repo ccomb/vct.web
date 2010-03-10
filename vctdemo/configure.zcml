@@ -24,6 +24,7 @@
     view=".views.index_view"
     name=""
     renderer="templates/index.pt"
+    permission="view"
     />
 
 <view
@@ -54,6 +55,20 @@
     renderer="templates/patient_edit.pt"
     />
 
+<forbidden
+    view=".views.login"
+    renderer="templates/login.pt"/>
+
+<view
+    view=".views.login"
+    name="login"
+    renderer ="templates/login.pt"
+    />
+
+<view
+    view=".views.logout"
+    name="logout"
+    />
 
 <!-- old routes -->
 
@@ -64,19 +79,6 @@
     />
 
 
-  <route
-    path="patients_old/todo_help"
-    name="todo_help"
-    view=".views.todo_help"
-    renderer="templates/help/todo_help.pt"
-    />
-
-  <route
-    path="notification_help"
-    name="notification_help"
-    view=".views.notification_help"
-    renderer="templates/help/notification_help.pt"
-    />
 
   <route
     path="patients_old/user_preferences"

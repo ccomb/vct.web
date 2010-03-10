@@ -1,9 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html 
-    xmlns="http://www.w3.org/1999/xhtml" 
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
     xmlns:tal="http://xml.zope.org/namespaces/tal"
     xmlns:metal="http://xml.zope.org/namespaces/metal">
- 
+
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <title>User session</title>
@@ -16,7 +16,7 @@
   <table border= "1"  style="text-align: left; width: 100%"><tbody>
      <tr><td>
          <div id="user_ID">
-             User = (User Name) / organization <br/>
+             User = ${logged_in} / organization <br/>
          </div>
          <div id="user_menu">
              <table id="usermenu" border= "1"  style="text-align: left; width: 100%;"><tbody>
@@ -24,8 +24,8 @@
                 <td>
                 <a href="/patients_old/patient_search">Patient Search</a>
                 <a href="/patients/list">Patient List</a>
-                <a href="/help/patient_help.html">(?)</a> 
-                <br/><a href="/patients_old/patient_groups">Group</a> = ........ 
+                <a href="/help/patient_help.html">(?)</a>
+                <br/><a href="/patients_old/patient_groups">Group</a> = ........
                    -- <a href="/patients_old/current_patient">Previous </a>
                    -- Next
                 </td>
@@ -33,8 +33,11 @@
                 <td><a href="/notification_help">Incoming <br/>Notifications</a></td>
                 <td>Administration: <br/>
                     <a href="/patients_old/user_preferences"> Preferences</a><br/>
-                    <a href="/patients_old/test">Test menu</a></td>        
-                <td><a href="/">Close<br/>Session</a></td>
+                    <a href="/patients_old/test">Test menu</a></td>
+                <td><span tal:condition="logged_in">
+                       <a href="${request.application_url}/logout">Logout</a>
+                    </span>
+                </td>
                 </tr>
             </tbody></table>
          </div>
@@ -42,7 +45,7 @@
     </tbody></table>
 
 <p metal:define-slot="user_content"></p>
-    
+
 </div>
 
 <!--
