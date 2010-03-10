@@ -28,6 +28,12 @@
     renderer="templates/patient_list.pt"
     />
 
+<view 
+    context=".models.PatientContainer"
+    view=".views.patient_add"
+    name="add"
+    renderer="templates/patient_add.pt"
+    />
 
 
 

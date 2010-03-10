@@ -17,6 +17,11 @@ def patient_list(context, request):
             'patients':patients}
 
 
+def patient_add(context, request):
+    return {'request':request,
+            'context':context}
+
+
 
 
 
