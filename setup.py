@@ -11,6 +11,7 @@ requires = [
     'repoze.zodbconn',
     'repoze.tm',
     'ZODB3',
+    'repoze.folder',
     ]
 
 setup(name='vct.demo',
