@@ -22,28 +22,33 @@ def patient_list(context, request):
 
 def patient_add(context, request):
     name = None
-    if 'name' in request.params:
-        name = request.params['name']
+    patient = models.Patient()
+    form = FieldSet(models.IPatient)
+    form.configure(exclude=[form.id])
+    form.id.set(required=False)
+    form = form.bind(patient, data=request.POST or None)
+    if request.POST and form.validate():
+        request.POST.pop('Patient--id', None)
+        form.sync()
         id = len(context)
         while id in context:
             id += 1
-        id = str(id)
-        patient = models.Patient()
-        patient.id = id
-        patient.name = name
+        patient.id = str(id)
         context[str(id)] = patient
+        return HTTPFound(location=model_url(patient, request))
     return {'request':request,
-            'context':context}
+            'context':context,
+            'form': form}
 
 def patient_view(context, request):
     return {'request':request,
             'context':context}
 
-PatientEditForm = FieldSet(models.IPatient)
 
 
 def patient_edit(context, request):
-    form = PatientEditForm.bind(context, data=request.POST or None)
+    form = FieldSet(models.IPatient)
+    form = form.bind(context, data=request.POST or None)
     form.id.set(readonly=True)
     if request.POST and form.validate():
         request.POST.pop('Patient--id', None)

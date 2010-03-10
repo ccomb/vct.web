@@ -21,14 +21,14 @@
     renderer="templates/index.pt"
     />
 
-<view 
+<view
     context=".models.PatientContainer"
     view=".views.patient_list"
     name="list"
     renderer="templates/patient_list.pt"
     />
 
-<view 
+<view
     context=".models.PatientContainer"
     view=".views.patient_add"
     name="add"
@@ -65,7 +65,7 @@
     view=".views.todo_help"
     renderer="templates/help/todo_help.pt"
     />
-    
+
   <route
     path="notification_help"
     name="notification_help"
@@ -93,35 +93,35 @@
     view=".views.patient_search"
     renderer="templates/patient_search.pt"
     />
-    
+
   <route
     path="patients_old/patient_groups"
     name="patientGroups"
     view=".views.patient_groups"
     renderer="templates/patient_groups.pt"
     />
-    
+
   <route
     path="patients_old/patient_group"
     name="patientGroup"
     view=".views.patient_group"
     renderer="templates/patient_group.pt"
     />
-    
+
   <route
     path="patients_old/patient_ID_validation"
     name="patient ID validation"
     view=".views.patient_ID_validation"
     renderer="templates/patient_ID_validation.pt"
     />
-    
+
   <route
     path="patients_old/current_patient"
     name="current patient"
     view=".views.current_patient"
     renderer="templates/current_patient.pt"
     />
-    
+
   <route
     path="patients_old/patient_menu"
     name="patient menu"

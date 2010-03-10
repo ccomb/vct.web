@@ -7,14 +7,17 @@
 <link href="${request.application_url}/static/default.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<h1>Adding a patient</h1>
+<h1>New patient</h1>
 
-<form method="post" action="add">
-Patient name: <input type="textline" name="name" />
-
-<br/>
-<input type="submit" value="Add"/>
+<form id="patient_form" method="post" action="">
+  <div tal:content="structure python:form.render()" />
+  <div class="fa_field ui-widget">
+    <input class="ui-button ui-state-default ui-corner-all"
+           value="Valider" type="submit" />
+  </div>
 </form>
+
+
 
 </body>
 </html>
