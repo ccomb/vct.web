@@ -31,7 +31,7 @@
                    -- Next
                 </td>
                 <td><a href="/patients/todo_help">My tasks <br/>and Agenda</a></td>
-                <td><a href="/patients/notification_help">Incoming <br/>Notifications</a></td>
+                <td><a href="/notification_help">Incoming <br/>Notifications</a></td>
                 <td>Administration: <br/>
                     <a href="/patients/user_preferences"> Preferences</a><br/>
                     <a href="/patients/test">Test menu</a></td>        
@@ -41,8 +41,10 @@
          </div>
      </td></tr>
     </tbody></table>
-</div>
 
+<p metal:define-slot="user_content"></p>
+    
+</div>
 
 <!--
 <div style="clear: both;">&nbsp;</div>

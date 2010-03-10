@@ -16,6 +16,7 @@ def test_view(context, request):
 
 def user_authentication(context, request):
     user_ID= request.params.get('user_ID')
+    print "user_ID = " + user_ID
     password = request.params.get('user_password')
     if password == "test":
         return HTTPFound(location= "/patients/user_session")

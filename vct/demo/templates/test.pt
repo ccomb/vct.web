@@ -8,6 +8,7 @@
 </head>
 
 <body>
+<div metal:use-macro="user_macro">
 <h1>Tests in Virtual Care Team</h1>
 
 <ul>
@@ -40,6 +41,6 @@
 </table>
 </li>
 </ul>
-
+</div>
 </body>
 </html>

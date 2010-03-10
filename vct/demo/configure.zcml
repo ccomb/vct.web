@@ -33,6 +33,34 @@
     />
 
   <route
+    path="patients/todo_help"
+    name="todo_help"
+    view=".views.todo_help"
+    renderer="templates/help/todo_help.pt"
+    />
+    
+  <route
+    path="notification_help"
+    name="notification_help"
+    view=".views.notification_help"
+    renderer="templates/help/notification_help.pt"
+    />
+
+  <route
+    path="patients/user_preferences"
+    name="user_preferences"
+    view=".views.user_preferences"
+    renderer="templates/user_preferences.pt"
+    />
+
+  <route
+    path="patients/test"
+    name="test"
+    view=".views.test_view"
+    renderer="templates/test.pt"
+    />
+
+  <route
     path="patients/patient_search"
     name="patientSearch"
     view=".views.patient_search"
@@ -114,41 +142,6 @@
     name="care_team"
     view=".views.care_team"
     renderer="templates/care_team.pt"
-    />
-
-  <route
-    path="patients/patient_administration"
-    name="patient_administration"
-    view=".views.patient_administration"
-    renderer="templates/patient_administration.pt"
-    />
-
-  <route
-    path="patients/todo_help"
-    name="todo_help"
-    view=".views.todo_help"
-    renderer="templates/help/todo_help.pt"
-    />
-    
-  <route
-    path="patients/notification_help"
-    name="notification_help"
-    view=".views.notification_help"
-    renderer="templates/help/notification_help.pt"
-    />
-
-  <route
-    path="patients/user_preferences"
-    name="user_preferences"
-    view=".views.user_preferences"
-    renderer="templates/user_preferences.pt"
-    />
-
-  <route
-    path="patients/test"
-    name="test"
-    view=".views.test_view"
-    renderer="templates/test.pt"
     />
 
   <route
