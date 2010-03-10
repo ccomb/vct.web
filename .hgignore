@@ -8,3 +8,4 @@
 ^vct.demo.db$
 .*~$
 .*\.swp$
+^Data.fs.*

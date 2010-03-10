@@ -3,16 +3,21 @@
   <!-- this must be included for the view declarations to work -->
   <include package="repoze.bfg.includes" />
 
+  <authtktauthenticationpolicy
+       secret="gfkselklgglskj"/>
+
+  <aclauthorizationpolicy/>
+
 
   <static
     name="static"
     path="templates/static"
     />
 
-  <route
-    path=""
-    name="index"
+  <view
+    context=".models.VctRoot"
     view=".views.index_view"
+    name=""
     renderer="templates/index.pt"
     />
 
