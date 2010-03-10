@@ -21,11 +21,10 @@
          <div id="user_menu">
              <table id="usermenu" border= "1"  style="text-align: left; width: 100%;"><tbody>
                 <tr>
-                <td><a href="/patients_old/patient_search">Patient Search</a>
-                <!--
-                <a href="/patients_old/patient_search"></a>Patient</a>
-                -->
-                <a href="static/Help/Patient-Help.html">(?)</a> 
+                <td>
+                <a href="/patients_old/patient_search">Patient Search</a>
+                <a href="/patients/list">Patient List</a>
+                <a href="/help/patient_help.html">(?)</a> 
                 <br/><a href="/patients_old/patient_groups">Group</a> = ........ 
                    -- <a href="/patients_old/current_patient">Previous </a>
                    -- Next
