@@ -1,14 +1,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:tal="http://xml.zope.org/namespaces/tal">
+<html 
+    xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal">
  
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <title>Notification Help</title>
-  <link href="${request.application_url}/static/default.css" rel="stylesheet" type="text/css" />
+  <link href="/static/default.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-
 
 <div id="user" metal:define-macro="user_macro">
   <table border= "1"  style="text-align: left; width: 100%"><tbody>
@@ -43,42 +45,13 @@
 
 
 
-
-<h1 style="text-align: center;">My tasks and agenda</h1>
+<h1 style="text-align:center;">Notification Help</h1>
 <ul>
-  <li>Introduction:</li>
-  <ul>
-    <li>An overview of what I am expected to do as user.</li>
-    <li>Can be presented in 2 ways:</li>
-    <ul>
-      <li>As agenda:</li>
-      <ul>
-        <li>Classic agenda sorted per days and hours.<br/>
-        </li>
-      </ul>
-      <li>As worklist:</li>
-      <ul>
-        <li>A list of tasks sorted by relative priorities and by patient.<br/>
-        </li>
-        <li>Task definition:</li>
-        <ul>
-          <li>.....<br/>
-          </li>
-        </ul>
-        <li>Possibility of several sublists for different types of tasks.<br/>
-        </li>
-        <li>Some examples:</li>
-        <ul>
-          <li>In a department of a lab the current list of samples waiting to be processed.</li>
-          <li>For a nurse the current list of patient needing a specific procedure.</li>
-          <li>For a senior doctor the current list of reports or discharges letters 
-          to be reviewed and validated.</li>
-          <li>....<br/>
-          </li>
-        </ul>
-      </ul>
-    </ul>
-  </ul>
+<li>This button provides a list of documents you should have a look at.<br/>The information is already available in the data base, but someone did ask you to pay attention to these particular documents.</li>
+	<ul>
+	<li>the philosophy of the project is to share documents on-line.<br/>As far as possible received messages are saved directly inside the patient record.<br/></li>
+	</ul>
+<li>A click on a row of the list will open the appropriate patient record and show the new information.</li>
 </ul>
 </body>
 </html>
