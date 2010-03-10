@@ -13,7 +13,7 @@
 <br /><br /><br />
 <h1 style="text-align: center;">Virtual Care Team</h1>
 <br /><br /><br /><br />
-<form method="post" action="/patients/user_authentication">
+<form method="post" action="/patients_old/user_authentication">
 <table style="text-align: left; width: 50%; margin-left: auto; margin-right: auto;"
      border="0" cellpadding="4" cellspacing="0">
   <tbody style="vertical-align: top; background-color: white;">

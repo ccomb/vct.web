@@ -13,10 +13,10 @@
 
 <ul>
 <li><a href="http://docs.repoze.org/bfg/current/">BFG, </a></li>
-<li><a href="/patients/list">Patient list</a></li>
-<li><a href="/patients/add">Add a patient</a></li>
-<li><a href="/patients/patient_search">Search a PatientRecord</a></li>
-<li><a href="/patients/patient_menu">Patient Menu</a></li>
+<li><a href="/patients_old/list">Patient list</a></li>
+<li><a href="/patients_old/add">Add a patient</a></li>
+<li><a href="/patients_old/patient_search">Search a PatientRecord</a></li>
+<li><a href="/patients_old/patient_menu">Patient Menu</a></li>
 <li>TEST OF PATHOLOGY INTEGRATION
     <table style="width: 100%;" border="1">
   <tbody>

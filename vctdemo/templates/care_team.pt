@@ -23,20 +23,20 @@
          <div id="user_menu">
              <table id="usermenu" border= "1"  style="text-align: left; width: 100%;"><tbody>
                 <tr>
-                <td><a href="/patients/patient_search">Patient Search</a>
+                <td><a href="/patients_old/patient_search">Patient Search</a>
                 <!--
-                <a href="/patients/patient_search"></a>Patient</a>
+                <a href="/patients_old/patient_search"></a>Patient</a>
                 -->
                 <a href="static/Help/Patient-Help.html">(?)</a> 
-                <br/><a href="/patients/patient_groups">Group</a> = ........ 
-                   -- <a href="/patients/current_patient">Previous </a>
+                <br/><a href="/patients_old/patient_groups">Group</a> = ........ 
+                   -- <a href="/patients_old/current_patient">Previous </a>
                    -- Next
                 </td>
-                <td><a href="/patients/todo_help">My tasks <br/>and Agenda</a></td>
-                <td><a href="/patients/notification_help">Incoming <br/>Notifications</a></td>
+                <td><a href="/patients_old/todo_help">My tasks <br/>and Agenda</a></td>
+                <td><a href="/patients_old/notification_help">Incoming <br/>Notifications</a></td>
                 <td>Administration: <br/>
-                    <a href="/patients/user_preferences"> Preferences</a><br/>
-                    <a href="/patients/test">Test menu</a></td>        
+                    <a href="/patients_old/user_preferences"> Preferences</a><br/>
+                    <a href="/patients_old/test">Test menu</a></td>        
                 <td><a href="/">Close<br/>Session</a></td>
                 </tr>
             </tbody></table>
@@ -69,7 +69,7 @@
                  <td style="vertical-align: top;">
                      Adminitration</td>
                  <td style="vertical-align: top;">
-                     <a href="/patients/user_session">Close Patient</a></td>
+                     <a href="/patients_old/user_session">Close Patient</a></td>
                 </tr>
               </tbody></table>
           </div>
@@ -93,7 +93,7 @@
  		<td>2000</td>
         <td>20/1/2010</td>
  		<td>consultations et visites &agrave; domicile : thombosis and other
-			 <a href="/patients/problem_list">Health Issues</a></td>
+			 <a href="/patients_old/problem_list">Health Issues</a></td>
 		<td>OK</td>
  	</tr>
     <tr>

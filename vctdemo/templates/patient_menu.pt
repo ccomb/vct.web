@@ -10,9 +10,9 @@
 <h3>Patient Menu</h3>
 
 <ul>
-<li><a href="/patients/observations">Observations</a></li>
-<li><a href="/patients/problems">Problems</a></li>
-<li><a href="/patients/actions">Actions</a></li>
+<li><a href="/patients_old/observations">Observations</a></li>
+<li><a href="/patients_old/problems">Problems</a></li>
+<li><a href="/patients_old/actions">Actions</a></li>
 </ul>
 
 </body>

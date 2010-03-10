@@ -11,10 +11,10 @@
 <h1>Virtual Care Team</h1>
 
 <ul>
-<li><a href="/patients/list">Patient list</a></li>
-<li><a href="/patients/add">Add a patient</a></li>
-<li><a href="/patients/patient_search">Search a PatientRecord</a></li>
-<li><a href="/patients/patient_menu">Patient Menu</a></li>
+<li><a href="/patients_old/list">Patient list</a></li>
+<li><a href="/patients_old/add">Add a patient</a></li>
+<li><a href="/patients_old/patient_search">Search a PatientRecord</a></li>
+<li><a href="/patients_old/patient_menu">Patient Menu</a></li>
 </ul>
 
 </body>
