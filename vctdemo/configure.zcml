@@ -19,7 +19,6 @@
     name="help"
     path="views/templates/help"
     />
-
 <view
     context=".models.VctRoot"
     view=".views.index.index"
@@ -27,7 +26,6 @@
     renderer="views/templates/index.pt"
     permission="view"
     />
-
 <view
     context=".models.Patient"
     view=".views.patient.view"
@@ -35,7 +33,6 @@
     renderer="views/templates/patient_view.pt"
     permission="view"
     />
-
 <view
     context=".models.PatientContainer"
     view=".views.patient.list"
@@ -43,7 +40,6 @@
     renderer="views/templates/patient_list.pt"
     permission="view"
     />
-
 <view
     context=".models.PatientContainer"
     view=".views.patient.add"
@@ -51,7 +47,13 @@
     renderer="views/templates/patient_add.pt"
     permission="view"
     />
-
+<view
+    context=".models.PatientContainer"
+    view=".views.patient.search"
+    name=""
+    renderer="views/templates/patient_search.pt"
+    permission="view"
+    />
 <view
     context=".models.PatientContainer"
     view=".views.patient.search"
@@ -59,7 +61,6 @@
     renderer="views/templates/patient_search.pt"
     permission="view"
     />
-
 <view
     context=".models.Patient"
     view=".views.patient.edit"
@@ -67,17 +68,14 @@
     renderer="views/templates/patient_edit.pt"
     permission="edit"
     />
-
 <forbidden
     view=".views.security.login"
     renderer="views/templates/login.pt"/>
-
 <view
     view=".views.security.login"
     name="login"
     renderer ="views/templates/login.pt"
     />
-
 <view
     view=".views.security.logout"
     name="logout"
