@@ -6,7 +6,7 @@ from repoze.catalog.indexes.field import CatalogFieldIndex
 from repoze.catalog.indexes.text import CatalogTextIndex
 from repoze.folder import Folder
 from zope.interface import Interface, implements
-from zope.schema import TextLine, Int
+from zope.schema import TextLine, Int, Text, Datetime
 
 class VctRoot(Folder):
     __parent__ = __name__ = None
@@ -47,15 +47,22 @@ class Patient(Folder):
 
 
 
-
+class IMedItem(Interface):
+    date = Datetime(title=u'Date, time', description=u'Date and time')
+    author = TextLine(title=u'Author', description=u'The author of the item')
+    #version = Int(title=u'Version', description=u'The version of the item')
 
 class MedItem(Persistent):
-    author = TextLine(title=u'Author', description=u'The author of the item')
-    version = Int(title=u'Version', description=u'The version of the item')
+    date = author = None
+    implements(IMedItem)
 
+
+class IObservation(Interface):
+    text = Text(title=u'content', description=u'observation content')
 
 class Observation(MedItem):
-    pass
+    text = u''
+    implements(IObservation)
 
 
 class Issue(MedItem):

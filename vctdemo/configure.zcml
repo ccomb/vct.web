@@ -12,176 +12,168 @@
 
 <static
     name="static"
-    path="templates/static"
+    path="views/templates/static"
     />
 
 <static
     name="help"
-    path="templates/help"
+    path="views/templates/help"
     />
 
 <view
     context=".models.VctRoot"
-    view=".views.index_view"
+    view=".views.index.index"
     name=""
-    renderer="templates/index.pt"
+    renderer="views/templates/index.pt"
     permission="view"
     />
 
 <view
     context=".models.Patient"
-    view=".views.patient_view"
+    view=".views.patient.view"
     name=""
-    renderer="templates/patient_view.pt"
+    renderer="views/templates/patient_view.pt"
     permission="view"
     />
 
 <view
     context=".models.PatientContainer"
-    view=".views.patient_list"
+    view=".views.patient.list"
     name="list"
-    renderer="templates/patient_list.pt"
+    renderer="views/templates/patient_list.pt"
     permission="view"
     />
 
 <view
     context=".models.PatientContainer"
-    view=".views.patient_add"
+    view=".views.patient.add"
     name="add"
-    renderer="templates/patient_add.pt"
+    renderer="views/templates/patient_add.pt"
     permission="view"
     />
 
 <view
     context=".models.PatientContainer"
-    view=".views.patient_search"
+    view=".views.patient.search"
     name="search"
-    renderer="templates/patient_search.pt"
+    renderer="views/templates/patient_search.pt"
     permission="view"
     />
 
 <view
     context=".models.Patient"
-    view=".views.patient_edit"
+    view=".views.patient.edit"
     name="edit"
-    renderer="templates/patient_edit.pt"
+    renderer="views/templates/patient_edit.pt"
     permission="edit"
     />
 
 <forbidden
-    view=".views.login"
-    renderer="templates/login.pt"/>
+    view=".views.security.login"
+    renderer="views/templates/login.pt"/>
 
 <view
-    view=".views.login"
+    view=".views.security.login"
     name="login"
-    renderer ="templates/login.pt"
+    renderer ="views/templates/login.pt"
     />
 
 <view
-    view=".views.logout"
+    view=".views.security.logout"
     name="logout"
     />
 
 <!-- old routes -->
 
   <route
-    path="patients_old/user_authentication"
-    name="user_authentication"
-    view=".views.user_authentication"
-    />
-
-
-
-  <route
     path="patients_old/user_preferences"
     name="user_preferences"
-    view=".views.user_preferences"
-    renderer="templates/user_preferences.pt"
+    view=".views.index.user_preferences"
+    renderer="views/templates/user_preferences.pt"
     />
 
   <route
     path="patients_old/test"
     name="test"
-    view=".views.test_view"
-    renderer="templates/test.pt"
+    view=".views.index.test_view"
+    renderer="views/templates/test.pt"
     />
 
   <route
     path="patients_old/patient_groups"
     name="patientGroups"
-    view=".views.patient_groups"
-    renderer="templates/patient_groups.pt"
+    view=".views.index.patient_groups"
+    renderer="views/templates/patient_groups.pt"
     />
 
   <route
     path="patients_old/patient_group"
     name="patientGroup"
-    view=".views.patient_group"
-    renderer="templates/patient_group.pt"
+    view=".views.index.patient_group"
+    renderer="views/templates/patient_group.pt"
     />
 
   <route
     path="patients_old/patient_ID_validation"
     name="patient ID validation"
-    view=".views.patient_ID_validation"
-    renderer="templates/patient_ID_validation.pt"
+    view=".views.index.patient_ID_validation"
+    renderer="views/templates/patient_ID_validation.pt"
     />
 
   <route
     path="patients_old/current_patient"
     name="current patient"
-    view=".views.current_patient"
-    renderer="templates/current_patient.pt"
+    view=".views.index.current_patient"
+    renderer="views/templates/current_patient.pt"
     />
 
   <route
     path="patients_old/patient_menu"
     name="patient menu"
-    view=".views.patient_menu"
-    renderer="templates/patient_menu.pt"
+    view=".views.index.patient_menu"
+    renderer="views/templates/patient_menu.pt"
     />
 
   <route
     path="patients_old/medData_template"
     name="medData_template"
-    view=".views.medData_template"
-    renderer="templates/medData_template.pt"
+    view=".views.index.medData_template"
+    renderer="views/templates/medData_template.pt"
     />
 
   <route
     path="patients_old/event_list"
     name="event_list"
-    view=".views.event_list"
-    renderer="templates/event_list.pt"
+    view=".views.index.event_list"
+    renderer="views/templates/event_list.pt"
     />
 
   <route
     path="patients_old/topics"
     name="topics"
-    view=".views.topics"
-    renderer="templates/topics.pt"
+    view=".views.index.topics"
+    renderer="views/templates/topics.pt"
     />
 
   <route
     path="patients_old/problem_list"
     name="problem_list"
-    view=".views.problem_list"
-    renderer="templates/problem_list.pt"
+    view=".views.index.problem_list"
+    renderer="views/templates/problem_list.pt"
     />
 
   <route
     path="patients_old/care_plan"
     name="care_plan"
-    view=".views.care_plan"
-    renderer="templates/care_plan.pt"
+    view=".views.index.care_plan"
+    renderer="views/templates/care_plan.pt"
     />
 
   <route
     path="patients_old/care_team"
     name="care_team"
-    view=".views.care_team"
-    renderer="templates/care_team.pt"
+    view=".views.index.care_team"
+    renderer="views/templates/care_team.pt"
     />
 
 </configure>
