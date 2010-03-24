@@ -11,6 +11,9 @@
 <h1>Search patient</h1>
 
 <h2>Search form</h2>
+
+<span class="error" tal:content="errors">error string</span>
+
 <form id="patient_form" method="post" action="">
   <div tal:content="structure python:form.render()" />
   <div class="fa_field ui-widget">

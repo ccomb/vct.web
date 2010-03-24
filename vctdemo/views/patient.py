@@ -47,11 +47,16 @@ def search(context, request):
     form = form.bind(patient, data=request.POST or None)
     catalog = virtual_root(context, request).catalogs['patients']
     number, results = None, {}
+    errors = None
     if request.POST and form.validate():
         data = dict([(id,field.value)
                      for (id,field) in form.render_fields.items()
                      if field.value])
-        number, results = catalog.search(**data) # XXX
+        try:
+            number, results = catalog.search(**data) # XXX
+        except Exception, r:
+            errors = r
+            number, results = 0, {}
         results = [context[i] for i in dict(results).keys()]
     return {'request':request,
             'context':context,
@@ -59,6 +64,7 @@ def search(context, request):
             'logged_in': authenticated_userid(request),
             'form': form,
             'number': number,
+            'errors': errors,
             'results': results}
 
 
