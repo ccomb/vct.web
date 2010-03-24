@@ -13,8 +13,8 @@ class ViewTests(unittest.TestCase):
         self.config.end()
 
     def test_index(self):
-        from vctdemo.views.index import index_view
+        from vctdemo.views.index import index
         request = testing.DummyRequest()
-        info = index_view(models.VctRoot(), request)
+        info = index(models.VctRoot(), request)
         self.assertEqual(info['logged_in'], None)
 
