@@ -4,9 +4,10 @@
 <include package="repoze.bfg.includes" />
 
 <authtktauthenticationpolicy
+     callback=".security.groupfinder"
      secret="gfkselklgglskj"/>
 
-<aclauthorizationpolicy/>
+<aclauthorizationpolicy />
 
 
 <static
@@ -56,7 +57,7 @@
     view=".views.patient_edit"
     name="edit"
     renderer="templates/patient_edit.pt"
-    permission="view"
+    permission="edit"
     />
 
 <forbidden

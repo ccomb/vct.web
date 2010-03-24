@@ -7,7 +7,7 @@ from repoze.bfg.security import Allow
 
 class VctRoot(PersistentMapping):
     __parent__ = __name__ = None
-    __acl__ = [ (Allow, 'admin', 'view'), (Allow, 'admin', 'edit') ]
+    __acl__ = [ (Allow, 'group:admins', 'view'), (Allow, 'group:admins', 'edit') ]
 
 
 def appmaker(zodb_root):
