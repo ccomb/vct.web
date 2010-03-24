@@ -1,12 +1,11 @@
 USERS = {
-        'admin': 'pass2',
+        'admin': 'pass',
         'test' :'test',
         }
 
 GROUPS = {
           'admin':['group:admins'],
           'test' :['group:admins'],
-          'toto' :['group:admins'],
          }
 
 def groupfinder(userid, request):
