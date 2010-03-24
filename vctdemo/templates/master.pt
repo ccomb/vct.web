@@ -22,7 +22,7 @@
              <table id="usermenu" border= "1"  style="text-align: left; width: 100%;"><tbody>
                 <tr>
                 <td>
-                <a href="/patients_old/patient_search">Patient Search</a>
+                <a href="/patients/search">Patient Search</a>
                 <a href="/patients/list">Patient List</a>
                 <a href="/help/patient_help.html">(?)</a>
                 <br/><a href="/patients_old/patient_groups">Group</a> = ........

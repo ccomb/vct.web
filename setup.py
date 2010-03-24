@@ -14,6 +14,7 @@ requires = [
     'repoze.folder',
     'FormAlchemy',
     'fa.jquery',
+    'repoze.catalog',
     ]
 
 setup(name='vct.demo',

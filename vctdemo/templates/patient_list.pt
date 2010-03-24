@@ -11,9 +11,9 @@
 <body metal:use-macro="master.macros['master']">
 
 <div id="content" metal:fill-slot="content">
-<h1>List of patients</h1>
+<h1>Patient List</h1>
 
-liste des patients
+Patient list
 
 <ul>
   <tal:block repeat="patient patients">
@@ -26,7 +26,10 @@ liste des patients
   </tal:block>
 </ul>
 
+<a href="add">Add a patient</a>
+
 </div>
+
 
 </body>
 </html>

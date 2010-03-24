@@ -1,12 +1,13 @@
 from formalchemy.ext.zope import FieldSet
 from repoze.bfg.chameleon_zpt import render_template_to_response, get_template
 from repoze.bfg.security import remember, forget, authenticated_userid
+from repoze.bfg.traversal import virtual_root, model_path
 from repoze.bfg.url import model_url
 from repoze.bfg.view import static
+from security import USERS
 from webob import Response
 from webob.exc import HTTPFound
 import models
-from security import USERS
 
 static_view = static('templates/static')
 
@@ -30,7 +31,6 @@ def patient_list(context, request):
 
 
 def patient_add(context, request):
-    name = None
     patient = models.Patient()
     form = FieldSet(models.IPatient)
     form.configure(exclude=[form.id])
@@ -44,12 +44,38 @@ def patient_add(context, request):
             id += 1
         patient.id = str(id)
         context[str(id)] = patient
+        catalog = virtual_root(context, request).catalogs['patients']
+        catalog.index_doc(id, patient)
         return HTTPFound(location=model_url(patient, request))
     return {'request':request,
             'context':context,
             'master': get_template('templates/master.pt'),
             'logged_in': authenticated_userid(request),
             'form': form}
+
+def patient_search(context, request):
+    patient = models.Patient()
+    form = FieldSet(models.IPatient)
+    for field in form.render_fields:
+        getattr(form, field).set(required=False)
+    form = form.bind(patient, data=request.POST or None)
+    catalog = virtual_root(context, request).catalogs['patients']
+    number, results = None, {}
+    if request.POST and form.validate():
+        data = dict([(id,field.value)
+                     for (id,field) in form.render_fields.items()
+                     if field.value])
+        number, results = catalog.search(**data) # XXX
+        results = [context[i] for i in dict(results).keys()]
+    return {'request':request,
+            'context':context,
+            'master': get_template('templates/master.pt'),
+            'logged_in': authenticated_userid(request),
+            'form': form,
+            'number': number,
+            'results': results}
+
+
 
 
 def patient_view(context, request):
@@ -67,6 +93,8 @@ def patient_edit(context, request):
     if request.POST and form.validate():
         request.POST.pop('Patient--id', None)
         form.sync()
+        catalog = virtual_root(context, request).catalogs['patients']
+        catalog.reindex_doc(int(context.id), context)
         return HTTPFound(location=model_url(context, request))
     return {'context': context,
             'request': request,
@@ -128,9 +156,6 @@ def user_authentication(context, request):
         return HTTPFound(location= "/")
 
 def user_session(context, request):
-    return {'request':request, 'context':context}
-
-def patient_search(context, request):
     return {'request':request, 'context':context}
 
 def patient_groups(context, request):

@@ -29,6 +29,14 @@
     />
 
 <view
+    context=".models.Patient"
+    view=".views.patient_view"
+    name=""
+    renderer="templates/patient_view.pt"
+    permission="view"
+    />
+
+<view
     context=".models.PatientContainer"
     view=".views.patient_list"
     name="list"
@@ -45,10 +53,10 @@
     />
 
 <view
-    context=".models.Patient"
-    view=".views.patient_view"
-    name=""
-    renderer="templates/patient_view.pt"
+    context=".models.PatientContainer"
+    view=".views.patient_search"
+    name="search"
+    renderer="templates/patient_search.pt"
     permission="view"
     />
 
@@ -97,13 +105,6 @@
     name="test"
     view=".views.test_view"
     renderer="templates/test.pt"
-    />
-
-  <route
-    path="patients_old/patient_search"
-    name="patientSearch"
-    view=".views.patient_search"
-    renderer="templates/patient_search.pt"
     />
 
   <route
