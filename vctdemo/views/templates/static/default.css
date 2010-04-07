@@ -47,8 +47,14 @@ text-align: right;
 color: red;
 }
 
-label.field_opt {
+label.field_opt, label.field_req {
 display: inline-block;
 text-align: right;
 width: 6em;
+}
+
+
+textarea#PatientItem--text {
+width: 70%;
+height: 20em;
 }

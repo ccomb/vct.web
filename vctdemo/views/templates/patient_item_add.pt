@@ -3,18 +3,14 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>Searching a patient</title>
+<title>Adding an item</title>
 <link href="${request.application_url}/static/default.css" rel="stylesheet" type="text/css" />
 </head>
 <body metal:use-macro="master.macros['master']">
 <div id="content" metal:fill-slot="content">
-<h1>Search patient</h1>
+<h1>New item</h1>
 
-<h2>Search form</h2>
-
-<span class="error" tal:content="errors">error string</span>
-
-<form id="patient_form" method="post" action="">
+<form id="item_form" method="post" action="">
   <div tal:content="structure python:form.render()" />
   <div class="fa_field ui-widget">
     <input class="ui-button ui-state-default ui-corner-all"
@@ -22,17 +18,7 @@
   </div>
 </form>
 
-<div tal:condition="python: number is not None">
-<h2>Search results</h2>
-<span>There are ${number} results</span>
-<ul>
-  <li tal:repeat="patient results">
-    <a href="${patient.id}/">${patient.name}</a>
-  </li>
-</ul>
-</div>
 
-<a href="add">Add a patient</a>
 
 </div>
 </body>

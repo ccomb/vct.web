@@ -19,10 +19,17 @@ def appmaker(zodb_root):
     if 'app_root' not in zodb_root:
         zodb_root['app_root'] = VctRoot()
         zodb_root['app_root'].catalogs = Folder()
+        import transaction; transaction.commit()
+    if 'patients' not in zodb_root['app_root'].catalogs:
         zodb_root['app_root'].catalogs['patients'] = Catalog()
         zodb_root['app_root'].catalogs['patients']['id'] = CatalogFieldIndex('id')
         zodb_root['app_root'].catalogs['patients']['firstname'] = CatalogTextIndex('firstname')
         zodb_root['app_root'].catalogs['patients']['name'] = CatalogTextIndex('name')
+        import transaction; transaction.commit()
+    if 'patient_items' not in zodb_root['app_root'].catalogs:
+        zodb_root['app_root'].catalogs['patient_items'] = Catalog()
+        zodb_root['app_root'].catalogs['patient_items']['title'] = CatalogTextIndex('title')
+        zodb_root['app_root'].catalogs['patient_items']['text'] = CatalogTextIndex('text')
         import transaction; transaction.commit()
     if 'patients' not in zodb_root['app_root']:
         zodb_root['app_root']['patients'] = PatientContainer()
@@ -45,29 +52,52 @@ class Patient(Folder):
     implements(IPatient)
     firstname = name = id = None
 
-
-
-class IMedItem(Interface):
-    date = Datetime(title=u'Date, time', description=u'Date and time')
+class IItem(Interface):
+    """an item
+    """
+    id = TextLine(title=u'Id', description=u'Identifier of the item')
     author = TextLine(title=u'Author', description=u'The author of the item')
     #version = Int(title=u'Version', description=u'The version of the item')
 
-class MedItem(Persistent):
-    date = author = None
-    implements(IMedItem)
-
-
-class IObservation(Interface):
+class IPatientItem(Interface):
+    date = Datetime(title=u'Date, time', description=u'Date and time')
+    title = TextLine(title=u'Title', description=u'The title of the item')
     text = Text(title=u'content', description=u'observation content')
 
-class Observation(MedItem):
-    text = u''
+class PatientItem(Folder):
+    id = date = title = text = None
+    implements(IItem, IPatientItem)
+
+
+class IObservation(IPatientItem):
+    pass
+
+class Observation(PatientItem):
     implements(IObservation)
 
+class IIssue(IPatientItem):
+    pass
 
-class Issue(MedItem):
+class Issue(PatientItem):
+    implements(IIssue)
+
+class IAction(IPatientItem):
+    pass
+
+class Action(PatientItem):
+    implements(IAction)
+
+
+class IRelation(PatientItem):
+    """the relation between medical items
+    """
+
+class Relation(object):
     pass
 
 
-class Action(MedItem):
-    pass
+
+
+
+
+
