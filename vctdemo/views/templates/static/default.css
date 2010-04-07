@@ -46,3 +46,9 @@ text-align: right;
 .field_error, .error {
 color: red;
 }
+
+label.field_opt {
+display: inline-block;
+text-align: right;
+width: 6em;
+}
