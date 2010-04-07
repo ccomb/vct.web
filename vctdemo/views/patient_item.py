@@ -14,6 +14,8 @@ def list(context, request):
             'context':context,
             'master': get_template('templates/master.pt'),
             'logged_in': authenticated_userid(request),
+            'patient':context,
+            'patient_master': get_template('templates/patient_master.pt'),
             'items':items}
 
 
@@ -36,6 +38,8 @@ def add(context, request):
         return HTTPFound(location=model_url(pitem, request))
     return {'request':request,
             'context':context,
+            'patient':context,
+            'patient_master': get_template('templates/patient_master.pt'),
             'master': get_template('templates/master.pt'),
             'logged_in': authenticated_userid(request),
             'form': form}
@@ -65,6 +69,8 @@ def search(context, request):
             'context':context,
             'master': get_template('templates/master.pt'),
             'logged_in': authenticated_userid(request),
+            'patient':context,
+            'patient_master': get_template('templates/patient_master.pt'),
             'form': form,
             'number': number,
             'errors': errors,
@@ -75,6 +81,8 @@ def view(context, request):
     return {'request':request,
             'master': get_template('templates/master.pt'),
             'logged_in': authenticated_userid(request),
+            'patient':context.__parent__,
+            'patient_master': get_template('templates/patient_master.pt'),
             'context':context}
 
 
@@ -91,6 +99,8 @@ def edit(context, request):
     return {'context': context,
             'request': request,
             'master': get_template('templates/master.pt'),
+            'patient':context.__parent__,
+            'patient_master': get_template('templates/patient_master.pt'),
             'logged_in': authenticated_userid(request),
             'form': form}
 

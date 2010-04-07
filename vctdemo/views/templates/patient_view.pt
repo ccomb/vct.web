@@ -13,21 +13,9 @@
 <div>Patient id: <span tal:content="python:context.id" /></div>
 <div>Patient name: <span tal:content="python:context.name" /></div>
 
+<a href="../list">List</a> -
 <a href="edit">Edit</a> - 
-<a href="../list">List</a>
-
-<h1>Medical Items</h1>
-
-<ul>
-  <tal:block repeat="item items">
-    <li>
-      <span>${item.id}</span>
-      <a href="${item.id}/">
-        <span>${item.title}</span>
-      </a>
-    </li>
-  </tal:block>
-</ul>
+<a href="list">Medical Items</a>
 
 </div>
 </body>

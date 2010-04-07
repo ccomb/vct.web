@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal">
+
+<head>
+</head>
+
+<body  metal:define-macro="patient_master" id="test-bg" >
+<div  metal:use-macro="master.macros['master']" id="test-bg" >
+
+<div id="content" metal:fill-slot="content">
+
+<div id="patient_header">
+<b>Patient:</b>
+<a href="..">
+<span tal:content="python:patient.firstname"/>
+<span tal:content="python:patient.name"/>
+</a>
+</div>
+
+<div id="content" metal:define-slot="patient_content">
+
+</div>
+
+</div>
+</div>
+
+<!--
+<div style="clear: both;">&nbsp;</div>
+-->
+
+</body>
+</html>
+
