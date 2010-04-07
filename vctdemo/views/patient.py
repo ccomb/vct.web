@@ -74,6 +74,7 @@ def view(context, request):
     return {'request':request,
             'master': get_template('templates/master.pt'),
             'logged_in': authenticated_userid(request),
+            'items': context.values(),
             'context':context}
 
 

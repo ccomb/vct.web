@@ -16,6 +16,19 @@
 <a href="edit">Edit</a> - 
 <a href="../list">List</a>
 
+<h1>Medical Items</h1>
+
+<ul>
+  <tal:block repeat="item items">
+    <li>
+      <span>${item.id}</span>
+      <a href="${item.id}/">
+        <span>${item.title}</span>
+      </a>
+    </li>
+  </tal:block>
+</ul>
+
 </div>
 </body>
 </html>
