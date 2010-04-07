@@ -27,7 +27,7 @@
 <span>There are ${number} results</span>
 <ul>
   <li tal:repeat="item results">
-    <a href="${item.id}/">${item.name}</a>
+    <a href="${item.id}/">${item.title}</a>
   </li>
 </ul>
 </div>

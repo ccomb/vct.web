@@ -14,7 +14,7 @@
 
 <div id="patient_header">
 <b>Patient:</b>
-<a href="..">
+<a href=".">
 <span tal:content="python:patient.firstname"/>
 <span tal:content="python:patient.name"/>
 </a>

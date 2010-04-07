@@ -33,7 +33,7 @@ def add(context, request):
         pitem.id = str(id)
         pitem.author = authenticated_userid(request)
         context[str(id)] = pitem
-        catalog = virtual_root(context, request).catalogs['patient_items']
+        catalog = context.catalogs['items']
         catalog.index_doc(id, pitem)
         return HTTPFound(location=model_url(pitem, request))
     return {'request':request,
@@ -52,7 +52,7 @@ def search(context, request):
     for field in form.render_fields:
         getattr(form, field).set(required=False)
     form = form.bind(pitem, data=request.POST or None)
-    catalog = virtual_root(context, request).catalogs['patient_items']
+    catalog = context.catalogs['items']
     number, results = None, {}
     errors = None
     if request.POST and form.validate():
@@ -93,7 +93,7 @@ def edit(context, request):
     if request.POST and form.validate():
         request.POST.pop('PatientItem--id', None)
         form.sync()
-        catalog = virtual_root(context, request).catalogs['patient_items']
+        catalog = context.__parent__.catalogs['items']
         catalog.reindex_doc(int(context.id), context)
         return HTTPFound(location=model_url(context, request))
     return {'context': context,

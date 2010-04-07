@@ -4,6 +4,9 @@ from repoze.bfg.security import authenticated_userid
 from repoze.bfg.traversal import virtual_root
 from repoze.bfg.url import model_url
 from repoze.bfg.view import static
+from repoze.catalog.catalog import Catalog
+from repoze.catalog.indexes.text import CatalogTextIndex
+from repoze.folder import Folder
 from vctdemo import models
 from webob.exc import HTTPFound
 
@@ -32,6 +35,12 @@ def add(context, request):
         context[str(id)] = patient
         catalog = virtual_root(context, request).catalogs['patients']
         catalog.index_doc(id, patient)
+        # create a catalog for the patient
+        patient.catalogs = Folder()
+        if 'items' not in patient.catalogs:
+            patient.catalogs['items'] = Catalog()
+            patient.catalogs['items']['title'] = CatalogTextIndex('title')
+            patient.catalogs['items']['text'] = CatalogTextIndex('text')
         return HTTPFound(location=model_url(patient, request))
     return {'request':request,
             'context':context,

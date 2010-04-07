@@ -26,11 +26,6 @@ def appmaker(zodb_root):
         zodb_root['app_root'].catalogs['patients']['firstname'] = CatalogTextIndex('firstname')
         zodb_root['app_root'].catalogs['patients']['name'] = CatalogTextIndex('name')
         import transaction; transaction.commit()
-    if 'patient_items' not in zodb_root['app_root'].catalogs:
-        zodb_root['app_root'].catalogs['patient_items'] = Catalog()
-        zodb_root['app_root'].catalogs['patient_items']['title'] = CatalogTextIndex('title')
-        zodb_root['app_root'].catalogs['patient_items']['text'] = CatalogTextIndex('text')
-        import transaction; transaction.commit()
     if 'patients' not in zodb_root['app_root']:
         zodb_root['app_root']['patients'] = PatientContainer()
         zodb_root['app_root']['patients'].__parent__ = zodb_root['app_root']

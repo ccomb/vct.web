@@ -15,7 +15,8 @@
 
 <a href="../list">List</a> -
 <a href="edit">Edit</a> - 
-<a href="list">Medical Items</a>
+<a href="list">Medical Items List</a> -
+<a href="search">Medical Items Search</a>
 
 </div>
 </body>
