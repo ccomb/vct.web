@@ -25,6 +25,8 @@ def appmaker(zodb_root):
         zodb_root['app_root'].catalogs['patients']['id'] = CatalogFieldIndex('id')
         zodb_root['app_root'].catalogs['patients']['firstname'] = CatalogTextIndex('firstname')
         zodb_root['app_root'].catalogs['patients']['name'] = CatalogTextIndex('name')
+        zodb_root['app_root'].catalogs['patients']['birthdate'] = CatalogTextIndex('birthdate')
+        zodb_root['app_root'].catalogs['patients']['sex'] = CatalogTextIndex('sex')
         import transaction; transaction.commit()
     if 'patients' not in zodb_root['app_root']:
         zodb_root['app_root']['patients'] = PatientContainer()
@@ -39,13 +41,15 @@ class PatientContainer(Folder):
 
 
 class IPatient(Interface):
-    id = TextLine(title=u'Id', description=u'Identifier of the patient')
-    name = TextLine(title=u'Name', description=u'Name of the patient')
-    firstname = TextLine(title=u'First Name', description=u'First Name of the patient')
+    id = TextLine(title=u'Identification nr')
+    name = TextLine(title=u'Name')
+    firstname = TextLine(title=u'First Name')
+    birthdate = TextLine(title=u'Birthdate')
+    sex = TextLine(title=u'Sex')
 
 class Patient(Folder):
     implements(IPatient)
-    firstname = name = id = None
+    id = name = firstname = birthday = sex = None
 
 class IItem(Interface):
     """an item

@@ -11,40 +11,9 @@
  alink="#ee0000" link="#0000ee" vlink="#551a8b">
 <body id= "patient-search-f">
 -->
-<body id="test-bg">
 
-
-<div id="user" metal:define-macro="user_macro">
-  <table border= "1"  style="text-align: left; width: 100%"><tbody>
-     <tr><td>
-         <div id="user_ID">
-             User = ........ / organization <br/>
-         </div>
-         <div id="user_menu">
-             <table id="usermenu" border= "1"  style="text-align: left; width: 100%;"><tbody>
-                <tr>
-                <td><a href="/patients_old/patient_search">Patient Search</a>
-                <!--
-                <a href="/patients_old/patient_search"></a>Patient</a>
-                -->
-                <a href="static/Help/Patient-Help.html">(?)</a> 
-                <br/><a href="/patients_old/patient_groups">Group</a> = ........ 
-                   -- <a href="/patients_old/current_patient">Previous </a>
-                   -- Next
-                </td>
-                <td><a href="/patients_old/todo_help">My tasks <br/>and Agenda</a></td>
-                <td><a href="/patients_old/notification_help">Incoming <br/>Notifications</a></td>
-                <td>Administration: <br/>
-                    <a href="/patients_old/user_preferences"> Preferences</a><br/>
-                    <a href="/patients_old/test">Test menu</a></td>        
-                <td><a href="/">Close<br/>Session</a></td>
-                </tr>
-            </tbody></table>
-         </div>
-     </td></tr>
-    </tbody></table>
-</div>
-
+<body  id="test-bg" metal:use-macro="master.macros['master']">
+<div id="content" metal:fill-slot="content">
 
 
 <h3>User Preferences</h3>
@@ -119,6 +88,6 @@
   </table>
   <br />
 </form>
-
+</div>
 </body>
 </html>

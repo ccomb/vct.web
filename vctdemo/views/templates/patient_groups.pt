@@ -13,7 +13,12 @@
 <table style="text-align: left; width: 60%; background-color: #EEEEEE" border="1" cellpadding="2"
  cellspacing="2"><tbody>
     <tr>
-      <td style="vertical-align: top;">Criticals</td>
+      <td style="vertical-align: top;">Current Session History</td>
+      <td style="vertical-align: top;">10<br />
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">Critical Patients</td>
       <td style="vertical-align: top;">2<br />
       </td>
     </tr>

@@ -17,7 +17,11 @@ def index(context, request):
 
 
 def test_view(context, request):
-    return {'request':request, 'context':context}
+    return {'request':request
+        ,'context':context
+        ,'master': get_template('templates/master.pt')
+        ,'logged_in': authenticated_userid(request)
+        }
 
 def patient_groups(context, request):
     return {'request':request, 'context':context}
@@ -62,7 +66,11 @@ def notification_help(context, request):
     return {'request':request, 'context':context}
 
 def user_preferences(context, request):
-    return {'request':request, 'context':context}
+    return {'request':request
+        ,'context':context
+        ,'master': get_template('templates/master.pt')
+        ,'logged_in': authenticated_userid(request)
+        }
 
 
 

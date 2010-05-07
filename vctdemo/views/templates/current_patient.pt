@@ -14,38 +14,6 @@
 -->
 
 
-<div id="user" metal:define-macro="user_macro">
-  <table border= "1"  style="text-align: left; width: 100%"><tbody>
-     <tr><td>
-         <div id="user_ID">
-             User = ........ / organization <br/>
-         </div>
-         <div id="user_menu">
-             <table id="usermenu" border= "1"  style="text-align: left; width: 100%;"><tbody>
-                <tr>
-                <td><a href="/patients_old/patient_search">Patient Search</a>
-                <!--
-                <a href="/patients_old/patient_search"></a>Patient</a>
-                -->
-                <a href="static/Help/Patient-Help.html">(?)</a> 
-                <br/><a href="/patients_old/patient_groups">Group</a> = ........ 
-                   -- <a href="/patients_old/current_patient">Previous </a>
-                   -- Next
-                </td>
-                <td><a href="/patients_old/todo_help">My tasks <br/>and Agenda</a></td>
-                <td><a href="/patients_old/notification_help">Incoming <br/>Notifications</a></td>
-                <td>Administration: <br/>
-                    <a href="/patients_old/user_preferences"> Preferences</a><br/>
-                    <a href="/patients_old/test">Test menu</a></td>        
-                <td><a href="/">Close<br/>Session</a></td>
-                </tr>
-            </tbody></table>
-         </div>
-     </td></tr>
-    </tbody></table>
-</div>
-
-
 
 
 <div id="patient">
@@ -71,7 +39,7 @@
                  <td style="vertical-align: top;">
                      <a href="/patients_old/care_team">Care Team</a></td>
                  <td style="vertical-align: top;">
-                     <a href="/patients_old/patient_administration">Administration</a></td>
+                     Administration</td>
                  <td style="vertical-align: top;">
                      <a href="/patients_old/user_session">Close Patient</a></td>
                 </tr>

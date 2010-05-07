@@ -22,18 +22,18 @@
              <table id="usermenu" border= "1"  style="text-align: left; width: 100%;"><tbody>
                 <tr>
                 <td>
-                <a href="/patients/search">Patient Search</a>
-                <a href="/patients/list">Patient List</a>
-                <a href="/help/patient_help.html">(?)</a>
-                <br/><a href="/patients_old/patient_groups">Group</a> = ........
-                   -- <a href="/patients_old/current_patient">Previous </a>
+                <a href="/patients/search">Patient Search </a>
+                <a href="/help/patient_help.html">(?) </a>
+                <a href="/patients/list">(Test-Group) </a>
+                <a href="/patients_old/patient_groups">Groups </a>
+                <br/><a href="/patients_old/current_patient">Previous </a>
                    -- Next
                 </td>
-                <td><a href="/patients_old/todo_help">My tasks <br/>and Agenda</a></td>
-                <td><a href="/notification_help">Incoming <br/>Notifications</a></td>
-                <td>Administration: <br/>
-                    <a href="/patients_old/user_preferences"> Preferences</a><br/>
-                    <a href="/patients_old/test">Test menu</a></td>
+                <td><a href="/help/todo_help.html">My tasks and Agenda</a></td>
+                <td><a href="/help/notification_help.html">Incoming Notifications</a></td>
+                <td>
+                    <a href="/patients_old/user_preferences"> Preferences </a>
+                    <a href="/patients_old/test">Tests</a></td>
                 <td><span tal:condition="logged_in">
                        <a href="${request.application_url}/logout">Logout</a>
                     </span>

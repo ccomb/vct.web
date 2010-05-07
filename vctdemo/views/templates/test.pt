@@ -3,42 +3,42 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>test - Virtual Care Team</title>
+<title>Test - Virtual Care Team</title>
 <link href="${request.application_url}/static/default.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body>
-<div metal:use-macro="user_macro">
-<h1>Tests in Virtual Care Team</h1>
-
+<body  metal:use-macro="master.macros['master']">
+<div id="content" metal:fill-slot="content">
+<h4>Tests in Virtual Care Team</h4>
 <ul>
-<li><a href="http://docs.repoze.org/bfg/current/">BFG, </a></li>
-<li><a href="/patients_old/list">Patient list</a></li>
-<li><a href="/patients_old/add">Add a patient</a></li>
-<li><a href="/patients_old/patient_search">Search a PatientRecord</a></li>
-<li><a href="/patients_old/patient_menu">Patient Menu</a></li>
-<li>TEST OF PATHOLOGY INTEGRATION
-    <table style="width: 100%;" border="1">
-  <tbody>
-    <tr>
-      <td style="vertical-align: top; height: 100%; width: 300px;">
-      xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx <br/>
+<li><a href="http://docs.repoze.org/bfg/current/">BFG</a>
+<br/>======================================================================
+</li>
+<li>Pathology:  preliminary test:<br/>
 <!--
+ height: 100%; width: 300px;
+ 
     <object 
         style="width: 800px; height: 800px;" 
         data="http://telemed.ipath.ch/ipath/object/view/273721&user=saliez" >
         embedded test application not found
     </object>
+
+width: 300px;        style="width: 600px; height: 400px;" 
 -->
-    <img 
-        style="width: 600px; height: 400px;" 
-        src="05-dsc05395.jpg"  alt="embedded image not found" />
-      <br />
-      xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-      </td>
-    </tr>
-  </tbody>
-</table>
+    Image 1 : <br/>
+    <img style="width: 100%;"
+        src="/static/pathology_1.jpg"  
+        alt="( image 1 not found )" />
+    <br/>Image 2 : <br/>
+    <img  style="width: 100%;"
+        src="/static/pathology_2.jpg"  
+        alt="( image 2 not found )" />
+    <p>Our preliminary diagnosis: <br/>A triple negative salivary gland-like breast cancer (possibly solid variant/high grade adenoid cystic carcinoma of the breast?)  
+Would like to hear your opinion. Thanks.</p>
+<br/>======================================================================
+</li>
+<li>.....
 </li>
 </ul>
 </div>

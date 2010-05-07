@@ -11,22 +11,22 @@
 <body metal:use-macro="master.macros['master']">
 
 <div id="content" metal:fill-slot="content">
-<h1>Patient List</h1>
-
-Patient list
+<h3>Generic test group</h3>
 
 <ul>
   <tal:block repeat="patient patients">
     <li>
-      <span>${patient.id}</span>
       <a href="${patient.id}/">
-        <span>${patient.name}</span>
+        <span>${patient.id}, 
+        ${patient.name},
+        ${patient.firstname},
+        ${patient.birthdate}, 
+        ${patient.sex}
+        </span>
       </a>
     </li>
   </tal:block>
 </ul>
-
-<a href="add">Add a patient</a>
 
 </div>
 
