@@ -14,6 +14,7 @@
 <div>Item title: <span tal:content="python:context.title" /></div>
 <div>Item text: <span tal:content="python:context.text" /></div>
 <div>Item status: <span tal:content="python:context.status" /></div>
+<div><img src="image" width="800" alt="image" /></div>
 
 <a href="edit">Edit</a> - 
 <a href="../list">Back to the List</a>

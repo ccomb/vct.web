@@ -7,6 +7,7 @@ from repoze.bfg.url import model_url
 from repoze.bfg.view import static, render_view
 from vctdemo import models
 from webob.exc import HTTPFound
+from webob import Response
 import datetime
 
 def listview(context, request):
@@ -115,4 +116,10 @@ def edit(context, request):
             'logged_in': authenticated_userid(request),
             'form': form}
 
+
+def image(context, request):
+    response = Response(context.image)
+    # XXX
+    response.headers['Content-Type'] = 'image/jpg'
+    return response
 

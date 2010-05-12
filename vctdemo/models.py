@@ -6,7 +6,7 @@ from repoze.catalog.indexes.field import CatalogFieldIndex
 from repoze.catalog.indexes.text import CatalogTextIndex
 from repoze.folder import Folder
 from zope.interface import Interface, implements
-from zope.schema import TextLine, Int, Text, Datetime
+from zope.schema import TextLine, Int, Text, Datetime, Bytes
 
 class VctRoot(Folder):
     __parent__ = __name__ = None
@@ -89,11 +89,12 @@ class Issue(PatientItem):
 
 class IAction(IPatientItem):
     status = TextLine(title=u"status", description=u"status of the action")
+    image = Bytes(title=u"attached file", description=u"attached file")
 
 
 class Action(PatientItem):
     implements(IAction)
-    status = None
+    status = image = None
 
 
 class IRelation(PatientItem):
