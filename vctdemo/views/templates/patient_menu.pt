@@ -7,13 +7,40 @@
 <link href="${request.application_url}/static/default.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<h3>Patient Menu</h3>
 
-<ul>
-<li><a href="/patients_old/observations">Observations</a></li>
-<li><a href="/patients_old/problems">Problems</a></li>
-<li><a href="/patients_old/actions">Actions</a></li>
-</ul>
+<div id="patient">
+  <table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2"><tbody>
+    <tr>
+      <td style="vertical-align: top;">
+          <div id= "patient_ID">
+              Patient= <span style="font-weight: bold;">1234567 - SMITH Mary, F, 1 Jan 1950,
+              </span> addr: Bridge Street 11, CityOne, .........  <br /> 
+          </div>         
+          <div id="patient_menu">
+              <table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2"><tbody>
+                <tr>
+                 <td style="vertical-align: top;">
+                     Facts: 
+                     <a href="/patients_old/event_list">Events</a> - 
+                     <a href="/patients_old/topics">Topics</a> - 
+                     <u>Other Views</u></td>
+                 <td style="vertical-align: top;">
+                     <a href="/patients_old/problem_list">Health Issues</a></td>
+                 <td style="vertical-align: top;">
+                     <a href="/patients_old/care_plan">Care Plan</a></td>
+                 <td style="vertical-align: top;">
+                     <a href="/patients_old/care_team">Care Team</a></td>
+                 <td style="vertical-align: top;">
+                     Administration</td>
+                 <td style="vertical-align: top;">
+                     <a href="/patients_old/user_session">Close Patient</a></td>
+                </tr>
+              </tbody></table>
+          </div>
+      </td>
+    </tr>
+  </tbody></table>
+</div>
 
 </body>
 </html>

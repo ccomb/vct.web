@@ -153,14 +153,14 @@
     view=".views.index.patient_group"
     renderer="views/templates/patient_group.pt"
     />
-
+<!--
   <route
     path="patients_old/patient_ID_validation"
     name="patient ID validation"
     view=".views.index.patient_ID_validation"
     renderer="views/templates/patient_ID_validation.pt"
     />
-
+-->
   <route
     path="patients_old/current_patient"
     name="current patient"

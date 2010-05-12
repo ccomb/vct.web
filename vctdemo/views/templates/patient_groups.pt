@@ -7,7 +7,8 @@
   <link href="${request.application_url}/static/default.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body>
+<body metal:use-macro="master.macros['master']">
+<div id="content" metal:fill-slot="content">
 
 <h3>Examples of Groups of Patients</h3>
 <table style="text-align: left; width: 60%; background-color: #EEEEEE" border="1" cellpadding="2"
@@ -119,5 +120,6 @@ groups could be defined ) .....................<br />
       </td>
     </tr>
   </tbody></table>
+</div>
 </body>
 </html>

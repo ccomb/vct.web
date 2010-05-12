@@ -12,7 +12,7 @@
 <h4>Tests in Virtual Care Team</h4>
 <ul>
 <li><a href="http://docs.repoze.org/bfg/current/">BFG</a>
-<br/>======================================================================
+<br/>======================================================================<br/>
 </li>
 <li>Pathology:  preliminary test:<br/>
 <!--
@@ -36,7 +36,13 @@ width: 300px;        style="width: 600px; height: 400px;"
         alt="( image 2 not found )" />
     <p>Our preliminary diagnosis: <br/>A triple negative salivary gland-like breast cancer (possibly solid variant/high grade adenoid cystic carcinoma of the breast?)  
 Would like to hear your opinion. Thanks.</p>
-<br/>======================================================================
+<br/>======================================================================<br/>
+</li>Radiology:<br/>
+    <img  style="width: 100%;"
+        src="/static/RX_Thor_L.gif" alt="( image RX not found )" />
+<li>
+<br/>======================================================================<br/>
+
 </li>
 <li>.....
 </li>

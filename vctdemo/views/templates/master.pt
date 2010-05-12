@@ -16,26 +16,31 @@
   <table border= "1"  style="text-align: left; width: 100%"><tbody>
      <tr><td>
          <div id="user_ID">
-             User = ${logged_in} / organization <br/>
+             User = ${logged_in} / organization of the user <br/>
          </div>
          <div id="user_menu">
              <table id="usermenu" border= "1"  style="text-align: left; width: 100%;"><tbody>
                 <tr>
                 <td>
                 <a href="/patients/search">Patient Search </a>
-                <a href="/help/patient_help.html">(?) </a>
-                <a href="/patients/list">(Test-Group) </a>
-                <a href="/patients_old/patient_groups">Groups </a>
-                <br/><a href="/patients_old/current_patient">Previous </a>
-                   -- Next
+                <a href="/help/patient_help.html">
+                <img style="border: 0px" src="/static/Help.png" alt="(Help)"/></a>
+
+                 - <a href="/patients_old/patient_groups">Groups </a>
+                <img style="border: 0px" src="/static/arrow_left.png" alt="(Previous)"/>
+                <a href="/patients/list">Current Group </a>
+                 <img style="border: 0px" src="/static/arrow_right.png" alt="(Next)"/>
+                 - <a href="/patients_old/current_patient">Test</a>
                 </td>
-                <td><a href="/help/todo_help.html">My tasks and Agenda</a></td>
-                <td><a href="/help/notification_help.html">Incoming Notifications</a></td>
+                <td><a href="/help/todo_help.html">Tasks and Agenda</a>
+                <img style="border: 0px" src="/static/Help.png" alt="(Help)"/></td>
+                <td><a href="/help/notification_help.html">Incoming Notifications 
+                <img style="border: 0px" src="/static/Help.png" alt="(Help)"/></a></td>
                 <td>
-                    <a href="/patients_old/user_preferences"> Preferences </a>
+                    <a href="/patients_old/user_preferences">Preferences</a>, 
                     <a href="/patients_old/test">Tests</a></td>
                 <td><span tal:condition="logged_in">
-                       <a href="${request.application_url}/logout">Logout</a>
+                       <a href="${request.application_url}/logout"><img style="border: 0px" src="/static/exit_small.png" alt="(Exit)"/></a>
                     </span>
                 </td>
                 </tr>
