@@ -15,10 +15,12 @@
     path="views/templates/static"
     />
 
-<static
+<view
+    context=".models.VctRoot"
+    view=".views.help.help_view"
     name="help"
-    path="views/templates/help"
     />
+
 
 <!-- ROOT -->
 <view
