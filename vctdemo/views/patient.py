@@ -9,6 +9,7 @@ from repoze.catalog.indexes.text import CatalogTextIndex
 from repoze.folder import Folder
 from vctdemo import models
 from webob.exc import HTTPFound
+import urllib
 
 def list(context, request):
     patients = context.values()
@@ -24,7 +25,7 @@ def add(context, request):
     form = FieldSet(models.IPatient)
     form.configure(exclude=[form.id])
     form.id.set(required=False)
-    form = form.bind(patient, data=request.POST or None)
+    form = form.bind(patient, data=request.POST if len(request.POST) else request.GET)
     if request.POST and form.validate():
         request.POST.pop('Patient--id', None)
         form.sync()
@@ -73,6 +74,7 @@ def search(context, request):
             number, results = 0, {}
         results = [context[i] for i in dict(results).keys()]
     return {'request':request,
+            'add_data': urllib.urlencode(request.POST),
             'context':context,
             'master': get_template('templates/master.pt'),
             'logged_in': authenticated_userid(request),
