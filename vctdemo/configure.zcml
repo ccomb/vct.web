@@ -41,7 +41,7 @@
     />
 <view
     context=".models.PatientContainer"
-    view=".views.patient.list"
+    view=".views.patient.listview"
     name="list"
     renderer="views/templates/patient_list.pt"
     permission="view"
@@ -84,8 +84,15 @@
     permission="view"
     />
 <view
+    context=".models.Action"
+    view=".views.patient_item.view"
+    name=""
+    renderer="views/templates/patient_action_view.pt"
+    permission="view"
+    />
+<view
     context=".models.Patient"
-    view=".views.patient_item.list"
+    view=".views.patient_item.listview"
     name="list"
     renderer="views/templates/patient_item_list.pt"
     permission="view"

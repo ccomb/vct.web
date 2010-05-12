@@ -54,7 +54,7 @@ width: 6em;
 }
 
 
-textarea#PatientItem--text {
+textarea#PatientItem--text, textarea#Action--text {
 width: 80%;
 height: 20em;
 }

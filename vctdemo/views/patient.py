@@ -11,7 +11,7 @@ from vctdemo import models
 from webob.exc import HTTPFound
 import urllib
 
-def list(context, request):
+def listview(context, request):
     patients = context.values()
     return {'request':request,
             'context':context,

@@ -45,11 +45,13 @@ class IPatient(Interface):
     name = TextLine(title=u'Name')
     firstname = TextLine(title=u'First Name')
     birthdate = TextLine(title=u'Birthdate')
-    sex = TextLine(title=u'Sex')
+    sex = TextLine(title=u'Sex', required=False)
+
 
 class Patient(Folder):
     implements(IPatient)
     id = name = firstname = birthdate = sex = None
+
 
 class IItem(Interface):
     """an item
@@ -57,6 +59,7 @@ class IItem(Interface):
     id = TextLine(title=u'Id', description=u'Identifier of the item')
     author = TextLine(title=u'Author', description=u'The author of the item')
     #version = Int(title=u'Version', description=u'The version of the item')
+
 
 class IPatientItem(Interface):
     date = Datetime(title=u'Date, time', description=u'Date and time')
@@ -71,25 +74,32 @@ class PatientItem(Folder):
 class IObservation(IPatientItem):
     pass
 
+
 class Observation(PatientItem):
     implements(IObservation)
+
 
 class IIssue(IPatientItem):
     pass
 
+
 class Issue(PatientItem):
     implements(IIssue)
 
+
 class IAction(IPatientItem):
-    pass
+    status = TextLine(title=u"status", description=u"status of the action")
+
 
 class Action(PatientItem):
     implements(IAction)
+    status = None
 
 
 class IRelation(PatientItem):
     """the relation between medical items
     """
+
 
 class Relation(object):
     pass

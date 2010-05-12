@@ -48,6 +48,7 @@
                  <td style="vertical-align: top;">
                      <a href="/edit">Administration</a></td>
                  <td><a href="add">Add item</a></td>
+                 <td><a href="add?type=Action">Add action</a></td>
                  <td>Add link</td>
                  <td style="vertical-align: top;">
                      <a href="/">Close Patient</a></td>

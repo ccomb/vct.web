@@ -1,5 +1,6 @@
 from formalchemy.ext.zope import FieldSet
-from repoze.bfg.chameleon_zpt import get_template
+from os.path import join
+from repoze.bfg.chameleon_zpt import get_template, render_template_to_response
 from repoze.bfg.security import authenticated_userid
 from repoze.bfg.traversal import virtual_root
 from repoze.bfg.url import model_url
@@ -8,21 +9,30 @@ from vctdemo import models
 from webob.exc import HTTPFound
 import datetime
 
-def list(context, request):
+def listview(context, request):
     items = context.values()
     return {'request':request,
             'context':context,
             'master': get_template('templates/master.pt'),
             'logged_in': authenticated_userid(request),
             'patient':context,
-            'patient_master': get_template('templates/patient_master.pt'),
+            'patient_master': get_template(join('templates', 'patient_master.pt')),
             'items':items}
 
 
 def add(context, request):
-    pitem = models.PatientItem()
+
+    item_type = request.GET.get('type')
+    if item_type is not None and item_type=='Action':
+        pitem = models.Action()
+        item_interface = models.IAction
+        template = 'patient_action_add.pt'
+    else:
+        pitem = models.PatientItem()
+        item_interface = models.IPatientItem
+        template = 'patient_item_add.pt'
     pitem.date = datetime.datetime.now()
-    form = FieldSet(models.IPatientItem)
+    form = FieldSet(item_interface)
     form = form.bind(pitem, data=request.POST or None)
     if request.POST and form.validate():
         request.POST.pop('PatientItem--id', None)
@@ -36,13 +46,14 @@ def add(context, request):
         catalog = context.catalogs['items']
         catalog.index_doc(id, pitem)
         return HTTPFound(location=model_url(pitem, request))
-    return {'request':request,
-            'context':context,
-            'patient':context,
-            'patient_master': get_template('templates/patient_master.pt'),
-            'master': get_template('templates/master.pt'),
-            'logged_in': authenticated_userid(request),
-            'form': form}
+    return render_template_to_response(join('templates', template),
+            request=request,
+            context=context,
+            patient=context,
+            patient_master=get_template(join('templates', 'patient_master.pt')),
+            master=get_template(join('templates', 'master.pt')),
+            logged_in=authenticated_userid(request),
+            form=form)
 
 
 def search(context, request):
