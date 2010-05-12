@@ -31,7 +31,9 @@
 </ul>
 </div>
 
+<div tal:condition="python: searched is not None">
 <a href="add">Add a patient</a>
+</div>
 
 </div>
 </body>

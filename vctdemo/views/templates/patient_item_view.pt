@@ -15,7 +15,7 @@
 <div>Item text: <span tal:content="python:context.text" /></div>
 
 <a href="edit">Edit</a> - 
-<a href="../list">List</a>
+<a href="../list">Back to the List</a>
 
 </div>
 </body>

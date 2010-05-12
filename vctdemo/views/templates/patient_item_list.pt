@@ -11,7 +11,6 @@
 <body metal:use-macro="patient_master.macros['patient_master']">
 
 <div id="patient_content" metal:fill-slot="patient_content">
-<h1>Item List</h1>
 
 Item list
 
@@ -26,10 +25,7 @@ Item list
   </tal:block>
 </ul>
 
-<a href="add">Add an item</a>
-
 </div>
-
 
 </body>
 </html>

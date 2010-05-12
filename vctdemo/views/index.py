@@ -24,13 +24,18 @@ def test_view(context, request):
         }
 
 def patient_groups(context, request):
-    return {'request':request, 'context':context}
+    return {'request':request, 
+        'context':context,
+        'master': get_template('templates/master.pt'),
+        'logged_in': authenticated_userid(request),
+        }
 
 def patient_group(context, request):
-    return {'request':request, 'context':context}
-
-def patient_ID_validation(context, request):
-    return {'request':request, 'context':context}
+    return {'request':request,
+        'context':context,
+        'master': get_template('templates/master.pt'),
+        'logged_in': authenticated_userid(request)
+        }
 
 def current_patient(context, request):
     return {'request':request, 'context':context}

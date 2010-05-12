@@ -13,7 +13,6 @@
 <div>Patient id: <span tal:content="python:context.id" /></div>
 <div>Patient name: <span tal:content="python:context.name" /></div>
 
-<a href="../list">List</a> -
 <a href="edit">Edit</a> - 
 <a href="list">Medical Items List</a> -
 <a href="search">Medical Items Search</a>

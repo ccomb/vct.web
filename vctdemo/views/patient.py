@@ -53,16 +53,21 @@ def search(context, request):
     form = FieldSet(models.IPatient)
     for field in form.render_fields:
         getattr(form, field).set(required=False)
-    form = form.bind(patient, data=request.POST or None)
+    form = form.bind(patient, data=request.POST or None)  #???
     catalog = virtual_root(context, request).catalogs['patients']
+
+    #print "name : ", request.params[name]
+
     number, results = None, {}
     errors = None
+    searched = None
     if request.POST and form.validate():
         data = dict([(id,field.value)
                      for (id,field) in form.render_fields.items()
                      if field.value])
         try:
             number, results = catalog.search(**data) # XXX
+            searched = True
         except Exception, r:
             errors = r
             number, results = 0, {}
@@ -73,6 +78,7 @@ def search(context, request):
             'logged_in': authenticated_userid(request),
             'form': form,
             'number': number,
+            'searched':searched,
             'errors': errors,
             'results': results}
 

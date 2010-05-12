@@ -9,9 +9,9 @@
 
 <body  metal:define-macro="patient_master" id="test-bg" >
 <div  metal:use-macro="master.macros['master']" id="test-bg" >
-
 <div id="content" metal:fill-slot="content">
 
+<!--
 <div id="patient_header">
 <b>Patient:</b>
 <a href=".">
@@ -19,6 +19,46 @@
 <span tal:content="python:patient.name"/>
 </a>
 </div>
+-->
+
+<div id="patient">
+  <table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="0"><tbody>
+    <tr>
+      <td style="vertical-align: top;">
+          <div id= "patient_ID">
+              Patient= 
+              <span style="font-weight: bold;" tal:content="python:patient.firstname"/>
+              <span style="font-weight: bold;" tal:content="python:patient.name"/>
+              <br /> 
+          </div>         
+          <div id="patient_menu">
+              <table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2"><tbody>
+                <tr>
+                 <td style="vertical-align: top;">
+                     <a href="/patients_old/problem_list">Health Issues</a></td>
+                 <td style="vertical-align: top;">
+                     <a href="/patients_old/event_list">Events</a> - 
+                     <a href="/patients_old/topics">Topics</a> - 
+                     </td>
+                 <td style="vertical-align: top;">
+                     <a href="/patients_old/care_plan">Care Plan</a></td>
+                 <td style="vertical-align: top;">
+                     <a href="/patients_old/care_team">Care Team</a></td>
+                 <td>Other Views</td>
+                 <td style="vertical-align: top;">
+                     <a href="/edit">Administration</a></td>
+                 <td><a href="add">Add item</a></td>
+                 <td>Add link</td>
+                 <td style="vertical-align: top;">
+                     <a href="/">Close Patient</a></td>
+                </tr>
+              </tbody></table>
+          </div>
+      </td>
+    </tr>
+  </tbody></table>
+</div>
+
 
 <div id="content" metal:define-slot="patient_content">
 
