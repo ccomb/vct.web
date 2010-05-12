@@ -10,6 +10,7 @@ requires = [
     'repoze.bfg',
     'repoze.zodbconn',
     'repoze.tm',
+    'repoze.browserid',
     'ZODB3',
     'repoze.folder',
     'FormAlchemy',

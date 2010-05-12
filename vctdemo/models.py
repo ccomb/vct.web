@@ -49,7 +49,7 @@ class IPatient(Interface):
 
 class Patient(Folder):
     implements(IPatient)
-    id = name = firstname = birthday = sex = None
+    id = name = firstname = birthdate = sex = None
 
 class IItem(Interface):
     """an item
