@@ -4,7 +4,7 @@ from repoze.bfg.chameleon_zpt import get_template, render_template_to_response
 from repoze.bfg.security import authenticated_userid
 from repoze.bfg.traversal import virtual_root
 from repoze.bfg.url import model_url
-from repoze.bfg.view import static
+from repoze.bfg.view import static, render_view
 from vctdemo import models
 from webob.exc import HTTPFound
 import datetime
@@ -16,6 +16,7 @@ def listview(context, request):
             'master': get_template('templates/master.pt'),
             'logged_in': authenticated_userid(request),
             'patient':context,
+            'render_view': render_view,
             'patient_master': get_template(join('templates', 'patient_master.pt')),
             'items':items}
 
@@ -95,7 +96,6 @@ def view(context, request):
             'patient':context.__parent__,
             'patient_master': get_template('templates/patient_master.pt'),
             'context':context}
-
 
 
 def edit(context, request):

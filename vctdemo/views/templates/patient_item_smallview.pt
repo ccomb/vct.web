@@ -1,0 +1,7 @@
+<div class="smallview item">
+ITEM: 
+<span> ${context.id}</span>
+<a href="${context.id}/">
+<span>${context.title}</span>
+      </a>
+</div>

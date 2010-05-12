@@ -1,0 +1,8 @@
+<div class="smallview action">
+ACTION: 
+<span> ${context.id}</span>
+<a href="${context.id}/">
+<span>${context.title}</span>
+</a>
+(status = ${context.status})
+</div>

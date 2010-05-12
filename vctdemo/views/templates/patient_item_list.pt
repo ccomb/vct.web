@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:tal="http://xml.zope.org/namespaces/tal">
-      
+
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>Item list</title>
@@ -17,10 +17,7 @@ Item list
 <ul>
   <tal:block repeat="item items">
     <li>
-      <span>${item.id}</span>
-      <a href="${item.id}/">
-        <span>${item.title}</span>
-      </a>
+        <tal:block content="structure python:render_view(item, request, name='smallview')" />
     </li>
   </tal:block>
 </ul>

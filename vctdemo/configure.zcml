@@ -84,10 +84,24 @@
     permission="view"
     />
 <view
+    context=".models.PatientItem"
+    view=".views.patient_item.view"
+    name="smallview"
+    renderer="views/templates/patient_item_smallview.pt"
+    permission="view"
+    />
+<view
     context=".models.Action"
     view=".views.patient_item.view"
     name=""
     renderer="views/templates/patient_action_view.pt"
+    permission="view"
+    />
+<view
+    context=".models.Action"
+    view=".views.patient_item.view"
+    name="smallview"
+    renderer="views/templates/patient_action_smallview.pt"
     permission="view"
     />
 <view

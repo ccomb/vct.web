@@ -58,3 +58,15 @@ textarea#PatientItem--text, textarea#Action--text {
 width: 80%;
 height: 20em;
 }
+
+.smallview {
+border: solid 1px grey;
+padding: 5px;
+margin: 5px;
+}
+.action {
+background: #FEF;
+}
+.item {
+background: #FFE;
+}
