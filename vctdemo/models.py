@@ -6,7 +6,7 @@ from repoze.catalog.indexes.field import CatalogFieldIndex
 from repoze.catalog.indexes.text import CatalogTextIndex
 from repoze.folder import Folder
 from zope.interface import Interface, implements
-from zope.schema import TextLine, Int, Text, Datetime, Bytes
+from zope.schema import TextLine, Int, Text, Datetime, Bytes, Password
 
 class VctRoot(Folder):
     __parent__ = __name__ = None
@@ -51,6 +51,7 @@ class UserContainer(Folder):
 
 class IUser(Interface):
     username = TextLine(title=u'User name')
+    password = Password(title=u'password')
 
 
 class User(Persistent):
