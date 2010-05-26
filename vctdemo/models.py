@@ -1,3 +1,4 @@
+from persistent.list import PersistentList
 from persistent import Persistent
 from repoze.bfg.security import Allow
 from repoze.catalog.catalog import Catalog
@@ -6,11 +7,13 @@ from repoze.catalog.indexes.field import CatalogFieldIndex
 from repoze.catalog.indexes.text import CatalogTextIndex
 from repoze.folder import Folder
 from zope.interface import Interface, implements
-from zope.schema import TextLine, Int, Text, Datetime, Bytes, Password
+from zope.schema import TextLine, Int, Text, Datetime, Bytes, Password, List, Choice
 
 class VctRoot(Folder):
     __parent__ = __name__ = None
-    __acl__ = [ (Allow, 'group:admins', 'view'), (Allow, 'group:admins', 'edit') ]
+    __acl__ = [ (Allow, 'group:admins', 'view'),
+                (Allow, 'group:admins', 'edit'),
+                (Allow, 'group:users', 'view') ]
 
 
 
@@ -48,15 +51,20 @@ def appmaker(zodb_root):
 class UserContainer(Folder):
     pass
 
+from vctdemo.security import GROUPS
 
 class IUser(Interface):
     username = TextLine(title=u'User name')
     password = Password(title=u'password')
+    groups = List(title=u'groups', value_type=Choice(title=u'group', values=GROUPS))
 
 
 class User(Persistent):
     implements(IUser)
-    username = None
+    username = password = groups = None
+
+    def __init__(self):
+        self.group = PersistentList()
 
 
 # TODO : rename Patient to Record

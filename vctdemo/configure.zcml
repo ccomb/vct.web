@@ -54,7 +54,7 @@
     view=".views.user.add"
     name="add"
     renderer="views/templates/user_add.pt"
-    permission="view"
+    permission="edit"
     />
 <view
     context=".models.User"
