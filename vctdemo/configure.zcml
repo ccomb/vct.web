@@ -5,7 +5,10 @@
 
 <authtktauthenticationpolicy
      callback=".security.groupfinder"
-     secret="gfkselklgglskj"/>
+     secret="gfkselklgglskj"
+     timeout="3600"
+     reissue_time="600"
+     />
 
 <aclauthorizationpolicy />
 
