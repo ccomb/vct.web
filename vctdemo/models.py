@@ -20,6 +20,10 @@ def appmaker(zodb_root):
         zodb_root['app_root'] = VctRoot()
         zodb_root['app_root'].catalogs = Folder()
         import transaction; transaction.commit()
+    if 'users' not in zodb_root['app_root'].catalogs:
+        zodb_root['app_root'].catalogs['users'] = Catalog()
+        zodb_root['app_root'].catalogs['users']['username'] = CatalogTextIndex('username')
+        import transaction; transaction.commit()
     if 'patients' not in zodb_root['app_root'].catalogs:
         zodb_root['app_root'].catalogs['patients'] = Catalog()
         zodb_root['app_root'].catalogs['patients']['id'] = CatalogFieldIndex('id')
@@ -33,9 +37,28 @@ def appmaker(zodb_root):
         zodb_root['app_root']['patients'].__parent__ = zodb_root['app_root']
         zodb_root['app_root']['patients'].__name__ = 'patients'
         import transaction; transaction.commit()
+    if 'users' not in zodb_root['app_root']:
+        zodb_root['app_root']['users'] = UserContainer()
+        zodb_root['app_root']['users'].__parent__ = zodb_root['app_root']
+        zodb_root['app_root']['users'].__name__ = 'users'
+        import transaction; transaction.commit()
     return zodb_root['app_root']
 
 
+class UserContainer(Folder):
+    pass
+
+
+class IUser(Interface):
+    username = TextLine(title=u'User name')
+
+
+class User(Persistent):
+    implements(IUser)
+    username = None
+
+
+# TODO : rename Patient to Record
 class PatientContainer(Folder):
     pass
 

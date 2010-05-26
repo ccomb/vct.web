@@ -36,7 +36,7 @@ def add(context, request):
         context[str(id)] = patient
         catalog = virtual_root(context, request).catalogs['patients']
         catalog.index_doc(id, patient)
-        # create a catalog for the patient
+        # create a catalog for the items
         patient.catalogs = Folder()
         if 'items' not in patient.catalogs:
             patient.catalogs['items'] = Catalog()

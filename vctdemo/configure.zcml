@@ -34,6 +34,35 @@
     permission="view"
     />
 
+<!-- USER -->
+<view
+    context=".models.User"
+    view=".views.user.view"
+    name=""
+    renderer="views/templates/user_view.pt"
+    permission="view"
+    />
+<view
+    context=".models.UserContainer"
+    view=".views.user.listview"
+    name="list"
+    renderer="views/templates/user_list.pt"
+    permission="view"
+    />
+<view
+    context=".models.UserContainer"
+    view=".views.user.add"
+    name="add"
+    renderer="views/templates/user_add.pt"
+    permission="view"
+    />
+<view
+    context=".models.User"
+    view=".views.user.edit"
+    name="edit"
+    renderer="views/templates/user_edit.pt"
+    permission="edit"
+    />
 <!-- PATIENT -->
 <view
     context=".models.Patient"
