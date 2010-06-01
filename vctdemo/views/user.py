@@ -11,6 +11,13 @@ from vctdemo import models
 from webob.exc import HTTPFound
 
 
+def user_admin_menu(context, request):
+    return {'request':request,
+            'context':context,
+            'master': get_template('templates/master.pt'),
+            'logged_in': authenticated_userid(request),
+            }
+    
 def listview(context, request):
     users = context.values()
     return {'request':request,

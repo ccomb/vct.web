@@ -2,7 +2,7 @@ from os.path import dirname, join, exists
 from os import getcwd
 from repoze.bfg.traversal import virtual_root
 
-GROUPS = ['group:admins', 'group:users', 'group:patients']
+GROUPS = ['group:admins', 'group:users', 'group:patients', 'group:test']
 
 def groupfinder(userid, request):
     if userid == 'admin':

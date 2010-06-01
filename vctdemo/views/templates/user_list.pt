@@ -10,7 +10,7 @@
 <body metal:use-macro="master.macros['master']">
 
 <div id="content" metal:fill-slot="content">
-<h3>Generic test group</h3>
+<h4>Users list</h4>
 
 <a href="add">Add a user</a>
 
@@ -19,7 +19,8 @@
     <li>
       <a href="${user.username}/">
         <span>
-            ${user.username}
+            ${user.username} --- 
+            <tal:block repeat="group user.groups"> ${group} </tal:block>
         </span>
       </a>
     </li>

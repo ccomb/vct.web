@@ -44,6 +44,13 @@
     />
 <view
     context=".models.UserContainer"
+    view=".views.user.user_admin_menu"
+    name="user_admin_menu"
+    renderer="views/templates/user_admin_menu.pt"
+    permission="edit"
+    />
+<view
+    context=".models.UserContainer"
     view=".views.user.listview"
     name="list"
     renderer="views/templates/user_list.pt"
@@ -54,14 +61,14 @@
     view=".views.user.add"
     name="add"
     renderer="views/templates/user_add.pt"
-    permission="edit"
+    permission="admin"
     />
 <view
     context=".models.User"
     view=".views.user.edit"
     name="edit"
     renderer="views/templates/user_edit.pt"
-    permission="edit"
+    permission="admin"
     />
 <!-- PATIENT -->
 <view

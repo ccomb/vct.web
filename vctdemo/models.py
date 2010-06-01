@@ -11,9 +11,12 @@ from zope.schema import TextLine, Int, Text, Datetime, Bytes, Password, List, Ch
 
 class VctRoot(Folder):
     __parent__ = __name__ = None
-    __acl__ = [ (Allow, 'group:admins', 'view'),
+    __acl__ = [ (Allow, 'group:admins', 'admin'),
+                (Allow, 'group:admins', 'view'),
                 (Allow, 'group:admins', 'edit'),
-                (Allow, 'group:users', 'view') ]
+                (Allow, 'group:users',  'view'),
+                (Allow, 'group:users',  'edit') 
+                ]
 
 
 

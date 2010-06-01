@@ -18,9 +18,10 @@ def login(context, request):
         login = request.params['login']
         password = request.params['password']
 
-        # try the failsafe admin first (see ../security.py)
+        # in case there is not yet any users, try the failsafe admin first (see ../security.py) 
+        # Why not the reverse ???
         if FAILSAFE_PASS != '' and [login, password] == ['admin', FAILSAFE_PASS]:
-            headers = remember(request, login)
+            headers = remember(request, login)    # ???
             return HTTPFound(location = came_from,
                              headers = headers)
 
@@ -28,7 +29,7 @@ def login(context, request):
         users = virtual_root(context, request)['users']
         user = users.get(login, None)
         if user is not None and user.password == password:
-            headers = remember(request, login)
+            headers = remember(request, login)   # ???
             return HTTPFound(location = came_from,
                              headers = headers)
         message = 'Failed login'
@@ -38,7 +39,7 @@ def login(context, request):
         url = request.application_url + '/login',
         came_from = came_from,
         login = login,
-        password = password,
+        password = password,     # why not make the password = '' ?
         )
 
 
