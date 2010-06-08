@@ -38,7 +38,7 @@ def add(context, request):
         catalog.index_doc(id, patient)
         # create a catalog for the items
         patient.catalogs = Folder()
-        if 'items' not in patient.catalogs:
+        if 'items' not in patient.catalogs:                 #?????
             patient.catalogs['items'] = Catalog()
             patient.catalogs['items']['title'] = CatalogTextIndex('title')
             patient.catalogs['items']['text'] = CatalogTextIndex('text')
@@ -68,14 +68,14 @@ def search(context, request):
                      for (id,field) in form.render_fields.items()
                      if field.value])
         try:
-            number, results = catalog.search(**data) # XXX
+            number, results = catalog.search(**data) # ???
             searched = True
         except Exception, r:
             errors = r
             number, results = 0, {}
         results = [context[i] for i in dict(results).keys()]
     return {'request':request,
-            'add_data': urllib.urlencode(request.POST),
+            'add_data': urllib.urlencode(request.POST),   # ???
             'context':context,
             'master': get_template('templates/master.pt'),
             'logged_in': authenticated_userid(request),

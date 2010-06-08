@@ -1,24 +1,29 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html 
-    xmlns="http://www.w3.org/1999/xhtml" 
-    xmlns:tal="http://xml.zope.org/namespaces/tal"
-    xmlns:metal="http://xml.zope.org/namespaces/metal">
- 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <title>Notification Help</title>
-  <link href="/static/default.css" rel="stylesheet" type="text/css" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Task and Agenda</title>
+<link href="${request.application_url}/static/default.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body>
+<body metal:use-macro="master.macros['master']">
+<div id="help_content" metal:fill-slot="content">
 
-<h1 style="text-align:center;">Notification Help</h1>
+<h2 style="text-align:center;">Notifications</h2>
 <ul>
-<li>This button provides a list of documents you should have a look at.<br/>The information is already available in the data base, but someone did ask you to pay attention to these particular documents.</li>
+<li>The philosophy of the project is to share documents on-line:</li>
+    <ul>
+    <li>Incoming information is set immedialtely in the data base, 
+        if possible directly in the right patient record or otherwise in a kind of wainting department.</li>
+    </ul>
+<li>This button provides a list of documents you should have a look at.
+    <br/>The information is already available in the data base, but someone did ask you to pay attention to these particular documents.</li>
 	<ul>
-	<li>the philosophy of the project is to share documents on-line.<br/>As far as possible received messages are saved directly inside the patient record.<br/></li>
+	<li><br/>As far as possible received messages are saved directly inside the patient record.<br/></li>
 	</ul>
 <li>A click on a row of the list will open the appropriate patient record and show the new information.</li>
 </ul>
+</div>
 </body>
 </html>

@@ -26,17 +26,18 @@
                 <a href="/patients/search">Patient Search </a>
                 <a href="/help/patient_help.html">
                 <img style="border: 0px" src="/static/Help.png" alt="(Help)"/></a>
-
                  - <a href="/patients_old/patient_groups">Groups </a>
                 <img style="border: 0px" src="/static/arrow_left.png" alt="(Previous)"/>
                 <a href="/patients/list">Current Group </a>
                  <img style="border: 0px" src="/static/arrow_right.png" alt="(Next)"/>
+<!--
                  - <a href="/patients_old/current_patient">Test</a>
+-->
                 </td>
                 <td><a href="/help/todo_help.html">Tasks and Agenda</a>
-                <img style="border: 0px" src="/static/Help.png" alt="(Help)"/></td>
-                <td><a href="/help/notification_help.html">Incoming Notifications 
-                <img style="border: 0px" src="/static/Help.png" alt="(Help)"/></a></td>
+                <a href="/help/todo_help.html"><img style="border: 0px" src="/static/Help.png" alt="(Help)"/></a></td>
+                <td><a href="/help/notification_help.html">Incoming Notifications </a>  
+                <a href="/help/notification_help.html"><img style="border: 0px" src="/static/Help.png" alt="(Help)"/></a></td>
                 <td>
                     <a href="/patients_old/user_preferences">Preferences</a>, 
                     <a href="/users/user_admin_menu">admin</a>, 

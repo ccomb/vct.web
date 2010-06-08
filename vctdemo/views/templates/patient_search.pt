@@ -26,7 +26,7 @@
 
 <ul>
   <li tal:repeat="patient results">
-    <a href="${patient.id}/">${patient.name} ,${patient.firstname},${patient.birthdate},${patient.sex}</a>
+    <a href="${patient.id}/list">${patient.id} : ${patient.name} ${patient.firstname}, ${patient.birthdate}, ${patient.sex}</a>
   </li>
 </ul>
 </div>

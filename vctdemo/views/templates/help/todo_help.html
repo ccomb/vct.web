@@ -1,52 +1,66 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:tal="http://xml.zope.org/namespaces/tal">
- 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <title>Notification Help</title>
-  <link href="/static/default.css" rel="stylesheet" type="text/css" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Task and Agenda</title>
+<link href="${request.application_url}/static/default.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body>
+<body metal:use-macro="master.macros['master']">
+<div id="help_content" metal:fill-slot="content">
+<h2 style="text-align: center;">My tasks and agenda</h2>
 
-
-
-
-<h1 style="text-align: center;">My tasks and agenda</h1>
 <ul>
-  <li>Introduction:</li>
-  <ul>
-    <li>An overview of what I am expected to do as user.</li>
-    <li>Can be presented in 2 ways:</li>
+<li>Introduction:</li>
     <ul>
-      <li>As agenda:</li>
-      <ul>
-        <li>Classic agenda sorted per days and hours.<br/>
-        </li>
-      </ul>
-      <li>As worklist:</li>
-      <ul>
-        <li>A list of tasks sorted by relative priorities and by patient.<br/>
-        </li>
-        <li>Task definition:</li>
-        <ul>
-          <li>.....<br/>
-          </li>
-        </ul>
-        <li>Possibility of several sublists for different types of tasks.<br/>
-        </li>
-        <li>Some examples:</li>
-        <ul>
-          <li>In a department of a lab the current list of samples waiting to be processed.</li>
-          <li>For a nurse the current list of patient needing a specific procedure.</li>
-          <li>For a senior doctor the current list of reports or discharges letters 
-          to be reviewed and validated.</li>
-          <li>....<br/>
-          </li>
-        </ul>
-      </ul>
+        <li>An overview of what I am expected to do as user.</li>
     </ul>
-  </ul>
+
+<li>Tasks to do:</li>
+    <ul>
+    <li>Worklist:</li>
+        <ul>
+            <li>An overview of tasks to be done as soon as possible.</li>
+            <li>One or several worklists.&nbsp; For example:</li>
+                <ul>
+                <li>In a department of a lab the current list of samples waiting to be processed.</li>
+                <li>For a nurse the current list of patient needing a specific procedure.</li>
+                <li>For a senior doctor the current list of reports or discharges letters to be reviewed and validated.</li>
+
+                <li>....</li>
+                </ul>
+            <li>Content of a worklist:</li>
+                <ul>
+                 <li>A list of activities to be performed.&nbsp; For example:</li>
+                    <ul>
+                    <li>A list of lab test waiting for results. </li>
+                    <li>When the task is achieved and validated the task may disappear from the worklist. </li>
+                    </ul>
+                </ul>
+
+        </ul>
+    <li>Reminders:</li>
+        <ul>
+        <li>The same principle but appearing only after a given delay.</li>
+        <ul>
+        <li>For example:</li>
+            <ul>
+            <li>If not yet done, review the situation of a patient after one week of tests.</li>
+            </ul>
+        </ul>
 </ul>
+</ul>
+<li>Agenda:</li>
+    <ul>
+    <li>Also a planning of tasks, but&nbsp; to performed at specific times.</li>
+    <li>Integration of an existing agenda system available in open source.</li>
+    </ul>
+<li>Availability:</li>
+    <ul>
+        <li>Definition of vailability for tasks and for time frames.</li>
+    </ul>
+</ul>
+</div>
 </body>
 </html>

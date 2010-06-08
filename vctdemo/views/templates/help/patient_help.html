@@ -3,53 +3,168 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>Adding a patient</title>
+<title>Patient identification</title>
 <link href="${request.application_url}/static/default.css" rel="stylesheet" type="text/css" />
 </head>
+
 <body metal:use-macro="master.macros['master']">
-<div id="content" metal:fill-slot="content">
+<div id="help_content" metal:fill-slot="content">
 
-<a href="javascript:history.back()">return</a>
-
-<h1 style="text-align: center;">Patient identification</h1>
-
+<a href="javascript:history.back()">Back to the previous page</a>
+<h2 style="text-align: center;">Patient identification</h2>
+Version 2.1, 7 June 2010, <span style="font-style: italic;">(Considered
+specifications not yet implemented in this prototype are
+presented in italic)</span> .<br />
+<ul>
+  <li>How to search for a patient:<br />
+There are several ways to search for patient records:</li>
+  <ul>
+    <li>Search by means of the decriptive identification, including
+last name, name, bithday, sex.&nbsp; <br />
+    </li>
     <ul>
-      <li>How to search for a patient:<br/>There are many ways to search for patient records:</li>
-    <ul>
-  <li>(New Search) by means of decriptive identification, including last name, name, bithday, sex</li>
-  <li>Search by means of a record number, inside an identification space as e.g. the record record number system of a particular medical center.</li>
-  <li>Retrieval of several groups of patients as proposed in the drop down list.
-     Patient are proposed here as far as the user is
-  already allowed to open these records.</li>
-</ul>
-<li>Results of the serach:</li>
-      <ul>
-      <li>All these methods provide a table of zero, one or several
-candidates with a summary of key information. Be careful to check the
-right patient.<br/></li>
-</ul>
-
-
-
-    <li>Opening a patient record:</li>
-    <ul>
-      <li>The next step is to click on the appropriate candidate in order to enter inside the detailed record.
-      <br/>You may also click on (next) or (previous) in order to move in the current group of candidates.  For example the next appointment of the day.</li>
-
-      <li>Access to a patient record depend on the profile of the
-current user, as explained in more details in the chapter about
-security. <br/>
-
-Normally the user must already be a member of the care team of the
-patient. Some users are allowed to modify the Care Team of the
-patient.</li>
-
-
-      <li>If not yet done, the opening of a new record will automatically close the previous record.</li>
-
+      <li>i.e. informations which are not unique, but their association provide a relative high probability to find the right patient.<br />
+      </li>
     </ul>
+    <li>Search by means of a patient identification code: <br />
+    </li>
+    <ul>
+      <li>An identification code is valid as far as pointing to
+exclusively one well defined patient record in a known
+environment.&nbsp; <span style="font-style: italic;">A patient has
+often several identification codes in different information spaces, for
+example a local hospital number, an other one in an other medical
+center, an identification code in a given insurance system, a national
+identification number in a given country, etc.... This is why the
+identification space must always be known.</span><br />
+In a preliminary version of the prototype we assume here by default
+that the current server support only one identification system. <br />
+      </li>
+    </ul>
+    <li>Retrieval of a predefined group of patients and selection of
+one patient proposed inside that group.&nbsp; <br />
+    </li>
+    <ul>
+      <li>Moreover left and rigth arrows allow to move to the previous
+or the next patient record in the same group.</li>
+    </ul>
+  </ul>
+  <li>Results of the search:</li>
+  <ul>
+    <li>All these methods provide a small table of zero, one or several
+candidates with a summary of a few key information. Be careful to check
+the
+right patient.</li>
+  </ul>
+  <li>Selection of a record:<br />
+  </li>
+  <ul>
+    <li>If the intended patient is presented:</li>
+    <ul>
+      <li>Click on that line in order to open the record. Be careful in
+large populations more thean one patient could have the same
+descriptors.&nbsp; If not sure create a new record as explained below.<br />
+      </li>
+    </ul>
+    <li>If the intentended patient is not presented:</li>
+    <ul>
+      <li>You have the possibility to correct an error an to try again.</li>
+      <li>Create a new record:</li>
+      <ul>
+        <li>A few more informations will normally be asked the first
+time, as address, telephone, insurance, ... and they could be adapted
+at any time later on.</li>
+      </ul>
+      <li>Important remark:</li>
+      <ul>
+        <li>There are 2 kinds of risks:</li>
+        <ul>
+          <li>To create an unnecessary second record for the ssame
+patient.&nbsp; Of course a little annoying but actually not worse than
+the old situation when patients did have many unrelated paper records.<br />
+          </li>
+          <li>To mixt information of 2 different patients in the same
+record.&nbsp; A far more dangerous error.&nbsp; One of the 2 patient
+could get a wrong blood transfusion of the blood group of the other!</li>
+        </ul>
+        <li>In case of doubt make a new record, particularly when the
+available identification information is incomplete.</li>
+        <li>Later on a special procedure will allow a merge after a
+complete verification.<br />
+        </li>
+      </ul>
+    </ul>
+  </ul>
+  <li>Opening the content of a patient record:</li>
+  <ul>
+    <li>The result of the previous step is the opening of a patient
+record, either retrieving an already existing one, either having
+created a new empty record.<br />
+    </li>
+    <li>Access to the content of a patient record depend on
+access rules, from the point of views of confidentiality ans
+responsibilities, in function of:<br />
+    </li>
+    <ul>
+      <li>The profile of he current user, having a set of permanent
+permissions, allowing or not allowing, to do some tasks as reading
+information or taking responsibilities when entering new information,
+for example introducing a drug prescription.<br />
+      </li>
+      <li>The role of the current user for the particular current
+patient.&nbsp; As a short summary:</li>
+      <ul>
+        <li>The general principle are that exclusively the persons
+,necessary for the care of the patient and having an agreement from the
+patient, will have an access to the content of the patient record.<br />
+        </li>
+        <li style="font-style: italic;">In practice the system
+maintains a table of authorized users known as members of the personal
+care team of the patient.&nbsp; Exclusively these user are allowed to
+access the patient record.</li>
+        <li style="font-style: italic;">Memberships in the care team
+are not lifelong but always of limited duration after the latest
+transaction, up to delay after which the care relation will no more be
+obvious, for example a year.<br />
+        </li>
+        <li style="font-style: italic;">At any time the patient may ask
+for extension of his care team to a new user.&nbsp; He could also
+revoque a user.&nbsp; In case of an emergencythe control could be
+forced, but then a justification will be specially traced.</li>
+      </ul>
+    </ul>
+  </ul>
+  <li>Closing a patient record:<br />
+  </li>
+  <ul>
+    <li>When finished do not forget to close the patient record.&nbsp; <span style="font-style: italic;">Moreover if no more activity during a
+given timeout delay the record will be automatically be closed, as well
+the user session.</span><br />
+    </li>
+    <li>Be sure to have validated any new information before
+closing.&nbsp; What has not been validated or signed would not be saved
+in the archives.&nbsp; <span style="font-style: italic;">Warning will
+be issued in case of doubts.</span><br />
+    </li>
+    <li>Opening a new patient record will automatically close the
+previous one.&nbsp; There is normally only one active patient record at
+a time.&nbsp; <span style="font-style: italic;">However if necessary
+it is easy to go back to a previous
+patient via the group of the current session.</span></li>
+  </ul>
+  <li>Closing the user session:</li>
+  <ul>
+    <li>When the user quit the premises, he is responsible to close his
+session.&nbsp; The next time he will have to provide his authentication
+again.</li>
+    <li><span style="font-style: italic;">Moreover as safety measures,
+the session will be automatically closed after a given delay after the
+latest activity.&nbsp; A user is in rinciple not allowed to open more
+than one session on one machine at a time.</span><br />
+    </li>
+  </ul>
 </ul>
+<a href="javascript:history.back()">Back to the previous page</a>
 </div>
-</body>
 
-</html>
+</body></html>

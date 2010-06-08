@@ -10,7 +10,7 @@
 <body metal:use-macro="master.macros['master']">
 
 <div id="content" metal:fill-slot="content">
-<h3>Generic test group</h3>
+<h5>Patients : current test group</h5>
 
 <ul>
   <tal:block repeat="patient patients">

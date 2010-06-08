@@ -22,13 +22,24 @@ class VctRoot(Folder):
 
 def appmaker(zodb_root):
     updated = False
+    #reordered model root followed by catalog
     if 'app_root' not in zodb_root:
         zodb_root['app_root'] = VctRoot()
         zodb_root['app_root'].catalogs = Folder()
         import transaction; transaction.commit()
+    if 'users' not in zodb_root['app_root']:
+        zodb_root['app_root']['users'] = UserContainer()
+        zodb_root['app_root']['users'].__parent__ = zodb_root['app_root']
+        zodb_root['app_root']['users'].__name__ = 'users'
+        import transaction; transaction.commit()
     if 'users' not in zodb_root['app_root'].catalogs:
         zodb_root['app_root'].catalogs['users'] = Catalog()
         zodb_root['app_root'].catalogs['users']['username'] = CatalogTextIndex('username')
+        import transaction; transaction.commit()
+    if 'patients' not in zodb_root['app_root']:
+        zodb_root['app_root']['patients'] = PatientContainer()
+        zodb_root['app_root']['patients'].__parent__ = zodb_root['app_root']
+        zodb_root['app_root']['patients'].__name__ = 'patients'
         import transaction; transaction.commit()
     if 'patients' not in zodb_root['app_root'].catalogs:
         zodb_root['app_root'].catalogs['patients'] = Catalog()
@@ -37,16 +48,6 @@ def appmaker(zodb_root):
         zodb_root['app_root'].catalogs['patients']['name'] = CatalogTextIndex('name')
         zodb_root['app_root'].catalogs['patients']['birthdate'] = CatalogTextIndex('birthdate')
         zodb_root['app_root'].catalogs['patients']['sex'] = CatalogTextIndex('sex')
-        import transaction; transaction.commit()
-    if 'patients' not in zodb_root['app_root']:
-        zodb_root['app_root']['patients'] = PatientContainer()
-        zodb_root['app_root']['patients'].__parent__ = zodb_root['app_root']
-        zodb_root['app_root']['patients'].__name__ = 'patients'
-        import transaction; transaction.commit()
-    if 'users' not in zodb_root['app_root']:
-        zodb_root['app_root']['users'] = UserContainer()
-        zodb_root['app_root']['users'].__parent__ = zodb_root['app_root']
-        zodb_root['app_root']['users'].__name__ = 'users'
         import transaction; transaction.commit()
     return zodb_root['app_root']
 
@@ -126,11 +127,12 @@ class Issue(PatientItem):
 class IAction(IPatientItem):
     status = TextLine(title=u"status", description=u"status of the action")
     image = Bytes(title=u"attached file", description=u"attached file")
+    link = TextLine(title=u"Link", description=u'<a href="https://telemed.ipath.ch/ipath/object/view/292741&amp;user=saliez">case nr 292741</a>')
 
 
 class Action(PatientItem):
     implements(IAction)
-    status = image = None
+    status = image = link = None
 
 
 class IRelation(PatientItem):

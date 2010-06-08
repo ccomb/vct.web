@@ -30,6 +30,15 @@ background: #BBBBBB;
 padding: 0em;
 border: solid 3px white;
 }
+div#login {
+width:25%;
+margin-left: auto;
+margin-right: auto;
+margin-top: 0%;
+background: #BBBBBB;
+padding: 0em;
+border: solid 3px white;
+}
 div#content {
 width: 100%;
 margin-left: auto;
@@ -38,6 +47,15 @@ margin-top: 0%;
 background: white;
 padding: 0em;
 border: solid 2px yellow;
+}
+div#help_content {
+width: 100%;
+margin-left: auto;
+margin-right: auto;
+margin-top: 0%;
+background: #DDDDFF;
+padding: 0em;
+border: solid 5px #AAAAFF;
 }
 
 div#patient_frame {
