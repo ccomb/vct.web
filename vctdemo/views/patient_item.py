@@ -98,7 +98,6 @@ def view(context, request):
             'patient_master': get_template('templates/patient_master.pt'),
             'context':context}
 
-
 def edit(context, request):
     form = FieldSet(models.IPatientItem)
     form = form.bind(context, data=request.POST or None)
@@ -122,4 +121,5 @@ def image(context, request):
     # XXX
     response.headers['Content-Type'] = 'image/jpg'
     return response
+
 

@@ -4,6 +4,7 @@ body {
 
 #user_header {
     border: solid 6px lightgreen;
+    width: 100%;
     }
 #user_ID {
     background-color:#AAFFAA;    

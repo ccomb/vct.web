@@ -1,14 +1,15 @@
 <div class="smallview item">
-ITEM: 
-<span> ${context.id}</span>
+ 
+<span></span>
+
 <a href="${context.id}/">
-<span>${context.title}</span>
+<span>( ${context.id} ) ITEM: ${context.title}</span>
       </a>
 
 <tal:block define="max 200">
-<div tal:content="python:context.text[:max]">
-</div>
-<a tal:condition="python:len(context.text)>max" href="${context.id}/">read more...</a>
+<span tal:content="python:context.text[:max]"> : 
+</span>
+<a tal:condition="python:len(context.text)>max" href="${context.id}/"> (...read more...) </a>
 </tal:block>
 
 </div>

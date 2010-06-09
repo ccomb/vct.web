@@ -10,14 +10,6 @@ from repoze.folder import Folder
 from vctdemo import models
 from webob.exc import HTTPFound
 
-
-def user_admin_menu(context, request):
-    return {'request':request,
-            'context':context,
-            'master': get_template('templates/master.pt'),
-            'logged_in': authenticated_userid(request),
-            }
-    
 def listview(context, request):
     users = context.values()
     return {'request':request,
@@ -63,5 +55,22 @@ def edit(context, request):
             'master': get_template('templates/master.pt'),
             'logged_in': authenticated_userid(request),
             'form': form}
+
+
+def user_admin_menu(context, request):
+    return {'request':request,
+            'context':context,
+            'master': get_template('templates/master.pt'),
+            'logged_in': authenticated_userid(request),
+            }
+    
+def user_todo(context, request):
+    return {'request':request,
+            'context':context,
+            'master': get_template('templates/master.pt'),
+            'logged_in': authenticated_userid(request),
+            }
+
+
 
 

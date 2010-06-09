@@ -44,13 +44,6 @@
     />
 <view
     context=".models.UserContainer"
-    view=".views.user.user_admin_menu"
-    name="user_admin_menu"
-    renderer="views/templates/user_admin_menu.pt"
-    permission="edit"
-    />
-<view
-    context=".models.UserContainer"
     view=".views.user.listview"
     name="list"
     renderer="views/templates/user_list.pt"
@@ -70,6 +63,21 @@
     renderer="views/templates/user_edit.pt"
     permission="admin"
     />
+<view
+    context=".models.UserContainer"
+    view=".views.user.user_admin_menu"
+    name="user_admin_menu"
+    renderer="views/templates/user_admin_menu.pt"
+    permission="edit"
+    />
+<view
+    context=".models.UserContainer"
+    view=".views.user.user_todo"
+    name="user_todo"
+    renderer="views/templates/user_todo.pt"
+    permission="edit"
+    />
+
 <!-- PATIENT -->
 <!--
 <view
@@ -121,6 +129,13 @@
     name="edit"
     renderer="views/templates/patient_edit.pt"
     permission="edit"
+    />
+<view
+    context=".models.PatientContainer"
+    view=".views.patient.proto_care_plan"
+    name="proto_care_plan"
+    renderer="views/templates/proto_care_plan.pt"
+    permission="view"
     />
 
 <!-- ITEMS -->
@@ -187,7 +202,7 @@
     permission="edit"
     />
 
-
+<!-- SECURITY  -->
 <forbidden
     view=".views.security.login"
     renderer="views/templates/login.pt"/>
@@ -278,14 +293,14 @@
     view=".views.index.problem_list"
     renderer="views/templates/problem_list.pt"
     />
-
+<!--
   <route
     path="patients_old/care_plan"
     name="care_plan"
     view=".views.index.care_plan"
     renderer="views/templates/care_plan.pt"
     />
-
+-->
   <route
     path="patients_old/care_team"
     name="care_team"

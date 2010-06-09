@@ -34,7 +34,7 @@
                  - <a href="/patients_old/current_patient">Test</a>
 -->
                 </td>
-                <td><a href="/help/todo_help.html">Tasks and Agenda</a>
+                <td><a href="/users/user_todo">Tasks and Agenda</a>
                 <a href="/help/todo_help.html"><img style="border: 0px" src="/static/Help.png" alt="(Help)"/></a></td>
                 <td><a href="/help/notification_help.html">Incoming Notifications </a>  
                 <a href="/help/notification_help.html"><img style="border: 0px" src="/static/Help.png" alt="(Help)"/></a></td>

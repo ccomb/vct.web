@@ -6,12 +6,11 @@
 <title>Viewing an item</title>
 <link href="${request.application_url}/static/default.css" rel="stylesheet" type="text/css" />
 </head>
+
 <body metal:use-macro="patient_master.macros['patient_master']">
 <div id="patient_content" metal:fill-slot="patient_content">
-<h1>Item</h1>
 
-<div>Item id: <span tal:content="python:context.id" /></div>
-<div>Item title: <span tal:content="python:context.title" /></div>
+<div>( <span tal:content="python:context.id" /> ) Item: <span tal:content="python:context.title" /></div>
 <div>Item text: <span tal:content="python:context.text" /></div>
 
 <a href="edit">Edit</a> - 

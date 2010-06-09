@@ -43,14 +43,14 @@
                      <a href="/patients_old/topics">Topics</a> - 
                      </td>
                  <td style="vertical-align: top;">
-                     <a href="/patients_old/care_plan">Care Plan</a></td>
+                     <a href="proto_care_plan">Care Plan</a></td>
                  <td style="vertical-align: top;">
                      <a href="/patients_old/care_team">Care Team</a></td>
                  <td>Other Views</td>
                   <td><a href="add">Add item</a></td>
                  <td><a href="add?type=Action">Add action</a></td>
                  <td>Add link</td>
-                <td style="vertical-align: top;">
+                 <td style="vertical-align: top;">
                      <a href="edit">Administration</a></td>
                  <td style="vertical-align: top;">
                      <a href="/">Close Patient</a></td>
