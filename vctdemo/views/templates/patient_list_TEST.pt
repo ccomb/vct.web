@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal">      
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Patient list</title>
+<link href="${request.application_url}/static/default.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body metal:use-macro="master.macros['master']">
+
+<div id="content" metal:fill-slot="content">
+<h5>Patients : current test group</h5>
+
+<!--
+<table><tbody>
+    <tr>
+        <td>ID</td>
+        <td>Name Surname</td>
+        <td>Birthdate</td>
+        <td>Sex</td>
+    </tr>
+  <tal:block repeat="patient patients">
+    <tr>
+      <a href="${patient.id}/list">
+          <span>        
+            <tD>${patient.id}</td>
+            <td>${patient.name} ${patient.firstname}</td>
+            <td>${patient.birthdate}</td>
+            <td>${patient.sex}</td>
+          </span>
+      </a>
+    </tr>
+  </tal:block>
+</tbody></table>
+-->
+
+</div>
+
+
+</body>
+</html>

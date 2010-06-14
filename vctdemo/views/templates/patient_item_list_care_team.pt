@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal">
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Item list</title>
+<link href="${request.application_url}/static/default.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body metal:use-macro="patient_master.macros['patient_master']">
+
+<div id="patient_content" metal:fill-slot="patient_content">
+
+Item list : Care plan
+
+<!--
+<ul>
+  <tal:block repeat="item items">
+    <li>
+        <tal:block content="structure python:render_view(item, request, name='smallview')" />
+    </li>
+  </tal:block>
+</ul>
+-->
+
+
+
+<span style="font-weight: bold;">Current Care Team of the patient</span> (-?-)
+<table border="1" width="100%" bgcolor="white"><tbody>
+	<tr style="background-color: #EEEEEE">
+ 		<td><i>Institution, department <br/>and involved care givers</i></td>
+ 		<td><i>Begin</i></td>
+		<td><i>Latest <br/>known <br/>contact</i></td>
+		<td><i>Summary of events, consultations and/or admissions</i></td>
+		<td><i>Current <br/>Access<br/>Status</i></td>
+	</tr>
+	<tr>
+ 		<td>G&eacute;n&eacute;raliste : Dr Lerouge</td>
+ 		<td>2000</td>
+        <td>20/1/2010</td>
+ 		<td>consultations et visites &agrave; domicile : thombosis and other
+			 <a href="/patients_old/problem_list">Health Issues</a></td>
+		<td>OK</td>
+ 	</tr>
+    <tr>
+        <td>"Nursing Cross of Village"
+            <br/>(Françoise Dupont - Gisèle Durant - Marie Duchêne)</td>
+        <td>2009</td>
+        <td>24/1/2010</td>
+        <td>Home Care once a day</td>
+        <td>OK</td>
+	</tr>
+	<tr>
+        <td>Clin. St Joseph : Urgences : Dr J-R Lenoir</td>
+        <td>21/3/2007</td>
+        <td>21/3/2009</td>
+        <td>2008: <a href="../Mock-up/Patient1/Letter970321.html">entr&eacute;e en urgence</a> :
+            <b><a href="../Mock-up/Patient1/Problems.html">#5</a></b>, <u>labo</u>, 
+            <u>Imagerie(scanner	 c&eacute;rebral)</u></td>
+        <td>OK</td>
+	</tr>
+	<tr>
+        <td>Specialist : Cardio : Dr Lebrun</td>
+        <td>2002</td>
+        <td>12/2008</td>
+        <td>2008: <a href="../Mock-up/Patient1/Letter950926.html">consultations</a> :
+			<a href="../Mock-up/Patient1/Problems.html">#2</a>, </td>
+        <td>OK</td>
+	</tr>
+	<tr>
+        <td>Clin. Notre-Dame : Neurologie : Dr Van Rood</td>
+        <td>21/3/2007</td>
+        <td>23/5/2009</td>
+        <td>2007: <a href="../Mock-up/Patient1/Letter970326.html">Admission le 21/3/2001</a> : 
+            <b><a href="../Mock-up/Patient1/Problems.html">#5</a></b>, 
+            <a href="../Mock-up/Patient1/Problems.html">#7</a>,
+            <a href="../Mock-up/Patient1/Problems.html">#8</a> </td>
+        <td>OK</td>
+    </tr>
+	<tr>
+		<td>Specialist : Ophtamo : Dr Longuevue</td>
+        <td>2003</td>
+        <td>2004</td>
+        <td>.</td>
+        <td>Disabled</td>
+	</tr>
+	<tr>
+        <td>Clin. St Joseph : M&eacute;decine interne : Dr Levert</td>
+        <td>2001</td>
+        <td>2001</td>
+        <td>Admission 28/6/2001: 
+            insuffisance coronaire s&eacute;v&egrave;re, traitment m&eacute;dical</td>
+        <td>Disabled</td>
+	</tr>
+	<tr>
+        <td>Clin. St Joseph : Chirurgie vasculaire : Dr Legris</td>
+        <td>20/9/2001</td>
+        <td>2002</td>
+        <td>Admission 20/9/2001 :
+            Double pontage coronaire <br/>Admission 12/3/2002: 
+             angioplastie transluminale de l'art&egrave;re iliaque droite </td>
+        <td>Disabled </td>
+	</tr>
+    <tr>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+	</tr>
+</tbody></table>
+
+
+</div>
+
+</body>
+</html>

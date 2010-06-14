@@ -37,15 +37,17 @@
               <table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2"><tbody>
                 <tr>
                  <td style="vertical-align: top;">
-                     <a href="/patients_old/problem_list">Health Issues</a></td>
+                     <a href="list">List all Items</a></td>
                  <td style="vertical-align: top;">
-                     <a href="/patients_old/event_list">Events</a> - 
-                     <a href="/patients_old/topics">Topics</a> - 
+                     <a href="list_health_issues">Health Issues</a></td>
+                 <td style="vertical-align: top;">
+                     <a href="list_care_contacts">Care Contacts</a> - 
+                     <a href="list_topics">Topics</a> - 
                      </td>
                  <td style="vertical-align: top;">
-                     <a href="proto_care_plan">Care Plan</a></td>
+                     <a href="list_care_plan">Care Plan</a></td>
                  <td style="vertical-align: top;">
-                     <a href="/patients_old/care_team">Care Team</a></td>
+                     <a href="list_care_team">Care Team</a></td>
                  <td>Other Views</td>
                   <td><a href="add">Add item</a></td>
                  <td><a href="add?type=Action">Add action</a></td>

@@ -180,6 +180,43 @@
     renderer="views/templates/patient_item_list.pt"
     permission="view"
     />
+
+<view
+    context=".models.Patient"
+    view=".views.patient_item.listview"
+    name="list_health_issues"
+    renderer="views/templates/patient_item_list_health_issues.pt"
+    permission="view"
+    />
+<view
+    context=".models.Patient"
+    view=".views.patient_item.listview"
+    name="list_care_contacts"
+    renderer="views/templates/patient_item_list_care_contacts.pt"
+    permission="view"
+    />
+<view
+    context=".models.Patient"
+    view=".views.patient_item.listview"
+    name="list_topics"
+    renderer="views/templates/patient_item_list_topics.pt"
+    permission="view"
+    />
+<view
+    context=".models.Patient"
+    view=".views.patient_item.listview"
+    name="list_care_plan"
+    renderer="views/templates/patient_item_list_care_plan.pt"
+    permission="view"
+    />
+<view
+    context=".models.Patient"
+    view=".views.patient_item.listview"
+    name="list_care_team"
+    renderer="views/templates/patient_item_list_care_team.pt"
+    permission="view"
+    />
+
 <view
     context=".models.Patient"
     view=".views.patient_item.add"

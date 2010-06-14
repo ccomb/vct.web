@@ -41,7 +41,7 @@
                 <td>
                     <a href="/patients_old/user_preferences">Preferences</a>, 
                     <a href="/users/user_admin_menu">admin</a>, 
-                    <a href="/patients_old/test">Tests</a></td>
+                    <a href="/patients_old/test">(Tests)</a></td>
                 <td><span tal:condition="logged_in">
                        <a href="${request.application_url}/logout"><img style="border: 0px" src="/static/exit_small.png" alt="(Exit)"/></a>
                     </span>

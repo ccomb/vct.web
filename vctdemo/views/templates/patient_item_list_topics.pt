@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal">
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Item list</title>
+<link href="${request.application_url}/static/default.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body metal:use-macro="patient_master.macros['patient_master']">
+
+<div id="patient_content" metal:fill-slot="patient_content">
+
+Item list : Care plan
+
+<!--
+<ul>
+  <tal:block repeat="item items">
+    <li>
+        <tal:block content="structure python:render_view(item, request, name='smallview')" />
+    </li>
+  </tal:block>
+</ul>
+-->
+
+
+
+<table style="text-align: left; background-color: #FFFFFF; width: 100%;"  border="1" cellpadding="5" cellspacing="5"><tbody>
+    <tr>
+        <td width="10%"> Subjective complaints</td>
+        <td>
+            <ul>
+	            <li>12/04/2009: ..........</li>
+	            <li>14/06/2009: ..........</li>
+	            <li>28/09/2009: ..........</li>
+	        </ul> 
+	    </td>
+	</tr>
+    <tr>
+        <td width="10%"> Objective examinations</td>
+        <td>
+            <ul>
+    	        <li>12/04/2009: ..........</li>
+    	        <li>14/06/2009: ..........</li>
+    	        <li>28/09/2009: ..........</li>
+ 	        </ul> 
+ 	    </td>
+    </tr>
+    <tr>
+        <td width="10%"> Discharges Letter</td>
+        <td>
+            <ul>
+            	<li>05/06/1988: ..........</li>
+            	<li>22/10/2002: ..........</li>
+	        </ul> 
+	    </td>
+	</tr>
+    <tr>
+        <td width="10%"> lab</td>
+        <td>
+            <ul>
+            	<li>12/04/2009: leucocytose !</li>
+    	        <li>14/06/2009: ..........</li>
+    	        <li>08/08/2009: ..........</li>
+	        </ul> 
+	    </td>
+	</tr>
+<!--
+    <tr>
+        <td width="10%"> pathology</td>
+        <td>
+            <ul>
+            	<li>22/04/2009: 
+            		<ul>
+			            <li>
+			                <img style="width: 100px; height: 118px;" 
+			                alt="xxxx" src="pathology-1.jpeg">
+			                <img style="width: 100px; height: 118px;" 
+			                alt="xxxx" src="pathology-2.jpeg">
+			            </li>
+		            </ul>
+	            </li>
+		        <li>12/09/2009: ..........</li>
+	        </ul> 
+	    </td>
+	</tr>
+    <tr>
+        <td width="10%"> XR Images</td>
+        <td>
+            <ul>
+            	<li>12/04/2009: 
+            		<ul>
+            			<li><img style="width: 100px; height: 118px;" 
+            			alt="xxxx" src="RXThorL.GIF">
+            			</li>
+		            </ul>
+	            </li>
+            	<li>14/06/2009: ..........</li>
+            	<li>08/08/2009: ..........</li>
+        	</ul> 
+        </td>
+    </tr>
+    <tr>
+        <td width="10%"> Echography</td>
+        <td>
+            <ul>
+	            <li>12/04/2009: ..........</li>
+	            <li>14/06/2009: ..........</li>
+	            <li>08/08/2009: ..........</li>
+	        </ul> 
+	    </td>
+	</tr>
+    <tr>
+        <td width="10%"> ..............</td>
+        <td>
+            <ul>
+	            <li>12/04/2009: ..........</li>
+	            <li>14/06/2009: ..........</li>
+               	<li>08/08/2009: ..........</li>
+	        </ul>
+	    </td>
+	</tr>
+-->
+</tbody></table>
+
+
+</div>
+
+</body>
+</html>
