@@ -11,3 +11,4 @@
 ^Data.fs.*
 sandbox/
 ^vctdemo/admin$
+^eggs/
