@@ -6,47 +6,41 @@
 
 <head metal:define-macro="head">
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <link href="${request.application_url}/static/jquery/css/main/jquery-ui-1.8.2.custom.css" rel="stylesheet" type="text/css" />
-  <link href="${request.application_url}/static/default.css" rel="stylesheet" type="text/css" />
-  <metal:block define-slot="headslot"></metal:block>
+  <link href="${request.application_url}/static/jquery/css/divuser/jquery-ui-1.8.2.custom.css" rel="stylesheet" type="text/css" />
+  <link href="${request.application_url}/static/jquery/css/divpatient_frame/jquery-ui-1.8.2.custom.css" rel="stylesheet" type="text/css" />
+  <!-- <link href="${request.application_url}/static/default.css" rel="stylesheet" type="text/css" /> -->
+  <link href="${request.application_url}/static/main.css" rel="stylesheet" type="text/css" />
+  <script src="${request.application_url}/static/jquery/js/jquery-1.4.2.min.js" type="text/javascript"></script>
+  <script src="${request.application_url}/static/jquery/js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script>
+  <metal:block define-slot="headslot" />
 </head>
 
 <body id="test-bg" >
 
-<div id="user" metal:define-macro="master">
+<div id="user" class="ui-widget" metal:define-macro="master">
 
-  <table id="user_header" style="text-align: left; width: 100%"><tbody>
-     <tr><td>
-         <div id="user_ID">
-             User = ${logged_in} / organization of the user <br/>
+         <div id="user_ID" class="ui-widget ui-widget-header">
+             User = ${logged_in} / organization of the user
          </div>
-         <div id="user_menu">
-             <table id="usermenu" border= "1"  style="text-align: left; width: 100%;"><tbody>
-                <tr>
-                <td>
+         <div id="user_menu" class="ui-widget ui-widget-content">
                     <a href="/patients/search">Patient Search </a>
                     <a href="/help/patient_help.html"><img style="border: 0px" src="/static/Help.png" alt="(Help)"/></a>  - 
                     <a href="/users/user_patient_groups">Groups </a>
                     <img style="border: 0px" src="/static/arrow_left.png" alt="(Previous)"/>
                     <a href="/patients/list">Current Group </a>
-                    <img style="border: 0px" src="/static/arrow_right.png" alt="(Next)"/></td>
-                <td><a href="/users/user_todo">Tasks and Agenda</a>
-                    <a href="/help/todo_help.html"><img style="border: 0px" src="/static/Help.png" alt="(Help)"/></a></td>
-                <td><a href="/help/notification_help.html">Incoming Notifications </a>  
-                    <a href="/help/notification_help.html"><img style="border: 0px" src="/static/Help.png" alt="(Help)"/></a></td>
-                <td>
+                    <img style="border: 0px" src="/static/arrow_right.png" alt="(Next)"/>
+                <a href="/users/user_todo">Tasks and Agenda</a>
+                    <a href="/help/todo_help.html"><img style="border: 0px" src="/static/Help.png" alt="(Help)"/></a>
+                <a href="/help/notification_help.html">Incoming Notifications </a>  
+                    <a href="/help/notification_help.html"><img style="border: 0px" src="/static/Help.png" alt="(Help)"/></a>
+
                     <a href="/users/user_preferences">Preferences</a>, 
                     <a href="/users/user_admin_menu">admin</a>, 
-                    <a href="/users/user_test">(Tests)</a></td>
-                <td><span tal:condition="logged_in">
+                    <a href="/users/user_test">(Tests)</a>
+                <span tal:condition="logged_in">
                        <a href="${request.application_url}/logout"><img style="border: 0px" src="/static/exit_small.png" alt="(Exit)"/></a>
                     </span>
-                </td>
-                </tr>
-            </tbody></table>
          </div>
-     </td></tr>
-    </tbody></table>
 
 <div metal:define-slot="content"></div>
 </div>

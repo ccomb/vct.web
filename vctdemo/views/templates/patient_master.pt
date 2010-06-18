@@ -9,7 +9,7 @@
 
 <body  metal:define-macro="patient_master" id="test-bg" >
 <div  metal:use-macro="master.macros['master']" id="test-bg" >
-<div id="patient_frame" metal:fill-slot="content">
+<div id="patient_frame" class="ui-widget" metal:fill-slot="content">
 
 <!--
 <div id="patient_header">
@@ -21,10 +21,7 @@
 </div>
 -->
 
-<div id="patient">
-  <table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="0"><tbody>
-    <tr>
-      <td style="vertical-align: top;">
+<div id="patient" class="ui-widget ui-widget-header">
           <div id= "patient_ID">
               Patient= 
               <span style="font-weight: bold;" tal:content="python:patient.name"/>
@@ -33,40 +30,26 @@
               <span style="font-weight: bold;" tal:content="python:patient.sex"/>
               , address: ....
           </div>         
-          <div id="patient_menu">
-              <table style="text-align: left; width: 100%;" border="1" cellpadding="2" cellspacing="2"><tbody>
-                <tr>
-                 <td style="vertical-align: top;">
-                     <a href="list">List all Items</a></td>
-                 <td style="vertical-align: top;">
-                     <a href="list_health_issues">Health Issues</a></td>
-                 <td style="vertical-align: top;">
-                     <a href="list_care_contacts">Care Contacts</a> - 
-                     <a href="list_topics">Topics</a> - 
-                     </td>
-                 <td style="vertical-align: top;">
-                     <a href="list_care_plan">Care Plan</a></td>
-                 <td style="vertical-align: top;">
-                     <a href="list_care_team">Care Team</a></td>
-                 <td>Other Views</td>
-                  <td><a href="add">Add item</a></td>
-                 <td><a href="add?type=Action">Add action</a></td>
-                 <td>Add link</td>
-                 <td style="vertical-align: top;">
-                     <a href="edit">Administration</a></td>
-                 <td style="vertical-align: top;">
-                     <a href="/">Close Patient</a></td>
-                </tr>
-              </tbody></table>
+          <div id="patient_menu" class="ui-widget-header">
+                     <a href="list" class="ui-state-default ui-corner-top">List all Items</a>
+                     <a href="list_health_issues" class="ui-state-default ui-corner-top">Health Issues</a>
+                     <a href="list_care_contacts" class="ui-state-default ui-corner-top">Care Contacts</a>
+                     <a href="list_topics" class="ui-state-default ui-corner-top">Topics</a>
+                     <a href="list_care_plan" class="ui-state-default ui-corner-top">Care Plan</a>
+                     <a href="list_care_team" class="ui-state-default ui-corner-top">Care Team</a>
+                     <a href="#" class="ui-state-default ui-corner-top">Other Views</a>
+                     <a href="add" class="ui-state-default ui-corner-top">Add item</a>
+                     <a href="add?type=Action" class="ui-state-default ui-corner-top">Add action</a>
+                     <a href="#" class="ui-state-default ui-corner-top">Add link</a>
+                     <a href="edit" class="ui-state-default ui-corner-top">Administration</a>
+                     <a href="/" class="ui-state-default ui-corner-top">Close Patient</a>
           </div>
-      </td>
-    </tr>
-  </tbody></table>
 </div>
 
-
-<div id="content" metal:define-slot="patient_content">
-
+<div id="content" class="ui-widget ui-widget-content">
+<metal:block define-slot="patient_content">
+patient data
+</metal:block>
 </div>
 
 </div>
