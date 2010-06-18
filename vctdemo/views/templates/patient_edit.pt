@@ -8,8 +8,8 @@
 
 </metal:block>
 </head>
-<body metal:use-macro="master.macros['master']">
-<div id="content" metal:fill-slot="content">
+<body metal:use-macro="patient_master.macros['patient_master']">
+<div id="content" metal:fill-slot="patient_content">
 <h1>Patient</h1>
 
 <form id="patient_form" method="post" action="">

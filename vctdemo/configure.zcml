@@ -113,7 +113,7 @@
     context=".models.Patient"
     view=".views.patient.view"
     name=""
-    renderer="views/templates/patient_item_view.pt"
+    renderer="views/templates/patient_view.pt"
     permission="view"
     />
 <view

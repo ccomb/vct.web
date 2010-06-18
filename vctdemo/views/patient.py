@@ -1,4 +1,5 @@
 from formalchemy.ext.zope import FieldSet
+from os.path import join
 from repoze.bfg.chameleon_zpt import get_template
 from repoze.bfg.security import authenticated_userid
 from repoze.bfg.traversal import virtual_root
@@ -92,10 +93,11 @@ def search(context, request):
 
 def view(context, request):
     return {'request':request,
-            'master': get_template('templates/master.pt'),
+            'master': get_template(join('templates', 'master.pt')),
+            'patient_master': get_template(join('templates', 'patient_master.pt')),
             'logged_in': authenticated_userid(request),
             'items': context.values(),
-            'context':context}
+            'patient':context}
 
 
 
@@ -109,9 +111,10 @@ def edit(context, request):
         catalog = virtual_root(context, request).catalogs['patients']
         catalog.reindex_doc(int(context.id), context)
         return HTTPFound(location=model_url(context, request))
-    return {'context': context,
+    return {'patient': context,
             'request': request,
             'master': get_template('templates/master.pt'),
+            'patient_master': get_template(join('templates', 'patient_master.pt')),
             'logged_in': authenticated_userid(request),
             'form': form}
 

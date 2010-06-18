@@ -6,8 +6,8 @@ from repoze.bfg.traversal import virtual_root
 from repoze.bfg.url import model_url
 from repoze.bfg.view import static, render_view
 from vctdemo import models
-from webob.exc import HTTPFound
 from webob import Response
+from webob.exc import HTTPFound
 import datetime
 
 def listview(context, request):
