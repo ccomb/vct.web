@@ -23,7 +23,6 @@ def listview(context, request):
 
 
 def add(context, request):
-
     item_type = request.GET.get('type')
     if item_type is not None and item_type=='Action':
         pitem = models.Action()

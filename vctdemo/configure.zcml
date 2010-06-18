@@ -72,9 +72,30 @@
     />
 <view
     context=".models.UserContainer"
+    view=".views.user.user_patient_groups"
+    name="user_patient_groups"
+    renderer="views/templates/user_patient_groups.pt"
+    permission="edit"
+    />
+<view
+    context=".models.UserContainer"
     view=".views.user.user_todo"
     name="user_todo"
     renderer="views/templates/user_todo.pt"
+    permission="edit"
+    />
+<view
+    context=".models.UserContainer"
+    view=".views.user.user_preferences"
+    name="user_preferences"
+    renderer="views/templates/user_preferences.pt"
+    permission="edit"
+    />
+<view
+    context=".models.UserContainer"
+    view=".views.user.user_test"
+    name="user_test"
+    renderer="views/templates/user_test.pt"
     permission="edit"
     />
 
@@ -251,98 +272,6 @@
 <view
     view=".views.security.logout"
     name="logout"
-    />
-
-<!-- old routes -->
-
-  <route
-    path="patients_old/user_preferences"
-    name="user_preferences"
-    view=".views.index.user_preferences"
-    renderer="views/templates/user_preferences.pt"
-    />
-
-  <route
-    path="patients_old/test"
-    name="test"
-    view=".views.index.test_view"
-    renderer="views/templates/test.pt"
-    />
-
-  <route
-    path="patients_old/patient_groups"
-    name="patientGroups"
-    view=".views.index.patient_groups"
-    renderer="views/templates/patient_groups.pt"
-    />
-<!--
-  <route
-    path="patients_old/patient_group"
-    name="patientGroup"
-    view=".views.index.patient_group"
-    renderer="views/templates/patient_group.pt"
-    />
-  <route
-    path="patients_old/patient_ID_validation"
-    name="patient ID validation"
-    view=".views.index.patient_ID_validation"
-    renderer="views/templates/patient_ID_validation.pt"
-    />
--->
-  <route
-    path="patients_old/current_patient"
-    name="current patient"
-    view=".views.index.current_patient"
-    renderer="views/templates/current_patient.pt"
-    />
-
-  <route
-    path="patients_old/patient_menu"
-    name="patient menu"
-    view=".views.index.patient_menu"
-    renderer="views/templates/patient_menu.pt"
-    />
-
-  <route
-    path="patients_old/medData_template"
-    name="medData_template"
-    view=".views.index.medData_template"
-    renderer="views/templates/medData_template.pt"
-    />
-
-  <route
-    path="patients_old/event_list"
-    name="event_list"
-    view=".views.index.event_list"
-    renderer="views/templates/event_list.pt"
-    />
-
-  <route
-    path="patients_old/topics"
-    name="topics"
-    view=".views.index.topics"
-    renderer="views/templates/topics.pt"
-    />
-
-  <route
-    path="patients_old/problem_list"
-    name="problem_list"
-    view=".views.index.problem_list"
-    renderer="views/templates/problem_list.pt"
-    />
-<!--
-  <route
-    path="patients_old/care_plan"
-    name="care_plan"
-    view=".views.index.care_plan"
-    renderer="views/templates/care_plan.pt"
-    />
--->
-  <route
-    path="patients_old/care_team"
-    name="care_team"
-    view=".views.index.care_team"
-    renderer="views/templates/care_team.pt"
     />
 
 </configure>

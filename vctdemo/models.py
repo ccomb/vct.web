@@ -92,6 +92,7 @@ class Patient(Folder):
 
 class IItem(Interface):
     """an item
+        Considered to be placed at the top, as a root for all other classes ??????
     """
     id = TextLine(title=u'Id', description=u'Identifier of the item')
     author = TextLine(title=u'Author', description=u'The author of the item')

@@ -23,25 +23,20 @@
              <table id="usermenu" border= "1"  style="text-align: left; width: 100%;"><tbody>
                 <tr>
                 <td>
-                <a href="/patients/search">Patient Search </a>
-                <a href="/help/patient_help.html">
-                <img style="border: 0px" src="/static/Help.png" alt="(Help)"/></a>
-                 - <a href="/patients_old/patient_groups">Groups </a>
-                <img style="border: 0px" src="/static/arrow_left.png" alt="(Previous)"/>
-                <a href="/patients/list">Current Group </a>
-                 <img style="border: 0px" src="/static/arrow_right.png" alt="(Next)"/>
-<!--
-                 - <a href="/patients_old/current_patient">Test</a>
--->
-                </td>
+                    <a href="/patients/search">Patient Search </a>
+                    <a href="/help/patient_help.html"><img style="border: 0px" src="/static/Help.png" alt="(Help)"/></a>  - 
+                    <a href="/users/user_patient_groups">Groups </a>
+                    <img style="border: 0px" src="/static/arrow_left.png" alt="(Previous)"/>
+                    <a href="/patients/list">Current Group </a>
+                    <img style="border: 0px" src="/static/arrow_right.png" alt="(Next)"/></td>
                 <td><a href="/users/user_todo">Tasks and Agenda</a>
-                <a href="/help/todo_help.html"><img style="border: 0px" src="/static/Help.png" alt="(Help)"/></a></td>
+                    <a href="/help/todo_help.html"><img style="border: 0px" src="/static/Help.png" alt="(Help)"/></a></td>
                 <td><a href="/help/notification_help.html">Incoming Notifications </a>  
-                <a href="/help/notification_help.html"><img style="border: 0px" src="/static/Help.png" alt="(Help)"/></a></td>
+                    <a href="/help/notification_help.html"><img style="border: 0px" src="/static/Help.png" alt="(Help)"/></a></td>
                 <td>
-                    <a href="/patients_old/user_preferences">Preferences</a>, 
+                    <a href="/users/user_preferences">Preferences</a>, 
                     <a href="/users/user_admin_menu">admin</a>, 
-                    <a href="/patients_old/test">(Tests)</a></td>
+                    <a href="/users/user_test">(Tests)</a></td>
                 <td><span tal:condition="logged_in">
                        <a href="${request.application_url}/logout"><img style="border: 0px" src="/static/exit_small.png" alt="(Exit)"/></a>
                     </span>

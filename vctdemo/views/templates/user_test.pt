@@ -1,13 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:tal="http://xml.zope.org/namespaces/tal">
+      xmlns:tal="http://xml.zope.org/namespaces/tal">      
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>Test - Virtual Care Team</title>
+<title>User Tasks and Agenda</title>
 <link href="${request.application_url}/static/default.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body  metal:use-macro="master.macros['master']">
+<body metal:use-macro="master.macros['master']">
+
 <div id="content" metal:fill-slot="content">
 <h4>Tests in Virtual Care Team</h4>
 <ul>
@@ -47,6 +48,8 @@ Would like to hear your opinion. Thanks.</p>
 <li>.....
 </li>
 </ul>
+
 </div>
+
 </body>
 </html>

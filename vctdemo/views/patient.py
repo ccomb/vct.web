@@ -25,7 +25,7 @@ def add(context, request):
     form = FieldSet(models.IPatient)
     form.configure(exclude=[form.id])
     form.id.set(required=False)
-    form = form.bind(patient, data=request.POST if len(request.POST) else request.GET)
+    form = form.bind(patient, data=request.POST if len(request.POST) else request.GET)  # ???
     if request.POST and form.validate():
         request.POST.pop('Patient--id', None)
         form.sync()

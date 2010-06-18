@@ -64,7 +64,26 @@ def user_admin_menu(context, request):
             'logged_in': authenticated_userid(request),
             }
     
+def user_patient_groups(context, request):
+    return {'request':request,
+            'context':context,
+            'master': get_template('templates/master.pt'),
+            'logged_in': authenticated_userid(request),
+            }
+def user_test(context, request):
+    return {'request':request,
+            'context':context,
+            'master': get_template('templates/master.pt'),
+            'logged_in': authenticated_userid(request),
+            }
 def user_todo(context, request):
+    return {'request':request,
+            'context':context,
+            'master': get_template('templates/master.pt'),
+            'logged_in': authenticated_userid(request),
+            }
+    
+def user_preferences(context, request):
     return {'request':request,
             'context':context,
             'master': get_template('templates/master.pt'),
