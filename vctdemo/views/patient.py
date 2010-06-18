@@ -64,16 +64,18 @@ def search(context, request):
     errors = None
     searched = None
     if request.POST and form.validate():
+        # we only keep keys with non-empty values
         data = dict([(id,field.value)
                      for (id,field) in form.render_fields.items()
                      if field.value])
         try:
-            number, results = catalog.search(**data) # ???
+            # make a query using this data dict
+            number, results = catalog.search(**data)
             searched = True
         except Exception, r:
             errors = r
             number, results = 0, {}
-        results = [context[i] for i in dict(results).keys()]
+        results = [context[i] for i in results]
     return {'request':request,
             'add_data': urllib.urlencode(request.POST),   # ???
             'context':context,
