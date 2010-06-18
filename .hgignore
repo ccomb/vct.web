@@ -10,3 +10,4 @@
 .*\.swp$
 ^Data.fs.*
 sandbox/
+^vctdemo/admin$
