@@ -30,7 +30,7 @@ def add(context, request):
         request.POST.pop('Patient--id', None)
         form.sync()
         id = len(context)
-        while id in context:
+        while id in context:   #
             id += 1
         patient.id = str(id)
         context[str(id)] = patient
@@ -42,7 +42,8 @@ def add(context, request):
             patient.catalogs['items'] = Catalog()
             patient.catalogs['items']['title'] = CatalogTextIndex('title')
             patient.catalogs['items']['text'] = CatalogTextIndex('text')
-        return HTTPFound(location=model_url(patient, request))
+            return HTTPFound(location=model_url(patient, request))
+            #return HTTPfound(${patient.id}/list)
     return {'request':request,
             'context':context,
             'master': get_template('templates/master.pt'),

@@ -71,11 +71,20 @@
     permission="admin"
     />
 <!-- PATIENT -->
+<!--
 <view
     context=".models.Patient"
     view=".views.patient.view"
     name=""
     renderer="views/templates/patient_view.pt"
+    permission="view"
+    />
+-->
+<view
+    context=".models.Patient"
+    view=".views.patient.view"
+    name=""
+    renderer="views/templates/patient_item_view.pt"
     permission="view"
     />
 <view
@@ -214,14 +223,13 @@
     view=".views.index.patient_groups"
     renderer="views/templates/patient_groups.pt"
     />
-
+<!--
   <route
     path="patients_old/patient_group"
     name="patientGroup"
     view=".views.index.patient_group"
     renderer="views/templates/patient_group.pt"
     />
-<!--
   <route
     path="patients_old/patient_ID_validation"
     name="patient ID validation"

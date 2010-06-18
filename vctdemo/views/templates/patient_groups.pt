@@ -14,7 +14,12 @@
 <table style="text-align: left; width: 60%; background-color: #EEEEEE" border="1" cellpadding="2"
  cellspacing="2"><tbody>
     <tr>
-      <td style="vertical-align: top;">Current Session History</td>
+      <td style="vertical-align: top;"><a href="/patients/list">Current Session</a></td>
+      <td style="vertical-align: top;">10<br />
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">Session History</td>
       <td style="vertical-align: top;">10<br />
       </td>
     </tr>
@@ -38,9 +43,7 @@ to do something<br />
     </tr>
 
     <tr>
-      <td style="vertical-align: top;">
-          <a href="/patients_old/patient_group">Appointments this afternoon</a><br />
-      </td>
+      <td style="vertical-align: top;">Appointments this afternoon<br /></td>
       <td style="vertical-align: top;">14<br /></td>
     </tr>
 

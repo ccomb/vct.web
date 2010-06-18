@@ -13,7 +13,8 @@
 <body id="test-bg" >
 
 <div id="user" metal:define-macro="master">
-  <table border= "1"  style="text-align: left; width: 100%"><tbody>
+
+  <table id="user_header" style="text-align: left; width: 100%"><tbody>
      <tr><td>
          <div id="user_ID">
              User = ${logged_in} / organization of the user <br/>
@@ -51,8 +52,8 @@
     </tbody></table>
 
 <div metal:define-slot="content"></div>
-
 </div>
+
 
 <!--
 <div style="clear: both;">&nbsp;</div>

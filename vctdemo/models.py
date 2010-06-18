@@ -80,7 +80,8 @@ class IPatient(Interface):
     name = TextLine(title=u'Name')
     firstname = TextLine(title=u'First Name')
     birthdate = TextLine(title=u'Birthdate')
-    sex = Choice(title=u'Sex', values=['Male', 'Female', 'Unknown'])
+    # sex = Choice(title=u'Sex', values=['Male', 'Female', 'Unknown'])
+    sex = TextLine(title=u'Sex')
 
 
 class Patient(Folder):
