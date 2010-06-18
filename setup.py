@@ -19,7 +19,7 @@ requires = [
     ]
 
 setup(name='vct.demo',
-      version='0.0',
+      version='0.1dev',
       description='vct.demo',
       long_description=README + '\n\n' +  CHANGES,
       classifiers=[

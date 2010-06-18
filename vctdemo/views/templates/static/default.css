@@ -48,7 +48,12 @@ height: 50%;
 margin-left: auto;
 margin-right: auto;
 padding: 1em;
+text-align: center;
 background: url('/static/transparent.png');
+}
+div.login form {
+margin-top: 2em;
+margin-bottom: 2em;
 }
 div#content {
 width: 100%;
@@ -77,6 +82,7 @@ margin-top: 0%;
 background: white;
 padding: 0em;
 border: solid 6px yellow;
+}
 
 .fieldname {
 display: inline-block;
@@ -110,4 +116,8 @@ background: #FEF;
 }
 .item {
 background: #FFE;
+}
+
+#version {
+text-align: center;
 }

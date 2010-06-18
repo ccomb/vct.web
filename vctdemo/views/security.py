@@ -4,6 +4,7 @@ from repoze.bfg.url import model_url
 from repoze.bfg.view import static
 from webob.exc import HTTPFound
 from vctdemo.security import FAILSAFE_PASS
+from pkg_resources import get_distribution
 
 def login(context, request):
     login_url = model_url(context, request, 'login')
@@ -18,7 +19,7 @@ def login(context, request):
         login = request.params['login']
         password = request.params['password']
 
-        # in case there is not yet any users, try the failsafe admin first (see ../security.py) 
+        # in case there is not yet any users, try the failsafe admin first (see ../security.py)
         # Why not the reverse ???
         if FAILSAFE_PASS != '' and [login, password] == ['admin', FAILSAFE_PASS]:
             headers = remember(request, login)    # ???
@@ -38,6 +39,7 @@ def login(context, request):
         message = message,
         url = request.application_url + '/login',
         came_from = came_from,
+        version = get_distribution('vct.demo').version,
         login = login,
         password = password,     # why not make the password = '' ?
         )
