@@ -8,22 +8,28 @@
 <link href="${request.application_url}/static/default.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body style= "align: center; color: white; height: 100%; width: 100%; 
-    background-image:url('/static/login_background.jpg');background-repeat:no-repeat;">
+<body>
 
+<div id="loginwrapper">
+
+<div class="login">
 <h1>Virtual Care Team</h1>
 <h2 style="text-align: center">Experimental prototype of the project<br/> 
 <a href="http://www.chos-wg.eu">Collaboration in Healthcare Open Source</a></h2><br/>
 
 <form style="text-align: center" method="post" action="${url}">
+<div>
     <input type="hidden" name="came_from" value="${came_from}"/>
     <span class="fieldname">User :</span>
     <input type= "text" name="login" value="${login}" />
     <span class="fieldname">Password :</span>
     <input type= "password" name="password" value="${password}" />
     <input type="submit" name="form.submitted" value = "Log In" />
+</div>
 </form>
 
+</div>
+</div>
 </body>
 </html>
     
