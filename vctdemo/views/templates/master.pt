@@ -4,10 +4,11 @@
     xmlns:tal="http://xml.zope.org/namespaces/tal"
     xmlns:metal="http://xml.zope.org/namespaces/metal">
 
-<head>
+<head metal:define-macro="head">
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <title>User session</title>
+  <link href="${request.application_url}/static/jquery/css/main/jquery-ui-1.8.2.custom.css" rel="stylesheet" type="text/css" />
   <link href="${request.application_url}/static/default.css" rel="stylesheet" type="text/css" />
+  <metal:block define-slot="headslot"></metal:block>
 </head>
 
 <body id="test-bg" >
