@@ -274,6 +274,27 @@
     permission="view"
     />
 <view
+    context=".models.Action"
+    view=".views.patient_item.edit"
+    name="edit"
+    renderer="views/templates/patient_action_edit.pt"
+    permission="edit"
+    />
+<view
+    context=".models.Observation"
+    view=".views.patient_item.edit"
+    name="edit"
+    renderer="views/templates/patient_observation_edit.pt"
+    permission="edit"
+    />
+<view
+    context=".models.Issue"
+    view=".views.patient_item.edit"
+    name="edit"
+    renderer="views/templates/patient_issue_edit.pt"
+    permission="edit"
+    />
+<view
     context=".models.PatientItem"
     view=".views.patient_item.edit"
     name="edit"

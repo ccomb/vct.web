@@ -18,10 +18,10 @@
 <div>Item status: <span tal:content="python:context.status" /></div>
 <div>External link: <a href="#" tal:attributes="href python:context.link" tal:content="python:context.link" /></div>
 
-<iframe tal:condition="python:context.link" id="external" width="99%" height="800px" tal:attributes="src python:context.link" />
-
 <a href="edit">Edit</a> - 
 <a href="../list">Back to the List</a>
+
+<iframe tal:condition="python:context.link" id="external" width="99%" height="800px" tal:attributes="src python:context.link">external application</iframe>
 
 </div>
 </body>

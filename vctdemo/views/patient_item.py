@@ -1,4 +1,5 @@
 from formalchemy.ext.zope import FieldSet
+from zope.interface import providedBy
 from os.path import join
 from repoze.bfg.chameleon_zpt import get_template, render_template_to_response
 from repoze.bfg.security import authenticated_userid
@@ -121,7 +122,8 @@ def view(context, request):
             'context':context}
 
 def edit(context, request):
-    form = FieldSet(models.IPatientItem)
+    iface = list(providedBy(context))[0]
+    form = FieldSet(iface)
     form = form.bind(context, data=request.POST or None)
     if request.POST and form.validate():
         request.POST.pop('PatientItem--id', None)
