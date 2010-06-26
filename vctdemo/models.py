@@ -129,9 +129,7 @@ class Issue(PatientItem):
 class IAction(IPatientItem):
     status = TextLine(title=u"status", description=u"status of the action", required=False)
     image = Bytes(title=u"attached file", description=u"attached file", required=False)
-    link = TextLine(title=u"Link",
-                    description=u'<a href="https://telemed.ipath.ch/ipath/object/view/292741&amp;user=saliez">case nr 292741</a>',
-                    required=False)
+    link = TextLine(title=u"Link", description=u'External link', required=False)
 
 
 class Action(PatientItem):
