@@ -102,10 +102,11 @@ class IItem(Interface):
 class IPatientItem(Interface):
     date = Datetime(title=u'Date, time', description=u'Date and time')
     title = TextLine(title=u'Title', description=u'The title of the item')
-    text = Text(title=u'content', description=u'observation content')
+    text = Text(title=u'content', description=u'observation content', required=False)
 
 class PatientItem(Folder):
-    id = date = title = text = None
+    id = date = None
+    title = text = ''
     implements(IItem, IPatientItem)
 
 
@@ -126,14 +127,16 @@ class Issue(PatientItem):
 
 
 class IAction(IPatientItem):
-    status = TextLine(title=u"status", description=u"status of the action")
-    image = Bytes(title=u"attached file", description=u"attached file")
-    link = TextLine(title=u"Link", description=u'<a href="https://telemed.ipath.ch/ipath/object/view/292741&amp;user=saliez">case nr 292741</a>')
+    status = TextLine(title=u"status", description=u"status of the action", required=False)
+    image = Bytes(title=u"attached file", description=u"attached file", required=False)
+    link = TextLine(title=u"Link",
+                    description=u'<a href="https://telemed.ipath.ch/ipath/object/view/292741&amp;user=saliez">case nr 292741</a>',
+                    required=False)
 
 
 class Action(PatientItem):
     implements(IAction)
-    status = image = link = None
+    status = image = link = ''
 
 
 class IRelation(PatientItem):
