@@ -16,6 +16,7 @@ requires = [
     'FormAlchemy',
     'fa.jquery',
     'repoze.catalog',
+    'zope.annotation',
     ]
 
 setup(name='vct.demo',

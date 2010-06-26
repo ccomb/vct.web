@@ -1,11 +1,15 @@
-from persistent.list import PersistentList
+# coding: utf-8
 from persistent import Persistent
+from persistent.list import PersistentList
 from repoze.bfg.security import Allow
 from repoze.catalog.catalog import Catalog
 from repoze.catalog.document import DocumentMap
 from repoze.catalog.indexes.field import CatalogFieldIndex
 from repoze.catalog.indexes.text import CatalogTextIndex
 from repoze.folder import Folder
+from zope.annotation import factory
+from zope.annotation.interfaces import IAttributeAnnotatable, IAnnotations
+from zope.component import adapts
 from zope.interface import Interface, implements
 from zope.schema import TextLine, Int, Text, Datetime, Bytes, Password, List, Choice
 
@@ -64,11 +68,29 @@ class IUser(Interface):
 
 
 class User(Persistent):
-    implements(IUser)
+    implements(IUser, IAttributeAnnotatable)
     username = password = groups = None
 
     def __init__(self):
         self.group = PersistentList()
+
+
+class IUserPreferences(Interface):
+    language = Choice(title=u'preferred language', values=[
+        u'english', u'french', u'spanish', u'german', u'greek', u'turkish'])
+
+
+class UserPreferences(Persistent):
+    """adapter for user preferences
+    """
+    implements(IUserPreferences)
+    adapts(IUser)
+
+    def __init__(self):
+        self.language = 'english'
+
+
+user_preferences = factory(UserPreferences)
 
 
 # TODO : rename Patient to Record

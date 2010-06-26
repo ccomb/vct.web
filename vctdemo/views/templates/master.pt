@@ -33,7 +33,7 @@
                 <a href="/help/notification_help.html">Incoming Notifications </a>  
                     <a href="/help/notification_help.html"><img style="border: 0px" src="/static/Help.png" alt="(Help)"/></a>
 
-                    <a href="/users/user_preferences">Preferences</a>, 
+                    <a href="/users/prefs">Preferences</a>, 
                     <a href="/users/user_admin_menu">admin</a>, 
                     <a href="/users/user_test">(Tests)</a>
                 <span tal:condition="logged_in">

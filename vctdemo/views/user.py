@@ -1,6 +1,7 @@
 from formalchemy.ext.zope import FieldSet
 from formalchemy.fields import PasswordFieldRenderer
 from repoze.bfg.chameleon_zpt import get_template
+from vctdemo.models import IUserPreferences
 from repoze.bfg.security import authenticated_userid
 from repoze.bfg.traversal import virtual_root
 from repoze.bfg.url import model_url
@@ -57,13 +58,35 @@ def edit(context, request):
             'form': form}
 
 
+def preferences(context, request):
+    form = FieldSet(models.IUserPreferences)
+    preferences = IUserPreferences(context)
+    form = form.bind(preferences, data=request.POST or None)
+    if request.POST and form.validate():
+        form.sync()
+        return HTTPFound(location=model_url(context, request))
+
+    return {'request':request,
+            'context':context,
+            'form': form,
+            'master': get_template('templates/master.pt'),
+            'logged_in': authenticated_userid(request),
+            }
+
+
+def my_preferences(context, request):
+    """view for my preferences
+    """
+    return preferences(context[authenticated_userid(request)], request)
+
+
 def user_admin_menu(context, request):
     return {'request':request,
             'context':context,
             'master': get_template('templates/master.pt'),
             'logged_in': authenticated_userid(request),
             }
-    
+
 def user_patient_groups(context, request):
     return {'request':request,
             'context':context,
@@ -77,13 +100,6 @@ def user_test(context, request):
             'logged_in': authenticated_userid(request),
             }
 def user_todo(context, request):
-    return {'request':request,
-            'context':context,
-            'master': get_template('templates/master.pt'),
-            'logged_in': authenticated_userid(request),
-            }
-    
-def user_preferences(context, request):
     return {'request':request,
             'context':context,
             'master': get_template('templates/master.pt'),

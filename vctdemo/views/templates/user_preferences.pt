@@ -1,92 +1,27 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:tal="http://xml.zope.org/namespaces/tal">      
+      xmlns:tal="http://xml.zope.org/namespaces/tal">
 <head metal:use-macro="master.macros['head']">
 <metal:block fill-slot="headslot">
 
-<title>User Tasks and Agenda</title>
+<title>Editing user preferences</title>
 
 </metal:block>
 </head>
-
 <body metal:use-macro="master.macros['master']">
-
 <div id="content" metal:fill-slot="content">
+<h1>User Preferences</h1>
 
-<h3>User Preferences</h3>
-<br />
-
-<form method="post" action="patient_ID_validation">
-  <table style="text-align: left; width: 922px; height: 178px; "
- border="1" cellpadding="2" cellspacing="2">
-    <tbody style="background-color: #EEEEEE">
-      <tr>
-        <td style="vertical-align: top; text-align: right;">User ID
-        </td>
-        <td style="vertical-align: top;">xxxxxxxxxxxxx
-        </td>
-      </tr>
-      
-      <tr>
-        <td style="vertical-align: top; text-align: right;">Preferred language
-        </td>
-        <td style="vertical-align: top;">        
-            <input type="radio" name="language" value="DE" /> Deutch - 
-            <input type="radio" name="language" value="EN" CHECKED = "1" /> English        
-            <input type="radio" name="language" value="ES" /> Español - 
-            <input type="radio" name="language" value="FR" /> Français -  
-            <input type="radio" name="language" value="NL" /> Nederlands
-        </td>
-      </tr>
-
-      <tr>
-        <td style="vertical-align: top; text-align: right;"> Screen presentation for</td>
-        <td style="vertical-align: top;">
-         <input type="radio" name="presentation" value="S" CHECKED = "1" /> Default Standard        
-         <input type="radio" name="presentation" value="D" /> Doctor - 
-         <input type="radio" name="presentation" value="N" /> Nurse - 
-         <input type="radio" name="presentation" value="A" /> Administration 
-        </td>
-      </tr>
-
- <!--     
- -->      
-   
-      <tr>
-        <td style="vertical-align: top; text-align: right;">Patient record first page</td>
-        <td style="vertical-align: top;">
-         <input type="radio" name="PatRecFirstPage" value="PRL" CHECKED = "1" /> Problem List -         
-         <input type="radio" name="PatRecFirstPage" value="LEV" /> Latest Events - 
-         <input type="radio" name="PatRecFirstPage" value="ADM" /> Administration - 
-         <input type="radio" name="PatRecFirstPage" value="CP" /> Care Plan - 
-         <input type="radio" name="PatRecFirstPage" value="LAB" /> Lab 
-        </td>
-      </tr>
-      
-      <tr>
-        <td style="vertical-align: top; text-align: right;">...............</td>
-        <td style="vertical-align: top;"><input name="yyyyyyy" /></td>
-      </tr>
-      <tr>
-        <td style="vertical-align: top; text-align: right;">.............
-        </td>
-        <td style="vertical-align: top;"><input name="xxxxxx" />
-        </td>
-      </tr>
-      
-      
-      <tr>
-        <td style="vertical-align: top; text-align: right;">&nbsp;
-        </td>
-        <td style="vertical-align: top;"><input type= "submit" value = "Submit" />
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <br />
+<form id="user_form" method="post" action="">
+  <div tal:content="structure python:form.render()" />
+  <div class="fa_field ui-widget">
+    <input class="ui-button ui-state-default ui-corner-all"
+           value="Valider" type="submit" />
+  </div>
 </form>
 
-</div>
 
+
+</div>
 </body>
 </html>

@@ -15,6 +15,7 @@
 <div>User username: <span tal:content="python:context.username" /></div>
 
 <a href="edit">Edit</a> - 
+<a href="prefs">Prefs</a>
 
 </div>
 </body>

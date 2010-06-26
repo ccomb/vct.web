@@ -1,7 +1,11 @@
-<configure xmlns="http://namespaces.repoze.org/bfg">
+<configure xmlns="http://namespaces.repoze.org/bfg"
+           xmlns:zope="http://namespaces.zope.org/zope">
 
 <!-- this must be included for the view declarations to work -->
 <include package="repoze.bfg.includes" />
+<include package="zope.component" file="meta.zcml" />
+<include package="zope.annotation" />
+<include package="zope.location" />
 
 <authtktauthenticationpolicy
      callback=".security.groupfinder"
@@ -26,6 +30,8 @@
 
 
 <!-- ROOT -->
+<zope:adapter factory=".models.user_preferences" />
+
 <view
     context=".models.VctRoot"
     view=".views.index.index"
@@ -42,6 +48,21 @@
     renderer="views/templates/user_view.pt"
     permission="view"
     />
+<view
+    context=".models.UserContainer"
+    view=".views.user.my_preferences"
+    name="prefs"
+    renderer="views/templates/user_preferences.pt"
+    permission="edit"
+    />
+<view
+    context=".models.User"
+    view=".views.user.preferences"
+    name="prefs"
+    renderer="views/templates/user_preferences.pt"
+    permission="edit"
+    />
+
 <view
     context=".models.UserContainer"
     view=".views.user.listview"
@@ -82,13 +103,6 @@
     view=".views.user.user_todo"
     name="user_todo"
     renderer="views/templates/user_todo.pt"
-    permission="edit"
-    />
-<view
-    context=".models.UserContainer"
-    view=".views.user.user_preferences"
-    name="user_preferences"
-    renderer="views/templates/user_preferences.pt"
     permission="edit"
     />
 <view
