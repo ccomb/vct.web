@@ -29,7 +29,7 @@ Item list : Care plan
 
 
 <span style="font-weight: bold;">Current Care Team of the patient</span> (-?-)
-<table border="1" width="100%" bgcolor="white"><tbody>
+<table border="1" bgcolor="white"><tbody>
 	<tr style="background-color: #EEEEEE">
  		<td><i>Institution, department <br/>and involved care givers</i></td>
  		<td><i>Begin</i></td>
