@@ -31,8 +31,10 @@
               , address: ....
           </div>         
           <div id="patient_menu" class="ui-widget-header">
-                     <a href="${patient_url}list" class="ui-state-default ui-corner-all">List all Items</a>
-                     <a href="${patient_url}list_health_issues" class="ui-state-default ui-corner-all">Health Issues</a>
+                     <a href="${patient_url}list" tip="oooooooo " class="ui-state-default ui-corner-all">List all Items</a>
+                     <a href="${patient_url}list?type=issue" class="ui-state-default ui-corner-all">Issues</a>
+                     <a href="${patient_url}list?type=observation" class="ui-state-default ui-corner-all">Observations</a>
+                     <a href="${patient_url}list?type=action" class="ui-state-default ui-corner-all">Actions</a>
                      <a href="${patient_url}list_care_contacts" class="ui-state-default ui-corner-all">Care Contacts</a>
                      <a href="${patient_url}list_topics" class="ui-state-default ui-corner-all">Topics</a>
                      <a href="${patient_url}list_care_plan" class="ui-state-default ui-corner-all">Care Plan</a>

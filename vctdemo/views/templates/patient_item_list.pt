@@ -19,7 +19,7 @@ Item list
 <ul>
   <tal:block repeat="item items">
     <li>
-        <tal:block content="structure python:render_view(item, request, name='smallview')" />
+        <tal:block content="structure python:render_view(item, request, name='smallview').decode('utf-8')" />
     </li>
   </tal:block>
 </ul>
