@@ -40,6 +40,8 @@
                      <a href="${patient_url}#" class="ui-state-default ui-corner-all">Other Views</a>
                      <a href="${patient_url}add" class="ui-state-default ui-corner-all">Add item</a>
                      <a href="${patient_url}add?type=Action" class="ui-state-default ui-corner-all">Add action</a>
+                     <a href="${patient_url}add?type=Observation" class="ui-state-default ui-corner-all">Add observation</a>
+                     <a href="${patient_url}add?type=Issue" class="ui-state-default ui-corner-all">Add issue</a>
                      <a href="${patient_url}#" class="ui-state-default ui-corner-all">Add link</a>
                      <a href="${patient_url}edit" class="ui-state-default ui-corner-all">Administration</a>
                      <a href="${patient_url}.." class="ui-state-default ui-corner-all">Close Patient</a>

@@ -15,7 +15,7 @@ class VctRoot(Folder):
                 (Allow, 'group:admins', 'view'),
                 (Allow, 'group:admins', 'edit'),
                 (Allow, 'group:users',  'view'),
-                (Allow, 'group:users',  'edit') 
+                (Allow, 'group:users',  'edit')
                 ]
 
 

@@ -33,6 +33,14 @@ def add(context, request):
         pitem = models.Action()
         item_interface = models.IAction
         template = 'patient_action_add.pt'
+    elif item_type is not None and item_type=='Issue':
+        pitem = models.Issue()
+        item_interface = models.IIssue
+        template = 'patient_issue_add.pt'
+    elif item_type is not None and item_type=='Observation':
+        pitem = models.Observation()
+        item_interface = models.IObservation
+        template = 'patient_observation_add.pt'
     else:
         pitem = models.PatientItem()
         item_interface = models.IPatientItem

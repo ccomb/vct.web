@@ -4,13 +4,13 @@
 <head metal:use-macro="master.macros['head']">
 <metal:block fill-slot="headslot">
 
-<title>Adding an action</title>
+<title>Adding an observation</title>
 
 </metal:block>
 </head>
 <body metal:use-macro="patient_master.macros['patient_master']">
 <div id="content" metal:fill-slot="patient_content">
-<h1>New action</h1>
+<h1>New observation</h1>
 
 <form id="item_form" method="post" action="" enctype="multipart/form-data">
   <div tal:content="structure python:form.render()" />
