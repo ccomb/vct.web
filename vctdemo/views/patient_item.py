@@ -11,18 +11,23 @@ from webob.exc import HTTPFound
 import datetime
 
 def listview(context, request):
+    """item list (in the context of patient)
+    """
     items = context.values()
     return {'request':request,
             'context':context,
             'master': get_template('templates/master.pt'),
             'logged_in': authenticated_userid(request),
             'patient':context,
+            'patient_url': model_url(context, request),
             'render_view': render_view,
             'patient_master': get_template(join('templates', 'patient_master.pt')),
             'items':items}
 
 
 def add(context, request):
+    """add item view (in the context of patient)
+    """
     item_type = request.GET.get('type')
     if item_type is not None and item_type=='Action':
         pitem = models.Action()
@@ -51,6 +56,7 @@ def add(context, request):
             request=request,
             context=context,
             patient=context,
+            patient_url=model_url(context, request),
             patient_master=get_template(join('templates', 'patient_master.pt')),
             master=get_template(join('templates', 'master.pt')),
             logged_in=authenticated_userid(request),
@@ -79,6 +85,7 @@ def search(context, request):
         results = [context[i] for i in dict(results).keys()]
     return {'request':request,
             'context':context,
+            'patient_url':model_url(context, request),
             'master': get_template('templates/master.pt'),
             'logged_in': authenticated_userid(request),
             'patient':context,
@@ -94,6 +101,7 @@ def view(context, request):
             'master': get_template('templates/master.pt'),
             'logged_in': authenticated_userid(request),
             'patient':context.__parent__,
+            'patient_url':model_url(context.__parent__, request),
             'patient_master': get_template('templates/patient_master.pt'),
             'context':context}
 
@@ -110,6 +118,7 @@ def edit(context, request):
             'request': request,
             'master': get_template('templates/master.pt'),
             'patient':context.__parent__,
+            'patient_url':model_url(context.__parent__, request),
             'patient_master': get_template('templates/patient_master.pt'),
             'logged_in': authenticated_userid(request),
             'form': form}

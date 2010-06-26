@@ -13,6 +13,8 @@ from webob.exc import HTTPFound
 import urllib
 
 def listview(context, request):
+    """patient list (in the context of patient container)
+    """
     patients = context.values()
     return {'request':request,
             'context':context,
@@ -97,7 +99,8 @@ def view(context, request):
             'patient_master': get_template(join('templates', 'patient_master.pt')),
             'logged_in': authenticated_userid(request),
             'items': context.values(),
-            'patient':context}
+            'patient':context,
+            'patient_url': model_url(context, request)}
 
 
 
@@ -112,6 +115,7 @@ def edit(context, request):
         catalog.reindex_doc(int(context.id), context)
         return HTTPFound(location=model_url(context, request))
     return {'patient': context,
+            'patient_url': model_url(context, request),
             'request': request,
             'master': get_template('templates/master.pt'),
             'patient_master': get_template(join('templates', 'patient_master.pt')),
@@ -123,6 +127,7 @@ def proto_care_plan(context, request):
             'master': get_template('templates/master.pt'),
             'logged_in': authenticated_userid(request),
             'patient':context.__parent__,
+            'patient_url': model_url(context, request),
             'patient_master': get_template('templates/patient_master.pt'),
             'context':context}
 
