@@ -1,3 +1,5 @@
+body { background-color: #FFF; }
+
 a {
 text-decoration: none;
 padding: 0.2em;
@@ -5,18 +7,17 @@ vertical-align: middle;
 }
 
 #patient {
-margin: 0.1em;
-}
+margin-top: 0.3em;}
 
 #patient_menu {
-margin: 0.1em;
 float: left;
-margin: 0.5em;
+margin-right: 0.5em;
 }
 
 #patient_menu a {
 display: block;
 width: 9em;
-margin-bottom: 0.2em;
+margin-top: 2px;
+margin-bottom: 2px;
 }
 
