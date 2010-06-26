@@ -4,8 +4,4 @@
 <span>( ${context.id} ) ACTION: ${context.title} : </span>
 </a>
 (status = ${context.status})
-<a href="https://telemed.ipath.ch/ipath/object/view/292741"> Ipath test </a>
-<!--
-<a href="https://telemed.ipath.ch/ipath/object/view/292741&user=saliez"> Ipath test </a>
--->
 </div>
