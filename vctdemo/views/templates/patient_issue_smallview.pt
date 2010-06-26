@@ -1,0 +1,6 @@
+<div class="smallview action">
+
+<a href="${context.id}/">
+<span>( ${context.id} ) ISSUE: ${context.title} : </span>
+</a>
+</div>

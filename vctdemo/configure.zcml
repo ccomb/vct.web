@@ -195,6 +195,20 @@
     permission="view"
     />
 <view
+    context=".models.Issue"
+    view=".views.patient_item.view"
+    name="smallview"
+    renderer="views/templates/patient_issue_smallview.pt"
+    permission="view"
+    />
+<view
+    context=".models.Observation"
+    view=".views.patient_item.view"
+    name="smallview"
+    renderer="views/templates/patient_observation_smallview.pt"
+    permission="view"
+    />
+<view
     context=".models.Patient"
     view=".views.patient_item.listview"
     name="list"

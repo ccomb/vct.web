@@ -1,0 +1,6 @@
+<div class="smallview action">
+
+<a href="${context.id}/">
+<span>( ${context.id} ) OBSERVATION: ${context.title} : </span>
+</a>
+</div>
