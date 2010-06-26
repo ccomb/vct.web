@@ -15,9 +15,9 @@
   <metal:block define-slot="headslot" />
 </head>
 
-<body id="test-bg" >
+<body metal:define-macro="master">
 
-<div id="user" class="ui-widget" metal:define-macro="master">
+<div id="user" class="ui-widget">
 
          <div id="user_ID" class="ui-widget ui-widget-header">
              User = ${logged_in} / organization of the user
