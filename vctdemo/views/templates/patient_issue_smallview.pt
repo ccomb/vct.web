@@ -1,4 +1,4 @@
-<div class="smallview action">
+<div class="smallview issue">
 
 <a href="${context.id}/">
 <span>( ${context.id} ) ISSUE: ${context.title} : </span>

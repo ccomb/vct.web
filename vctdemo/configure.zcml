@@ -182,6 +182,20 @@
     permission="view"
     />
 <view
+    context=".models.Issue"
+    view=".views.patient_item.view"
+    name=""
+    renderer="views/templates/patient_issue_view.pt"
+    permission="view"
+    />
+<view
+    context=".models.Observation"
+    view=".views.patient_item.view"
+    name=""
+    renderer="views/templates/patient_observation_view.pt"
+    permission="view"
+    />
+<view
     context=".models.Action"
     view=".views.patient_item.image"
     name="image"
