@@ -123,6 +123,9 @@ def edit(context, request):
         request.POST.pop('PatientItem--id', None)
         form.sync()
         catalog = context.__parent__.catalogs['items']
+        # zope.index BUG #598776
+        if context.text is None:
+            context.text = u''
         catalog.reindex_doc(int(context.id), context)
         return HTTPFound(location=model_url(context, request))
     return {'context': context,
