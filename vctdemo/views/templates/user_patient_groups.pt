@@ -1,11 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:tal="http://xml.zope.org/namespaces/tal">      
+      xmlns:tal="http://xml.zope.org/namespaces/tal">
+           
 <head metal:use-macro="master.macros['head']">
 <metal:block fill-slot="headslot">
-
-<title>User Tasks and Agenda</title>
-
+<title>Patient groups</title>
 </metal:block>
 </head>
 

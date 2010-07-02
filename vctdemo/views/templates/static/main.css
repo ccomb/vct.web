@@ -64,3 +64,12 @@ margin-bottom: 2em;
 #content {
 padding-left: 160px;
 }
+div#help_content {
+width: 100%;
+margin-left: auto;
+margin-right: auto;
+margin-top: 0%;
+background: #EEEEFF;
+padding: 0em;
+border: solid 5px #AAAAFF;
+}
