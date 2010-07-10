@@ -1,10 +1,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:tal="http://xml.zope.org/namespaces/tal">
+<!--
+2010-07-02:  notification_help converted from html into pt
+OK but the style of the master does not yet appear as elsewhere
+-->
+
 <head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>Help: Notifications</title>
 <link href="${request.application_url}/static/main.css" rel="stylesheet" type="text/css" />
+<metal:block fill-slot="headslot">
+<title>Help: Notifications</title>
+</metal:block>
 </head>
 
 <body metal:use-macro="master.macros['master']">

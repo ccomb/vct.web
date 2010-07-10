@@ -10,7 +10,10 @@
 </head>
 <body metal:use-macro="master.macros['master']">
 <div id="content" metal:fill-slot="content">
-<h1>User Preferences</h1>
+<h3>User Preferences</h3>
+<!-- test                  -->
+User = ${logged_in} ,  
+
 
 <form id="user_form" method="post" action="">
   <div tal:content="structure python:form.render()" />
@@ -19,7 +22,6 @@
            value="Valider" type="submit" />
   </div>
 </form>
-
 
 
 </div>

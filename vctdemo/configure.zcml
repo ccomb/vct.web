@@ -68,7 +68,7 @@
     view=".views.user.listview"
     name="list"
     renderer="views/templates/user_list.pt"
-    permission="view"
+    permission="admin"
     />
 <view
     context=".models.UserContainer"
@@ -89,7 +89,7 @@
     view=".views.user.user_admin_menu"
     name="user_admin_menu"
     renderer="views/templates/user_admin_menu.pt"
-    permission="edit"
+    permission="admin"
     />
 <view
     context=".models.UserContainer"

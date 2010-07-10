@@ -22,7 +22,7 @@
       <a href="${user.username}/">
         <span>
             ${user.username} --- 
-            <tal:block repeat="group user.groups"> ${group} </tal:block>
+            <tal:block repeat="group user.groups"> ${group} </tal:block>  / <a href="${user.username}/edit">Edit</a>
         </span>
       </a>
     </li>

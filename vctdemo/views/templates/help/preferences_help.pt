@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal">
+<!--
+2010-07-02:  notification_help converted from html into pt
+OK but the style of the master does not yet appear as elsewhere
+-->
+
+<head>
+<link href="${request.application_url}/static/main.css" rel="stylesheet" type="text/css" />
+<metal:block fill-slot="headslot">
+<title>Help: Notifications</title>
+</metal:block>
+</head>
+
+<body metal:use-macro="master.macros['master']">
+<div id="help_content" metal:fill-slot="content">
+
+<a href="javascript:history.back()">Back to the previous page</a>
+<h1 style="text-align: center;">User preferences</h1>
+<ul>
+<li>Introduction</li>
+<ul>
+<li>One patient record:</li>
+<ul>
+<li>The main goal of the project is to help the members of the
+personal Care Team of the patient to share information about the
+patient, i.e. to access the patient record.&nbsp; In order to share
+patient information in an efficient way, there is in principle only one
+common patient record. </li>
+</ul>
+<li>Different views:</li>
+<ul>
+<li>Since the Care Team is multidisciplinary, the users look at
+this common patient record in different ways, depending on their roles
+and professional background.&nbsp; Therefore it is important that the
+users can mamnage their own preferences.&nbsp;&nbsp;</li>
+</ul>
+<li>Remark:</li>
+<ul>
+<li>The project is based here on a "patient centric record" and
+no more to make completely different softwares for every professional
+group, as GP, specialists, nurses, paramedical professionals, ...&nbsp;
+The problem was that&nbsp; separate software had very difficult to
+share information. </li>
+</ul>
+</ul>
+<li>Overview of of a user:</li>
+<ul>
+<li>Identification:</li>
+<ul>
+<li>Legal identification. </li>
+</ul>
+<li>Professional profile:</li>
+<ul>
+<li>Professional certifications: </li>
+</ul>
+<li>Role in the organization, affiliations:</li>
+<ul>
+<li> <br />
+</li>
+</ul>
+<li>Delegated permissions:</li>
+<ul>
+<li>Which computer tasks in hte system. </li>
+</ul>
+<li>Contacts:</li>
+<ul>
+<li>Addres, telephones, Email, .... </li>
+</ul>
+<li>User preferences:</li>
+<ul>
+<li>Language:</li>
+<li>Types of views:</li>
+<ul>
+<li>In general in function of professional profile:</li>
+<ul>
+<li>Information relevant to the role of the user and taking
+account of the permissions. </li>
+<li>Default options will be proposed but may be modified
+according to personal preferences. </li>
+</ul>
+<li>Screen style</li>
+<li>First page when opening a patient record:</li>
+<li>.... </li>
+</ul>
+<li>...... </li>
+</ul>
+<li>.....</li>
+</ul>
+<li>Management of user information:</li>
+<ul>
+<li>By the network manager:</li>
+<ul>
+<li>In begin the direction of the healthcare organization has a
+global responsibility, particularly the responsibility to delegate
+missions to well identified and accredited collaborators.&nbsp;&nbsp;</li>
+<li>This is why the management of key information is restricted
+to the network manager:</li>
+<ul>
+<li>Creation of new users,</li>
+<li>Professional accreditaion,</li>
+<li>Delegations of authorizations, which kind of information
+may be read and/or modified. </li>
+</ul>
+</ul>
+<li>By the users themselves:</li>
+<ul>
+<li>Most other information should be be maintained by the user
+himself.</li>
+<li>The user's preference may be modified at any time by the user
+himself.</li>
+</ul>
+<li>Remark:&nbsp; anyhow, any changes in the user profile will be
+traced. </li>
+</ul>
+</ul>
+
+
+
+
+
+<a href="javascript:history.back()">Back to the previous page</a>
+</div>
+</body>
+</html>

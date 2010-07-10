@@ -49,16 +49,11 @@ div#user .ui-widget-overlay { position: absolute; top: 0; left: 0; width: 100%; 
 ----------------------------------*/
 div#user .ui-widget { font-family: segoe ui, Arial, sans-serif; font-size: 1.1em; }
 div#user .ui-widget .ui-widget { font-size: 1em; }
-/*div#user .ui-widget input, div#user .ui-widget select, div#user .ui-widget textarea, div#user .ui-widget button { font-family: segoe ui, Arial, sans-serif; font-size: 1em; }*/
-div#user { border: 4px solid #bbbbff;}
-div#user .ui-widget-user-header { border: 4px solid #bbbbff;}
-div#user .ui-widget-user-ID {/* border: 4px solid #bbbbff;*/ background: #DDDDFF;}
-div#user .ui-widget-user-menu { /*border: 1px solid #bbbbff; */background: #DDDDFF; url(images/ui-bg_highlight-hard_100_f5f3e5_1x100.png) 50% top repeat-x; color: #312e25; margin-bottom: 2px; }
-div#user .ui-widget-user-menu a { color: #000;  background: #eef;}
-/*
-div#user .ui-widget-header { border: 5px solid #bbbbff; background: #AAAAFF url(images/ui-bg_gloss-wave_100_ece8da_500x100.png) 50% 50% repeat-x; color: #433f38; font-weight: bold; }
-div#user .ui-widget-header a { color: #AAF; }
-*/
+div#user .ui-widget input, div#user .ui-widget select, div#user .ui-widget textarea, div#user .ui-widget button { font-family: segoe ui, Arial, sans-serif; font-size: 1em; }
+div#user .ui-widget-content { border: 1px solid #dfd9c3; background: #f5f3e5 url(images/ui-bg_highlight-hard_100_f5f3e5_1x100.png) 50% top repeat-x; color: #312e25; }
+div#user .ui-widget-content a { color: #312e25; }
+div#user .ui-widget-header { border: 1px solid #d4ccb0; background: #ece8da url(images/ui-bg_gloss-wave_100_ece8da_500x100.png) 50% 50% repeat-x; color: #433f38; font-weight: bold; }
+div#user .ui-widget-header a { color: #433f38; }
 
 /* Interaction states
 ----------------------------------*/

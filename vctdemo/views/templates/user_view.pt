@@ -10,7 +10,7 @@
 </head>
 <body metal:use-macro="master.macros['master']">
 <div id="content" metal:fill-slot="content">
-<h1>User</h1>
+<h2>User</h2>
 
 <div>User username: <span tal:content="python:context.username" /></div>
 

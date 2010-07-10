@@ -65,17 +65,21 @@ class IUser(Interface):
     username = TextLine(title=u'User name')
     password = Password(title=u'password')
     groups = List(title=u'groups', value_type=Choice(title=u'group', values=GROUPS))
+    language = Choice(title=u'preferred language', values=[
+        u'english', u'french', u'spanish', u'german', u'greek', u'turkish'])
+    organization = TextLine(title=u'Organization')
 
 
 class User(Persistent):
     implements(IUser, IAttributeAnnotatable)
-    username = password = groups = None
-
+    username = password = groups = language = organization = None
     def __init__(self):
         self.group = PersistentList()
 
 
 class IUserPreferences(Interface):
+    username = TextLine(title=u'User name')
+    organization = TextLine(title=u'Organization')
     language = Choice(title=u'preferred language', values=[
         u'english', u'french', u'spanish', u'german', u'greek', u'turkish'])
 
@@ -85,7 +89,6 @@ class UserPreferences(Persistent):
     """
     implements(IUserPreferences)
     adapts(IUser)
-
     def __init__(self):
         self.language = 'english'
 
@@ -151,7 +154,7 @@ class Issue(PatientItem):
 class IAction(IPatientItem):
     status = TextLine(title=u"status", description=u"status of the action", required=False)
     image = Bytes(title=u"attached file", description=u"attached file", required=False)
-    link = TextLine(title=u"Link", description=u'External link', required=False)
+    link = TextLine(title=u"Link", description=u'(Link to an external annex)', required=False)
 
 
 class Action(PatientItem):

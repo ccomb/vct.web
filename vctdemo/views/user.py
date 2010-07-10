@@ -61,11 +61,11 @@ def edit(context, request):
 def preferences(context, request):
     form = FieldSet(models.IUserPreferences)
     preferences = IUserPreferences(context)
+    form.username.set(readonly=True)
     form = form.bind(preferences, data=request.POST or None)
     if request.POST and form.validate():
         form.sync()
         return HTTPFound(location=model_url(context, request))
-
     return {'request':request,
             'context':context,
             'form': form,
