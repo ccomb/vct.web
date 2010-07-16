@@ -50,6 +50,8 @@ def edit(context, request):
     form.password.set(renderer=PasswordFieldRenderer)
     if request.POST and form.validate():
         form.sync()
+        # ??? should go back to thye previous page ???   javascript:history.back()
+        #return HTTPFound(location=came_from)
         return HTTPFound(location=model_url(context, request))
     return {'context': context,
             'request': request,

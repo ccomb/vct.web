@@ -19,10 +19,10 @@
 <ul>
   <tal:block repeat="user users">
     <li>
-      <a href="${user.username}/">
+      <a href="${user.username}/edit">
         <span>
-            ${user.username} --- 
-            <tal:block repeat="group user.groups"> ${group} </tal:block>  / <a href="${user.username}/edit">Edit</a>
+            ${user.username} / ${user.organization}, 
+            <tal:block repeat="group user.groups"> ${group} </tal:block>
         </span>
       </a>
     </li>

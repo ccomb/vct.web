@@ -65,14 +65,17 @@ class IUser(Interface):
     username = TextLine(title=u'User name')
     password = Password(title=u'password')
     groups = List(title=u'groups', value_type=Choice(title=u'group', values=GROUPS))
+    organization = TextLine(title=u'Organization')
     language = Choice(title=u'preferred language', values=[
         u'english', u'french', u'spanish', u'german', u'greek', u'turkish'])
-    organization = TextLine(title=u'Organization')
+    address = TextLine(title=u'Address')
+    city = TextLine(title=u'City')
+    initial_patient_view = TextLine(title=u'Initial Patient View')
 
 
 class User(Persistent):
     implements(IUser, IAttributeAnnotatable)
-    username = password = groups = language = organization = None
+    username = password = groups = organization = language = address = city = initial_patient_view = None
     def __init__(self):
         self.group = PersistentList()
 
@@ -82,6 +85,7 @@ class IUserPreferences(Interface):
     organization = TextLine(title=u'Organization')
     language = Choice(title=u'preferred language', values=[
         u'english', u'french', u'spanish', u'german', u'greek', u'turkish'])
+    initial_patient_view = TextLine(title=u'Initial Patient View')
 
 
 class UserPreferences(Persistent):

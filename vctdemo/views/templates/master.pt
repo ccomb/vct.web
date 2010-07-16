@@ -38,7 +38,7 @@ ui-widget
                     <a href="/help/notification_help.pt">Incoming Notifications </a>  
                     <a href="/help/notification_help.pt"><img style="border: 0px" src="/static/Help.png" alt="(Help)"/></a>
                     ---
-                    <a href="/users/${logged_in}/prefs">Preferences</a><a href="/help/preferences_help.pt"><img style="border: 0px" src="/static/Help.png" alt="(Help)"/></a>
+                    <a href="/users/${logged_in}/prefs/edit">Preferences</a><a href="/help/preferences_help.pt"><img style="border: 0px" src="/static/Help.png" alt="(Help)"/></a>
                     <a href="/users/user_admin_menu">admin</a>, 
                     <a href="/users/user_test">(Tests)</a>
                     <span tal:condition="logged_in">

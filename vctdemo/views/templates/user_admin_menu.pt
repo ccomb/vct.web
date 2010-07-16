@@ -16,7 +16,9 @@
 
 <ul>
 <li><a href="list">User list</a></li>
+<!--
 <li><a href="add">Add a user</a></li>
+-->
 </ul>
 
 </div>

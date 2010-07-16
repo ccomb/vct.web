@@ -10,16 +10,22 @@
 </head>
 <body metal:use-macro="master.macros['master']">
 <div id="content" metal:fill-slot="content">
-<h3>User Preferences</h3>
+<h3>User Edit Preferences</h3>
 <!-- test                  -->
 User = ${logged_in} ,  
 
-
+<!--
+    The form should retirn where it came from :    
+    came_from = request.params.get('came_from', referrer)
+    HTTPFound(request.params.get('came_from', referrer))
+-->
 <form id="user_form" method="post" action="">
   <div tal:content="structure python:form.render()" />
   <div class="fa_field ui-widget">
     <input class="ui-button ui-state-default ui-corner-all"
-           value="Valider" type="submit" />
+           value="Validate" type="submit" />
+           or <a href="javascript:history.back()">Cancel</a>
+
   </div>
 </form>
 
