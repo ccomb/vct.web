@@ -21,6 +21,8 @@ def login(context, request):
 
         # in case there is not yet any users, try the failsafe admin first (see ../security.py)
         # Why not the reverse ???
+        #Temporary solution !!!!
+        FAILSAFE_PASS = 'adminpass'
         if FAILSAFE_PASS != '' and [login, password] == ['admin', FAILSAFE_PASS]:
             headers = remember(request, login)    # ???
             return HTTPFound(location = came_from,
