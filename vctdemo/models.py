@@ -8,7 +8,7 @@ from repoze.catalog.indexes.field import CatalogFieldIndex
 from repoze.catalog.indexes.text import CatalogTextIndex
 from repoze.folder import Folder
 from zope.annotation import factory
-from zope.annotation.interfaces import IAttributeAnnotatable, IAnnotations
+from zope.annotation.interfaces import IAttributeAnnotatable, IAnnotations   # ??? role
 from zope.component import adapts
 from zope.interface import Interface, implements
 from zope.schema import TextLine, Int, Text, Datetime, Bytes, Password, List, Choice
@@ -31,6 +31,7 @@ def appmaker(zodb_root):
         zodb_root['app_root'] = VctRoot()
         zodb_root['app_root'].catalogs = Folder()
         import transaction; transaction.commit()
+    #user definition and catalogs    
     if 'users' not in zodb_root['app_root']:
         zodb_root['app_root']['users'] = UserContainer()
         zodb_root['app_root']['users'].__parent__ = zodb_root['app_root']
@@ -40,6 +41,7 @@ def appmaker(zodb_root):
         zodb_root['app_root'].catalogs['users'] = Catalog()
         zodb_root['app_root'].catalogs['users']['username'] = CatalogTextIndex('username')
         import transaction; transaction.commit()
+    #patient definition and catalogs
     if 'patients' not in zodb_root['app_root']:
         zodb_root['app_root']['patients'] = PatientContainer()
         zodb_root['app_root']['patients'].__parent__ = zodb_root['app_root']
@@ -56,7 +58,7 @@ def appmaker(zodb_root):
     return zodb_root['app_root']
 
 
-class UserContainer(Folder):
+class UserContainer(Folder):  # The folder containing the users
     pass
 
 from vctdemo.security import GROUPS
@@ -64,20 +66,23 @@ from vctdemo.security import GROUPS
 class IUser(Interface):
     username = TextLine(title=u'User name')
     password = Password(title=u'password')
-    groups = List(title=u'groups', value_type=Choice(title=u'group', values=GROUPS))
+    groups = List(title=u'groups', value_type=Choice(title=u'group', values=GROUPS))  # ??? Make a list of checkboxes
     organization = TextLine(title=u'Organization')
     language = Choice(title=u'preferred language', values=[
         u'english', u'french', u'spanish', u'german', u'greek', u'turkish'])
     address = TextLine(title=u'Address')
     city = TextLine(title=u'City')
+    phone = TextLine(title=u'phone')
     initial_patient_view = TextLine(title=u'Initial Patient View')
 
 
 class User(Persistent):
-    implements(IUser, IAttributeAnnotatable)
-    username = password = groups = organization = language = address = city = initial_patient_view = None
+    implements(IUser, IAttributeAnnotatable)   # ??? IAttributeAnnotatable ????
+    username = password = groups = organization = language = address = city = phone = initial_patient_view = None
     def __init__(self):
-        self.group = PersistentList()
+        self.group = PersistentList()   # What is a Persistentlist here ?
+        self.language = 'english'
+        initial_patient_view = "default Start View"
 
 
 class IUserPreferences(Interface):
@@ -85,6 +90,7 @@ class IUserPreferences(Interface):
     organization = TextLine(title=u'Organization')
     language = Choice(title=u'preferred language', values=[
         u'english', u'french', u'spanish', u'german', u'greek', u'turkish'])
+    phone = TextLine(title=u'Phone')
     initial_patient_view = TextLine(title=u'Initial Patient View')
 
 
@@ -93,11 +99,11 @@ class UserPreferences(Persistent):
     """
     implements(IUserPreferences)
     adapts(IUser)
-    def __init__(self):
-        self.language = 'english'
+    #def __init__(self):
+    #    self.language = 'english'
 
 
-user_preferences = factory(UserPreferences)
+user_preferences = factory(UserPreferences)    # why here an instance of user_preferences and what is the role of "factory " here ?
 
 
 # TODO : rename Patient to Record
@@ -110,13 +116,22 @@ class IPatient(Interface):
     name = TextLine(title=u'Name')
     firstname = TextLine(title=u'First Name')
     birthdate = TextLine(title=u'Birthdate')
+    # choice is not working ???
     # sex = Choice(title=u'Sex', values=['Male', 'Female', 'Unknown'])
     sex = TextLine(title=u'Sex')
 
 
+class IpatientAdmin(Interface):
+    #adapts(IPatient)
+    address = TextLine(title=u'Address')
+    postal_code = TextLine(title=u'Postal Code')
+    city = TextLine(title=u'City')
+    insurances = TextLine(title=u'Insurance(s)')
+
 class Patient(Folder):
     implements(IPatient)
-    id = name = firstname = birthdate = sex = None
+    #implements(IPatientAdmin)
+    id = name = firstname = birthdate = sex = address = postal_code = city = insurances = None
 
 
 class IItem(Interface):

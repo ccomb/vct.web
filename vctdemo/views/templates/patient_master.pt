@@ -32,6 +32,7 @@
           </div>         
           <div id="patient_menu" class="ui-widget-header">
                      <a href="${patient_url}list" tip="oooooooo " class="ui-state-default ui-corner-all">List all Items</a>
+                     <a href="${patient_url}search" class="ui-state-default ui-corner-all">Search items</a>
                      <a href="${patient_url}list?type=issue" class="ui-state-default ui-corner-all">Issues</a>
                      <a href="${patient_url}list?type=observation" class="ui-state-default ui-corner-all">Observations</a>
                      <a href="${patient_url}list?type=action" class="ui-state-default ui-corner-all">Actions</a>

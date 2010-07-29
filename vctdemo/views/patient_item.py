@@ -53,7 +53,7 @@ def add(context, request):
     pitem.date = datetime.datetime.now()
     form = FieldSet(item_interface)
     form = form.bind(pitem, data=request.POST or None)
-    if request.POST and form.validate():
+    if request.POST and form.validate():   # if new and valid data
         request.POST.pop('PatientItem--id', None)
         form.sync()
         id = len(context)
@@ -68,7 +68,7 @@ def add(context, request):
             pitem.text = u''
         catalog.index_doc(id, pitem)
         return HTTPFound(location=model_url(pitem, request))
-    return render_template_to_response(join('templates', template),
+    return render_template_to_response(join('templates', template),  # render the page
             request=request,
             context=context,
             patient=context,

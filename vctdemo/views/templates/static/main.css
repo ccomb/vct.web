@@ -40,7 +40,7 @@ margin-bottom: 2px;
 
 div#loginwrapper {
 background-color: #fff;
-background-image: url('/static/login_background.jpg');
+background-image: url('/static/images/login_background.jpg');
 background-repeat: no-repeat;
 background-position:center center;
 margin-left: auto;

@@ -37,6 +37,7 @@ def add(context, request):
 
 
 def view(context, request):
+    user_organization = "St Peter Hospital" #authenticated_userid.organization    
     return {'request':request,
             'master': get_template('templates/master.pt'),
             'logged_in': authenticated_userid(request),

@@ -5,7 +5,7 @@ from repoze.bfg.traversal import virtual_root
 GROUPS = ['group:admins', 'group:users', 'group:patients', 'group:test']
 
 def groupfinder(userid, request):
-    if userid == 'admin':
+    if userid == 'admin':    #in case there is not yet a DB
         return GROUPS
     user = virtual_root(None, request)['users'].get(userid, None)
     if user is not None:
@@ -14,6 +14,8 @@ def groupfinder(userid, request):
 
 
 # check if we have a failsafe file with user:pass
+#useful when there is not yeta DB
+#seek for an optional file called "admin" and containing an initial password
 FAILSAFE_PASS = ''
 _failsafe_path =  join(getcwd, dirname(__file__), 'admin')
 if exists(_failsafe_path):

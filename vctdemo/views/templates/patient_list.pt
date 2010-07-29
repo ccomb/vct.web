@@ -4,7 +4,7 @@
 <head metal:use-macro="master.macros['head']">
 <metal:block fill-slot="headslot">
 
-<title>Patient list</title>
+<title>Patient current group list</title>
 
 </metal:block>
 </head>
@@ -12,7 +12,7 @@
 <body metal:use-macro="master.macros['master']">
 
 <div id="content" metal:fill-slot="content">
-<h5>Patients : current test group</h5>
+<h5>Patients : current Current Group</h5>
 
 <ul>
   <tal:block repeat="patient patients">
@@ -23,7 +23,7 @@
             ${patient.name},
             ${patient.firstname},
             ${patient.birthdate}, 
-            ${patient.sex}
+            ${patient.sex}, 
         </span>
       </a>
     </li>

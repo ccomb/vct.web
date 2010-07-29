@@ -25,24 +25,24 @@ ui-widget
 <div id="user" class="ui-widget-user-header ui-corner-tl ui-corner-tr">
 
          <div class="ui-widget-user-ID">
-             User = ${logged_in} / organization of the user
+             User = ${logged_in} / organization of the user : 
          </div>
          <div id="user_menu" class="ui-widget-user-menu">
-                    Patient: <a href="/patients/search">Search</a><a href="/help/patient_help.html"><img style="border: 0px" src="/static/Help.png" alt="(Help)"/></a>, 
+                    Patient: <a href="/patients/search">Search</a><a href="/help/patient_help.html"><img style="border: 0px" src="/static/images/Help.png" alt="(Help)"/></a>, 
                     <a href="/users/user_patient_groups">Groups</a>, 
                     <!--  <img style="border: 0px" src="/static/arrow_left.png" alt="(Previous)"/>  -->
                     <a href="/patients/list">Current Group</a> 
                     <!--   <img style="border: 0px" src="/static/arrow_right.png" alt="(Next), "/>   -->
                     ---- 
-                    <a href="/users/user_todo">Tasks and Agenda</a><a href="/help/todo_help.html"><img style="border: 0px" src="/static/Help.png" alt="(Help)"/></a> --- 
+                    <a href="/users/user_todo">Tasks and Agenda</a><a href="/help/todo_help.html"><img style="border: 0px" src="/static/images/Help.png" alt="(Help)"/></a> --- 
                     <a href="/help/notification_help.pt">Incoming Notifications </a>  
-                    <a href="/help/notification_help.pt"><img style="border: 0px" src="/static/Help.png" alt="(Help)"/></a>
+                    <a href="/help/notification_help.pt"><img style="border: 0px" src="/static/images/Help.png" alt="(Help)"/></a>
                     ---
-                    <a href="/users/${logged_in}/prefs/edit">Preferences</a><a href="/help/preferences_help.pt"><img style="border: 0px" src="/static/Help.png" alt="(Help)"/></a>
+                    <a href="/users/${logged_in}/prefs/edit">Preferences</a><a href="/help/preferences_help.pt"><img style="border: 0px" src="/static/images/Help.png" alt="(Help)"/></a>
                     <a href="/users/user_admin_menu">admin</a>, 
                     <a href="/users/user_test">(Tests)</a>
                     <span tal:condition="logged_in">
-                       <a href="${request.application_url}/logout"><img style="border: 0px" src="/static/exit_small.png" alt="(Exit)"/></a>
+                       <a href="${request.application_url}/logout"><img style="border: 0px" src="/static/images/exit_small.png" alt="(Exit)"/></a>
                     </span>
          </div>
 </div>

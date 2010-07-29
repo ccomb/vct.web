@@ -25,7 +25,8 @@ def listview(context, request):
 
 def add(context, request):
     patient = models.Patient()
-    form = FieldSet(models.IPatient)
+    # ??? how to join interfaces in the same view ???
+    form = FieldSet(models.IPatient)       #  + FieldSet(models.IPatientAdmin)  
     form.configure(exclude=[form.id])
     form.id.set(required=False)
     form = form.bind(patient, data=request.POST if len(request.POST) else request.GET)  # ???

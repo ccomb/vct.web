@@ -15,7 +15,7 @@
 User = ${logged_in} ,  
 
 <!--
-    The form should retirn where it came from :    
+    The form should return where it came from :    
     came_from = request.params.get('came_from', referrer)
     HTTPFound(request.params.get('came_from', referrer))
 -->

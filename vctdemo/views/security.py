@@ -7,10 +7,10 @@ from vctdemo.security import FAILSAFE_PASS
 from pkg_resources import get_distribution
 
 def login(context, request):
-    login_url = model_url(context, request, 'login')
+    login_url = model_url(context, request, 'login')  # ???
     referrer = request.url
-    if referrer == login_url:
-        referrer = '/' # never use the login form itself as came_from
+    if referrer == login_url:    # ???? ..... what is here "login_url" ?
+        referrer = '/' # never use the login form itself as came_from  ??? ....
     came_from = request.params.get('came_from', referrer)
     message = ''
     login = ''
@@ -49,6 +49,6 @@ def login(context, request):
 
 def logout(context, request):
     headers = forget(request)
-    return HTTPFound(location = model_url(context, request),
+    return HTTPFound(location = model_url(context, request),  # ???  ..........
                      headers = headers)
 
