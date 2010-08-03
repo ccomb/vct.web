@@ -31,12 +31,13 @@ def appmaker(zodb_root):
         zodb_root['app_root'] = VctRoot()
         zodb_root['app_root'].catalogs = Folder()
         import transaction; transaction.commit()
-    #user definition and catalogs    
+    # user root definition  
     if 'users' not in zodb_root['app_root']:
         zodb_root['app_root']['users'] = UserContainer()
         zodb_root['app_root']['users'].__parent__ = zodb_root['app_root']
         zodb_root['app_root']['users'].__name__ = 'users'
         import transaction; transaction.commit()
+    # user catalog definition
     if 'users' not in zodb_root['app_root'].catalogs:
         zodb_root['app_root'].catalogs['users'] = Catalog()
         zodb_root['app_root'].catalogs['users']['username'] = CatalogTextIndex('username')

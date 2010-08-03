@@ -167,7 +167,7 @@
     />
 <view
     context=".models.PatientContainer"
-    view=".views.patient.proto_care_plan"
+    view=".views.patient_item.proto_care_plan"
     name="proto_care_plan"
     renderer="views/templates/proto_care_plan.pt"
     permission="view"

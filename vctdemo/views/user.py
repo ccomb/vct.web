@@ -24,7 +24,7 @@ def add(context, request):
     user = models.User()
     form = FieldSet(models.IUser)
     form.password.set(renderer=PasswordFieldRenderer)
-    form = form.bind(user, data=request.POST if len(request.POST) else request.GET or None)
+    form = form.bind(user, data=request.POST if len(request.POST) else request.GET or None)  #???
     if request.POST and form.validate():
         form.sync()
         context[user.username] = user
@@ -53,7 +53,7 @@ def edit(context, request):
         form.sync()
         # ??? should go back to thye previous page ???   javascript:history.back()
         #return HTTPFound(location=came_from)
-        return HTTPFound(location=model_url(context, request))
+        return HTTPFound(location=model_url(context, request))   #???
     return {'context': context,
             'request': request,
             'master': get_template('templates/master.pt'),

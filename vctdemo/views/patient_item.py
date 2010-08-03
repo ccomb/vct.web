@@ -151,3 +151,13 @@ def image(context, request):
     return response
 
 
+def proto_care_plan(context, request):
+    return {'request':request,
+            'master': get_template('templates/master.pt'),
+            'logged_in': authenticated_userid(request),
+            'patient':context.__parent__,
+            'patient_url': model_url(context, request),
+            'patient_master': get_template('templates/patient_master.pt'),
+            'context':context}
+
+
