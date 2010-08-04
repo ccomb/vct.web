@@ -6,6 +6,11 @@ padding: 0.2em;
 vertical-align: middle;
 }
 
+div#user {
+border: solid 3px #2E7EAE;
+-moz-border-radius: 7px;
+}
+
 #patient {
 margin-top: 0.3em;}
 
