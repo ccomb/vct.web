@@ -28,7 +28,7 @@ def add(context, request):
     if request.POST and form.validate():
         form.sync()
         context[user.username] = user
-        return HTTPFound(location=model_url(user, request))
+        return HTTPFound(location=model_url(user, request) + '/@@prefs')
     return {'request':request,
             'context':context,
             'master': get_template('templates/master.pt'),
@@ -62,7 +62,7 @@ def edit(context, request):
 def preferences(context, request):
     form = FieldSet(models.IUserPreferences)
     preferences = IUserPreferences(context)
-    form.username.set(readonly=True)
+    #form.username.set(readonly=True)
     form = form.bind(preferences, data=request.POST or None)
     if request.POST and form.validate():
         form.sync()

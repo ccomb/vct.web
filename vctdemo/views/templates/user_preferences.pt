@@ -10,15 +10,10 @@
 </head>
 <body metal:use-macro="master.macros['master']">
 <div id="content" metal:fill-slot="content">
-<h3>User Edit Preferences</h3>
-<!-- test                  -->
-User = ${logged_in} ,  
+<h3>Edit User Preferences</h3>
 
-<!--
-    The form should return where it came from :    
-    came_from = request.params.get('came_from', referrer)
-    HTTPFound(request.params.get('came_from', referrer))
--->
+User = ${context.username} ,
+
 <form id="user_form" method="post" action="">
   <div tal:content="structure python:form.render()" />
   <div class="fa_field ui-widget">
