@@ -30,7 +30,6 @@
 
 
 <!-- ROOT -->
-<zope:adapter factory=".models.user_preferences" />
 
 <view
     context=".models.VctRoot"
@@ -41,6 +40,8 @@
     />
 
 <!-- USER -->
+<zope:adapter factory=".models.user_preferences" />
+<zope:adapter factory=".models.relations" />
 <view
     context=".models.User"
     view=".views.user.view"

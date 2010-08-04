@@ -9,7 +9,7 @@ from repoze.folder import Folder
 from zope.annotation import factory
 from zope.annotation.interfaces import IAttributeAnnotatable
 from zope.component import adapts
-from zope.interface import Interface, implements
+from zope.interface import Interface, implements, Attribute
 from zope.schema import TextLine, Text, Datetime, Bytes, Password, List, Choice
 
 class VctRoot(Folder):
@@ -98,8 +98,8 @@ class UserPreferences(Persistent):
     #def __init__(self):
     #    self.language = 'english'
 
-
-user_preferences = factory(UserPreferences)    # why here an instance of user_preferences and what is the role of "factory " here ?
+# the annotation factory allows to create the annotation adatper
+user_preferences = factory(UserPreferences)
 
 
 # TODO : rename Patient to Record
@@ -121,7 +121,7 @@ class IPatient(Interface):
     insurances = TextLine(title=u'Insurance(s)')
 
 class Patient(Folder):
-    implements(IPatient)
+    implements(IPatient, IAttributeAnnotatable)
     #implements(IPatientAdmin)
     id = name = firstname = birthdate = sex = None
     address = postal_code = city = insurances = None
@@ -177,11 +177,34 @@ class Action(PatientItem):
 class IRelation(IPatientItem):
     """the relation between medical items
     """
-
+    source = Attribute(u"source")
+    destination = Attribute(u"destination")
 
 class Relation(PatientItem):
     """relation between two items
     """
+    implements(IRelation)
+
+
+class IRelations(Interface):
+    """interface of the relation container
+    """
+    relations = Attribute(u"relations")
+
+
+class Relations(Persistent):
+    """ the relation container
+    """
+    implements(IRelations)
+    adapts(IPatient)
+    relations = None
+
+    def __init__(self):
+        if self.relations is None:
+            self.relations = PersistentList()
+
+
+relations = factory(Relations)
 
 
 

@@ -9,6 +9,7 @@ from repoze.catalog.catalog import Catalog
 from repoze.catalog.indexes.text import CatalogTextIndex
 from repoze.folder import Folder
 from vctdemo import models
+from vctdemo.models import IRelations
 from webob.exc import HTTPFound
 import urllib
 
@@ -99,8 +100,6 @@ def search(context, request):
             'searched':searched,
             'errors': errors,
             'results': results}
-
-
 
 
 def view(context, request):
