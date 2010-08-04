@@ -140,10 +140,14 @@ class IPatientItem(Interface):
     date = Datetime(title=u'Date, time', description=u'Date and time')
     title = TextLine(title=u'Title', description=u'The title of the item')
     text = Text(title=u'content', description=u'observation content', required=False)
+    status = TextLine(title=u"status", description=u"status of the action", required=False)
+    image = Bytes(title=u"attached file", description=u"attached file", required=False)
+    link = TextLine(title=u"Link", description=u'(Link to an external annex)', required=False)
 
 class PatientItem(Folder):
     id = date = None
     title = text = ''
+    status = image = link = ''
     implements(IItem, IPatientItem)
 
 
@@ -164,14 +168,10 @@ class Issue(PatientItem):
 
 
 class IAction(IPatientItem):
-    status = TextLine(title=u"status", description=u"status of the action", required=False)
-    image = Bytes(title=u"attached file", description=u"attached file", required=False)
-    link = TextLine(title=u"Link", description=u'(Link to an external annex)', required=False)
-
+    pass
 
 class Action(PatientItem):
     implements(IAction)
-    status = image = link = ''
 
 
 class IRelation(PatientItem):

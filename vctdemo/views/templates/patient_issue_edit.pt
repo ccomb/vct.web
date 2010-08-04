@@ -12,7 +12,7 @@
 <div id="patient_content" metal:fill-slot="patient_content">
 <h1>Edit issue</h1>
 
-<form id="item_form" method="post" action="">
+<form id="item_form" method="post" action="" enctype="multipart/form-data">
   <div tal:content="structure python:form.render()" />
   <div class="fa_field ui-widget">
     <input class="ui-button ui-state-default ui-corner-all"
