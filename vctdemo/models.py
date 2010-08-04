@@ -174,14 +174,14 @@ class Action(PatientItem):
     implements(IAction)
 
 
-class IRelation(PatientItem):
+class IRelation(IPatientItem):
     """the relation between medical items
     """
 
 
-class Relation(object):
-    pass
-
+class Relation(PatientItem):
+    """relation between two items
+    """
 
 
 
