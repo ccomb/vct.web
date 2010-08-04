@@ -41,8 +41,10 @@
                        <a href="${request.application_url}/logout"><img style="border: 0px" src="/static/images/exit_small.png" alt="(Exit)"/></a>
                     </span>
          </div>
-</div>
+
 <div metal:define-slot="content"></div>
+
+</div>
 
 
 
