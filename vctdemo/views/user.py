@@ -37,7 +37,7 @@ def add(context, request):
 
 
 def view(context, request):
-    user_organization = "St Peter Hospital" #authenticated_userid.organization    
+    user_organization = "St Peter Hospital" #authenticated_userid.organization
     return {'request':request,
             'master': get_template('templates/master.pt'),
             'logged_in': authenticated_userid(request),
@@ -51,9 +51,7 @@ def edit(context, request):
     form.password.set(renderer=PasswordFieldRenderer)
     if request.POST and form.validate():
         form.sync()
-        # ??? should go back to thye previous page ???   javascript:history.back()
-        #return HTTPFound(location=came_from)
-        return HTTPFound(location=model_url(context, request))   #???
+        return HTTPFound(location=model_url(context, request))
     return {'context': context,
             'request': request,
             'master': get_template('templates/master.pt'),

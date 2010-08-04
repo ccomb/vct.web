@@ -3,15 +3,14 @@ from persistent import Persistent
 from persistent.list import PersistentList
 from repoze.bfg.security import Allow
 from repoze.catalog.catalog import Catalog
-from repoze.catalog.document import DocumentMap
 from repoze.catalog.indexes.field import CatalogFieldIndex
 from repoze.catalog.indexes.text import CatalogTextIndex
 from repoze.folder import Folder
 from zope.annotation import factory
-from zope.annotation.interfaces import IAttributeAnnotatable, IAnnotations   # ??? role
+from zope.annotation.interfaces import IAttributeAnnotatable
 from zope.component import adapts
 from zope.interface import Interface, implements
-from zope.schema import TextLine, Int, Text, Datetime, Bytes, Password, List, Choice
+from zope.schema import TextLine, Text, Datetime, Bytes, Password, List, Choice
 
 class VctRoot(Folder):
     __parent__ = __name__ = None
@@ -25,13 +24,12 @@ class VctRoot(Folder):
 
 
 def appmaker(zodb_root):
-    updated = False
     #reordered model root followed by catalog
     if 'app_root' not in zodb_root:
         zodb_root['app_root'] = VctRoot()
         zodb_root['app_root'].catalogs = Folder()
         import transaction; transaction.commit()
-    # user root definition  
+    # user root definition
     if 'users' not in zodb_root['app_root']:
         zodb_root['app_root']['users'] = UserContainer()
         zodb_root['app_root']['users'].__parent__ = zodb_root['app_root']
@@ -78,12 +76,15 @@ class IUser(Interface):
 
 
 class User(Persistent):
-    implements(IUser, IAttributeAnnotatable)   # ??? IAttributeAnnotatable ????
-    username = password = groups = organization = language = address = city = phone = initial_patient_view = None
+    # IAttributeAnnotatable because our user must be able to store annotations
+    implements(IUser, IAttributeAnnotatable)
+    username = password = groups = organization = language = None
+    address = city = phone = initial_patient_view = None
     def __init__(self):
-        self.group = PersistentList()   # What is a Persistentlist here ?
+        # storing a list in the zodb requires PersistentList
+        self.group = PersistentList()
         self.language = 'english'
-        initial_patient_view = "default Start View"
+        #initial_patient_view = "default Start View"
 
 
 class IUserPreferences(Interface):
@@ -120,10 +121,6 @@ class IPatient(Interface):
     # choice is not working ???
     # sex = Choice(title=u'Sex', values=['Male', 'Female', 'Unknown'])
     sex = TextLine(title=u'Sex')
-
-
-class IpatientAdmin(Interface):
-    #adapts(IPatient)
     address = TextLine(title=u'Address')
     postal_code = TextLine(title=u'Postal Code')
     city = TextLine(title=u'City')
@@ -132,7 +129,8 @@ class IpatientAdmin(Interface):
 class Patient(Folder):
     implements(IPatient)
     #implements(IPatientAdmin)
-    id = name = firstname = birthdate = sex = address = postal_code = city = insurances = None
+    id = name = firstname = birthdate = sex = None
+    address = postal_code = city = insurances = None
 
 
 class IItem(Interface):

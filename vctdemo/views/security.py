@@ -7,10 +7,12 @@ from vctdemo.security import FAILSAFE_PASS
 from pkg_resources import get_distribution
 
 def login(context, request):
-    login_url = model_url(context, request, 'login')  # ???
+    # get the url of the login page
+    login_url = model_url(context, request, 'login')
     referrer = request.url
-    if referrer == login_url:    # ???? ..... what is here "login_url" ?
-        referrer = '/' # never use the login form itself as came_from  ??? ....
+    # don't redirect from the login page to itself
+    if referrer == login_url:
+        referrer = '/'
     came_from = request.params.get('came_from', referrer)
     message = ''
     login = ''
@@ -19,22 +21,22 @@ def login(context, request):
         login = request.params['login']
         password = request.params['password']
 
-        # in case there is not yet any users, try the failsafe admin first (see ../security.py)
-        # Why not the reverse ???
-        #Temporary solution !!!!
-        FAILSAFE_PASS = 'adminpass'
-        if FAILSAFE_PASS != '' and [login, password] == ['admin', FAILSAFE_PASS]:
-            headers = remember(request, login)    # ???
-            return HTTPFound(location = came_from,
-                             headers = headers)
-
         # read the user folder
         users = virtual_root(context, request)['users']
         user = users.get(login, None)
         if user is not None and user.password == password:
-            headers = remember(request, login)   # ???
+            # shortcut for storing the logged-in user in the session
+            headers = remember(request, login)
             return HTTPFound(location = came_from,
                              headers = headers)
+
+        # in case there is not yet any users, try the failsafe admin first (see ../security.py)
+        if FAILSAFE_PASS != '' and [login, password] == ['admin', FAILSAFE_PASS]:
+            # shortcut for storing the logged-in user in the session
+            headers = remember(request, login)
+            return HTTPFound(location = came_from,
+                             headers = headers)
+
         message = 'Failed login'
 
     return dict(
@@ -43,12 +45,13 @@ def login(context, request):
         came_from = came_from,
         version = get_distribution('vct.demo').version,
         login = login,
-        password = password,     # why not make the password = '' ?
+        password = '',
         )
 
 
 def logout(context, request):
     headers = forget(request)
-    return HTTPFound(location = model_url(context, request),  # ???  ..........
+    # redirect to the context
+    return HTTPFound(location = model_url(context, request),
                      headers = headers)
 

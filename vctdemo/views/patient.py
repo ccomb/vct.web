@@ -24,30 +24,37 @@ def listview(context, request):
 
 
 def add(context, request):
+    # create a patient
     patient = models.Patient()
-    # ??? how to join interfaces in the same view ???
-    form = FieldSet(models.IPatient)       #  + FieldSet(models.IPatientAdmin)  
+    form = FieldSet(models.IPatient)
     form.configure(exclude=[form.id])
     form.id.set(required=False)
-    form = form.bind(patient, data=request.POST if len(request.POST) else request.GET)  # ???
+    # bind form data to the patient.
+    # if we have data coming from the search form, get them via GET
+    form = form.bind(patient,
+                     data=request.POST if len(request.POST) else request.GET)
+    # if the form is submitted and validated
     if request.POST and form.validate():
-        request.POST.pop('Patient--id', None)  # ???
-        form.sync()      # why already here when the ID id not yet defined ?
+        # don't use the id from the form
+        request.POST.pop('Patient--id', None)
+        # write the patient attributes from the form
+        form.sync()
+        # then choose and write the id
         id = len(context)
-        while id in context:   #
+        while id in context:
             id += 1
         patient.id = str(id)
         context[str(id)] = patient
         catalog = virtual_root(context, request).catalogs['patients']
         catalog.index_doc(id, patient)
-        # create a catalog for the items
+        # create a catalog for the items if there is none
         patient.catalogs = Folder()
-        if 'items' not in patient.catalogs:                 #?????
+        if 'items' not in patient.catalogs:
             patient.catalogs['items'] = Catalog()
-            patient.catalogs['items']['title'] = CatalogTextIndex('title')   # why here looks to be intended for a patient item
+            patient.catalogs['items']['title'] = CatalogTextIndex('title')
             patient.catalogs['items']['text'] = CatalogTextIndex('text')
-            return HTTPFound(location=model_url(patient, request))
-            #return HTTPfound(${patient.id}/list)
+        return HTTPFound(location=model_url(patient, request))
+
     return {'request':request,
             'context':context,
             'master': get_template('templates/master.pt'),
@@ -60,7 +67,7 @@ def search(context, request):
     # On which fiels to search ?
     for field in form.render_fields:
         getattr(form, field).set(required=False)
-    form = form.bind(patient, data=request.POST or None)  #???
+    form = form.bind(patient, data=request.POST or None)
     catalog = virtual_root(context, request).catalogs['patients']
 
     #print "name : ", request.params[name]
@@ -70,7 +77,7 @@ def search(context, request):
     searched = None
     if request.POST and form.validate():
         # we only keep keys with non-empty values
-        data = dict([(id,field.value)                                 # ?????
+        data = dict([(id,field.value)
                      for (id,field) in form.render_fields.items()
                      if field.value])
         try:
@@ -82,7 +89,8 @@ def search(context, request):
             number, results = 0, {}
         results = [context[i] for i in results]
     return {'request':request,
-            'add_data': urllib.urlencode(request.POST),   # ??? seems to be the data to saved for the creation of a new patient
+            # transmit the search data by GET to the add form
+            'add_data': urllib.urlencode(request.POST),
             'context':context,
             'master': get_template('templates/master.pt'),
             'logged_in': authenticated_userid(request),
@@ -111,7 +119,8 @@ def edit(context, request):
     form = form.bind(context, data=request.POST or None)
     form.id.set(readonly=True)
     if request.POST and form.validate():
-        request.POST.pop('Patient--id', None)  # ???
+        # don't use the id from the form
+        request.POST.pop('Patient--id', None)
         form.sync()
         catalog = virtual_root(context, request).catalogs['patients']
         catalog.reindex_doc(int(context.id), context)
