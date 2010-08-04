@@ -66,13 +66,10 @@ class IUser(Interface):
     username = TextLine(title=u'User name')
     password = Password(title=u'password')
     groups = List(title=u'groups', value_type=Choice(title=u'group', values=GROUPS))  # ??? Make a list of checkboxes
-    organization = TextLine(title=u'Organization')
-    language = Choice(title=u'preferred language', values=[
-        u'english', u'french', u'spanish', u'german', u'greek', u'turkish'])
-    address = TextLine(title=u'Address')
-    city = TextLine(title=u'City')
-    phone = TextLine(title=u'phone')
-    initial_patient_view = TextLine(title=u'Initial Patient View')
+    organization = TextLine(title=u'Organization', required=False)
+    address = TextLine(title=u'Address', required=False)
+    city = TextLine(title=u'City', required=False)
+    phone = TextLine(title=u'phone', required=False)
 
 
 class User(Persistent):
@@ -88,12 +85,9 @@ class User(Persistent):
 
 
 class IUserPreferences(Interface):
-    username = TextLine(title=u'User name')
-    organization = TextLine(title=u'Organization')
     language = Choice(title=u'preferred language', values=[
-        u'english', u'french', u'spanish', u'german', u'greek', u'turkish'])
-    phone = TextLine(title=u'Phone')
-    initial_patient_view = TextLine(title=u'Initial Patient View')
+        u'english', u'french', u'spanish', u'german', u'greek', u'turkish'], required=False)
+    initial_patient_view = TextLine(title=u'Initial Patient View', required=False)
 
 
 class UserPreferences(Persistent):

@@ -1,10 +1,14 @@
+from persistent.list import PersistentList
+from pkg_resources import get_distribution
 from repoze.bfg.security import remember, forget
 from repoze.bfg.traversal import virtual_root
 from repoze.bfg.url import model_url
 from repoze.bfg.view import static
+from vctdemo import views
+from vctdemo.models import User
+from vctdemo.security import GROUPS
+from webob import Response
 from webob.exc import HTTPFound
-from vctdemo.security import FAILSAFE_PASS
-from pkg_resources import get_distribution
 
 def login(context, request):
     # get the url of the login page
@@ -17,21 +21,42 @@ def login(context, request):
     message = ''
     login = ''
     password = ''
+
+    users = virtual_root(context, request)['users']
+    if len(users) == 0:
+        if 'username' in request.params:
+            username = request.params.get('username')
+            password = request.params.get('password')
+            if password != request.params.get('confirm'):
+                message = u'Passwords differ!'
+            elif password == u'' or username == u'':
+                message = u'Please enter a username and password'
+            else:
+                user = User()
+                user.username = username
+                user.password = password
+                user.groups = PersistentList(GROUPS)
+                users[username] = user
+                return HTTPFound(location = '/')
+
+        return Response("""
+        <html><body><span style="color: red">%s</span><br/>
+        Please create the initial administrator:<br/>
+        <form method="POST" action="">
+        username: <input type="text" name="username"/><br/>
+        password: <input type="password" name="password"/><br/>
+        confirm password: <input type="password" name="confirm"/><br/>
+        <input type="submit" />
+        </form></body></html>
+        """ % message)
+
     if 'form.submitted' in request.params:
         login = request.params['login']
         password = request.params['password']
 
         # read the user folder
-        users = virtual_root(context, request)['users']
         user = users.get(login, None)
         if user is not None and user.password == password:
-            # shortcut for storing the logged-in user in the session
-            headers = remember(request, login)
-            return HTTPFound(location = came_from,
-                             headers = headers)
-
-        # in case there is not yet any users, try the failsafe admin first (see ../security.py)
-        if FAILSAFE_PASS != '' and [login, password] == ['admin', FAILSAFE_PASS]:
             # shortcut for storing the logged-in user in the session
             headers = remember(request, login)
             return HTTPFound(location = came_from,
