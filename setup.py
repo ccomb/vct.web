@@ -17,6 +17,7 @@ requires = [
     'fa.jquery',
     'repoze.catalog',
     'zope.annotation',
+    'fa.jquery',
     ]
 
 setup(name='vct.demo',
