@@ -79,11 +79,13 @@ width: 80%;
 height: 12em;
 }
 
-label.field_opt { 
+form label { 
 display: inline-block;
 min-width: 8em;
 text-align: right;
 margin-right: 1em;
 }
 
-
+.field_error {
+color: red;
+}
