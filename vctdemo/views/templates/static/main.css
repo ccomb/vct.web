@@ -9,6 +9,12 @@ vertical-align: middle;
 #patient {
 margin-top: 0.3em;}
 
+#patient_ID {
+font-size: 120%;
+margin: 0.5em;
+text-align: center;
+}
+
 #patient_menu {
 float: left;
 margin-right: 0.5em;
@@ -89,3 +95,7 @@ margin-right: 1em;
 .field_error {
 color: red;
 }
+#ui-datepicker-div {
+    z-index: 1010;
+}
+
