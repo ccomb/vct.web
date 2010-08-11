@@ -11,7 +11,7 @@
 <a tal:condition="python:len(context.text)>max" href="${context.id}/"> (...read more...) </a>
 / (by <span tal:content="python:context.author"></span>), 
 V=0, 
-Edit, 
+<a href="${patient_url}/${context.id}/edit" class="ui-state-default ui-corner-all">Edit</a>, 
 <a href="${patient_url}add" class="ui-state-default ui-corner-all">Add</a>
 </tal:block>
 
