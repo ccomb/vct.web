@@ -10,9 +10,8 @@
 </head>
 <body metal:use-macro="patient_master.macros['patient_master']">
 <div id="patient_content" metal:fill-slot="patient_content">
-<h1>Search item</h1>
 
-<h2>Search form</h2>
+<h1>Search items</h1>
 
 <span class="error" tal:content="errors">error string</span>
 
@@ -25,7 +24,7 @@
 </form>
 
 <div tal:condition="python: number is not None">
-<h2>Search results</h2>
+<h1>Results</h1>
 <span>There are ${number} results</span>
 <ul>
   <tal:block repeat="item results">

@@ -1,5 +1,10 @@
 body { background-color: #FFF; }
 
+h1 {
+font-size: 120%;
+text-align: center;
+}
+
 a {
 text-decoration: none;
 padding: 0.2em;
