@@ -1,18 +1,18 @@
 <div class="smallview item">
  
-<span></span>
-
 <a href="${context.id}/">
-<span>( ${context.id} ) ITEM: ${context.title}</span>
+<span>ITEM ${context.id}: </span>
+<span class="version">(v=0)</span>
+on <span class="date">${context.date}</span>
+by: <span class="author">${context.author}</span>
+<span class="title">${context.title}</span>
       </a>
 
 <tal:block define="max 300">
 <span tal:content="python:context.text[:max]"> : </span>
 <a tal:condition="python:len(context.text)>max" href="${context.id}/"> (...read more...) </a>
-/ (by <span tal:content="python:context.author"></span>), 
-V=0, 
-<a href="${patient_url}/${context.id}/edit" class="ui-state-default ui-corner-all">Edit</a>, 
-<a href="${patient_url}add" class="ui-state-default ui-corner-all">Add</a>
+<a href="${patient_url}/${context.id}/edit" class="ui-state-default ui-corner-all action">Edit</a>, 
+<a href="${patient_url}add" class="ui-state-default ui-corner-all action">Add</a>
 </tal:block>
 
 </div>
