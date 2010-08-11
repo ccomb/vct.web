@@ -6,6 +6,7 @@ from repoze.bfg.traversal import virtual_root
 from repoze.bfg.url import model_url
 from repoze.bfg.view import static
 from repoze.catalog.catalog import Catalog
+from repoze.catalog.indexes.field import CatalogFieldIndex
 from repoze.catalog.indexes.text import CatalogTextIndex
 from repoze.folder import Folder
 from vctdemo import models
@@ -52,6 +53,7 @@ def add(context, request):
         patient.catalogs = Folder()
         if 'items' not in patient.catalogs:
             patient.catalogs['items'] = Catalog()
+            patient.catalogs['items']['item_type'] = CatalogFieldIndex('item_type')
             patient.catalogs['items']['title'] = CatalogTextIndex('title')
             patient.catalogs['items']['text'] = CatalogTextIndex('text')
         return HTTPFound(location=model_url(patient, request))

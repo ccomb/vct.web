@@ -9,7 +9,7 @@ from repoze.folder import Folder
 from zope.annotation import factory
 from zope.annotation.interfaces import IAttributeAnnotatable
 from zope.component import adapts
-from zope.interface import Interface, implements, Attribute
+from zope.interface import Interface, implements, Attribute, providedBy
 from zope.schema import TextLine, Text, Datetime, Bytes, Password, List, Choice
 
 class VctRoot(Folder):
@@ -134,6 +134,7 @@ class IItem(Interface):
     id = TextLine(title=u'Id', description=u'Identifier of the item')
     author = TextLine(title=u'Author', description=u'The author of the item')
     #version = Int(title=u'Version', description=u'The version of the item')
+    item_type = Attribute(u"Item type")
 
 
 class IPatientItem(Interface):
@@ -149,6 +150,10 @@ class PatientItem(Folder):
     title = text = ''
     status = image = link = ''
     implements(IPatientItem)
+
+    @property
+    def item_type(self):
+        return list(providedBy(self).interfaces())[0].__name__
 
 
 class IObservation(IPatientItem):

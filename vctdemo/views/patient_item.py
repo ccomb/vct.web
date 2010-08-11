@@ -1,15 +1,25 @@
-from formalchemy.ext.zope import FieldSet
-from zope.interface import providedBy
+from formalchemy import Field as FaField
+from formalchemy import FieldSet as FaFieldSet
+from formalchemy.ext.zope import FieldSet, Field
 from os.path import join
 from repoze.bfg.chameleon_zpt import get_template, render_template_to_response
 from repoze.bfg.security import authenticated_userid
 from repoze.bfg.traversal import virtual_root
 from repoze.bfg.url import model_url
 from repoze.bfg.view import static, render_view
+from repoze.catalog.indexes.field import CatalogFieldIndex
 from vctdemo import models
 from webob import Response
 from webob.exc import HTTPFound
+from zope.interface import providedBy
 import datetime
+
+def _update_catalog(catalog):
+    """update the catalog with newer indexes to avoid deleting the db
+    """
+    if 'item_type' not in catalog:
+        catalog['item_type'] = CatalogFieldIndex('item_type')
+
 
 def listview(context, request):
     """item list (in the context of patient)
@@ -66,6 +76,7 @@ def add(context, request):
         # zope.index BUG #598776
         if pitem.text is None:
             pitem.text = u''
+        _update_catalog(catalog)
         catalog.index_doc(id, pitem)
         return HTTPFound(location=model_url(pitem, request))
     return render_template_to_response(join('templates', template),  # render the page
@@ -78,27 +89,36 @@ def add(context, request):
             logged_in=authenticated_userid(request),
             form=form)
 
+class SearchFields(object):
+    """class for the search form
+    """
+    title = FaField()
+    text = FaField()
+    item_type = FaField().checkbox(
+        options=[('item', 'IPatientItem'),
+                 ('action', 'IAction'),
+                 ('issue', 'IIssue'),
+                 ('observation', 'IObservation')])
 
 def search(context, request):
-    pitem = models.PatientItem()
-    form = FieldSet(models.IPatientItem)
-    form.configure(exclude=[form.date])
-    for field in form.render_fields:
-        getattr(form, field).set(required=False)
-    form = form.bind(pitem, data=request.POST or None)
+    form = FaFieldSet(SearchFields)
+    form = form.bind(SearchFields, data=request.POST or None)
     catalog = context.catalogs['items']
     number, results = None, {}
     errors = None
     if request.POST and form.validate():
         data = dict([(id,field.value)
                      for (id,field) in form.render_fields.items()
-                     if field.value])
+                     if field.value is not None
+                     ])
+        if not data.get('item_type'):
+            data['item_type'] = [i[1] for i in SearchFields.item_type.render_opts['options']]
         try:
             number, results = catalog.search(**data) # XXX
         except Exception, r:
             errors = r
             number, results = 0, {}
-        results = [context[i] for i in dict(results).keys()]
+        results = [context[i] for i in results.keys()] if results else ()
     return {'request':request,
             'context':context,
             'patient_url':model_url(context, request),
@@ -132,6 +152,8 @@ def edit(context, request):
         # zope.index BUG #598776
         if context.text is None:
             context.text = u''
+        # update the catalog
+        _update_catalog(catalog)
         catalog.reindex_doc(int(context.id), context)
         # How to return directly to the list ???
         return HTTPFound(location=model_url(context, request))
