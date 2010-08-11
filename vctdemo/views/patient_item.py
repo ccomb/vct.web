@@ -133,6 +133,7 @@ def edit(context, request):
         if context.text is None:
             context.text = u''
         catalog.reindex_doc(int(context.id), context)
+        # How to return directly to the list ???
         return HTTPFound(location=model_url(context, request))
     return {'context': context,
             'request': request,

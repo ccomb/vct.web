@@ -11,7 +11,10 @@
 
 <body metal:use-macro="master.macros['master']">
 <div id="content" metal:fill-slot="content">
-<p>Search form</p>
+Search form enter:
+<ul><li>the patient identification number </li>
+<li>or identification data, names, birthdate, sex.</li>
+</ul>
 
 <form id="patient_form" method="post" action="">
   <div tal:content="structure python:form.render()" />
@@ -34,7 +37,8 @@
 </div>
 
 <div tal:condition="python: searched is not None">
-<a href="add?${add_data}">Add a patient</a>
+If the right patient was not found <a href="add?${add_data}">Add a new patient record</a><br/>
+If not sure, add a new record.
 </div>
 
 </div>

@@ -65,6 +65,7 @@ def add(context, request):
 def search(context, request):
     patient = models.Patient()
     form = FieldSet(models.IPatient)
+    form.configure(exclude=[form.address,form.postal_code,form.city,form.insurances])
     # On which fiels to search ?
     for field in form.render_fields:
         getattr(form, field).set(required=False)

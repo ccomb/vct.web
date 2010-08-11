@@ -11,15 +11,6 @@
 <div  metal:use-macro="master.macros['master']" id="test-bg" >
 <div id="patient_frame" class="ui-widget" metal:fill-slot="content">
 
-<!--
-<div id="patient_header">
-<b>Patient:</b>
-<a href=".">
-<span tal:content="python:patient.firstname"/>
-<span tal:content="python:patient.name"/>
-</a>
-</div>
--->
 
 <div id="patient" class="ui-widget ui-widget-header">
           <div id= "patient_ID">

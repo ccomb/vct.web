@@ -109,16 +109,16 @@ class PatientContainer(Folder):
 
 class IPatient(Interface):
     id = TextLine(title=u'Identification nr')
-    name = TextLine(title=u'Name')
+    name = TextLine(title=u'Last Name')
     firstname = TextLine(title=u'First Name')
     birthdate = TextLine(title=u'Birthdate')
     # choice is not working ???
     # sex = Choice(title=u'Sex', values=['Male', 'Female', 'Unknown'])
     sex = TextLine(title=u'Sex')
-    address = TextLine(title=u'Address')
-    postal_code = TextLine(title=u'Postal Code')
-    city = TextLine(title=u'City')
-    insurances = TextLine(title=u'Insurance(s)')
+    address = TextLine(title=u'Address', required=False)
+    postal_code = TextLine(title=u'Postal Code', required=False)
+    city = TextLine(title=u'City', required=False)
+    insurances = TextLine(title=u'Insurance(s)', required=False)
 
 class Patient(Folder):
     implements(IPatient, IAttributeAnnotatable)
@@ -148,7 +148,7 @@ class PatientItem(Folder):
     id = date = None
     title = text = ''
     status = image = link = ''
-    implements(IItem, IPatientItem)
+    implements(IPatientItem)
 
 
 class IObservation(IPatientItem):
