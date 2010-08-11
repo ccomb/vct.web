@@ -27,10 +27,10 @@ def _update_catalog(catalog):
 def listview(context, request):
     """item list (in the context of patient)
     """
-    items = context.values()
     item_type = request.GET.get('type')
-    if item_type:
-       items = [i for i in items if i.__class__.__name__.lower() == item_type]
+    catalog = context.catalogs['items']
+    number, results = catalog.search(item_type=item_type)
+    items = [context[i] for i in results]
 
     return {'request':request,
             'context':context,
