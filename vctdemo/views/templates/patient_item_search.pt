@@ -28,9 +28,11 @@
 <h2>Search results</h2>
 <span>There are ${number} results</span>
 <ul>
-  <li tal:repeat="item results">
-    <a href="${item.id}/">${item.title}</a>
-  </li>
+  <tal:block repeat="item results">
+    <li>
+        <tal:block content="structure python:render_view(item, request, name='smallview').decode('utf-8')" />
+    </li>
+  </tal:block>
 </ul>
 </div>
 

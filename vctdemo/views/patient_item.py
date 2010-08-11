@@ -128,6 +128,7 @@ def search(context, request):
             'patient_master': get_template('templates/patient_master.pt'),
             'form': form,
             'number': number,
+            'render_view': render_view,
             'errors': errors,
             'results': results}
 
