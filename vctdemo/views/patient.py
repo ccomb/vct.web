@@ -54,6 +54,7 @@ def add(context, request):
         if 'items' not in patient.catalogs:
             patient.catalogs['items'] = Catalog()
             patient.catalogs['items']['item_type'] = CatalogFieldIndex('item_type')
+            patient.catalogs['items']['date'] = CatalogFieldIndex('date')
             patient.catalogs['items']['title'] = CatalogTextIndex('title')
             patient.catalogs['items']['text'] = CatalogTextIndex('text')
         return HTTPFound(location=model_url(patient, request))

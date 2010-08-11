@@ -13,7 +13,8 @@
 <div id="patient_content" metal:fill-slot="patient_content">
 
 <div>( <span tal:content="python:context.id" /> ) Item: <span tal:content="python:context.title" /></div>
-<div>Item text: <span tal:content="python:context.text" /></div>
+<div>Date: <span tal:content="python:context.date">date</span></div>
+<div>Item text: <span tal:content="python:context.text">text</span></div>
 
 <a href="edit">Edit</a> - 
 <a href="../list">Back to the List</a>

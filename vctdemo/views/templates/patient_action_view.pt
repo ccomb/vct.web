@@ -14,6 +14,7 @@
 
 <div>Item id: <span tal:content="python:context.id" /></div>
 <div>Item title: <span tal:content="python:context.title" /></div>
+<div>Item title: <span tal:content="python:context.date" /></div>
 <div>Item text: <span tal:content="python:context.text" /></div>
 <div>Item status: <span tal:content="python:context.status" /></div>
 <div>External link: <a href="#" tal:attributes="href python:context.link"

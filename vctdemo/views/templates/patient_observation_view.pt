@@ -14,6 +14,7 @@
 
 <div>Item id: <span tal:content="python:context.id" /></div>
 <div>Item title: <span tal:content="python:context.title" /></div>
+<div>Item Date: <span tal:content="python:context.date" /></div>
 <div>Item text: <span tal:content="python:context.text" /></div>
 <div><img src="image" width="800" alt="image" /></div>
 

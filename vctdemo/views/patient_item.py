@@ -1,5 +1,7 @@
+from datetime import datetime, date, timedelta
 from formalchemy import Field as FaField
 from formalchemy import FieldSet as FaFieldSet
+from formalchemy import types
 from formalchemy.ext.zope import FieldSet, Field
 from os.path import join
 from repoze.bfg.chameleon_zpt import get_template, render_template_to_response
@@ -12,13 +14,14 @@ from vctdemo import models
 from webob import Response
 from webob.exc import HTTPFound
 from zope.interface import providedBy
-import datetime
 
 def _update_catalog(catalog):
     """update the catalog with newer indexes to avoid deleting the db
     """
     if 'item_type' not in catalog:
         catalog['item_type'] = CatalogFieldIndex('item_type')
+    if 'date' not in catalog:
+        catalog['date'] = CatalogFieldIndex('date')
 
 
 def listview(context, request):
@@ -60,7 +63,7 @@ def add(context, request):
         pitem = models.PatientItem()
         item_interface = models.IPatientItem
         template = 'patient_item_add.pt'
-    pitem.date = datetime.datetime.now()
+    pitem.date = datetime.now()
     form = FieldSet(item_interface)
     form = form.bind(pitem, data=request.POST or None)
     if request.POST and form.validate():   # if new and valid data
@@ -89,32 +92,44 @@ def add(context, request):
             logged_in=authenticated_userid(request),
             form=form)
 
+
 class SearchFields(object):
     """class for the search form
     """
     title = FaField()
     text = FaField()
+    start = FaField(type=types.Date)
+    end = FaField(type=types.Date)
     item_type = FaField().checkbox(
         options=[('item', 'IPatientItem'),
                  ('action', 'IAction'),
                  ('issue', 'IIssue'),
                  ('observation', 'IObservation')])
 
+
 def search(context, request):
     form = FaFieldSet(SearchFields)
+    form.configure(include=[SearchFields.title,
+                  SearchFields.text,
+                  SearchFields.start,
+                  SearchFields.end,
+                  SearchFields.item_type])
     form = form.bind(SearchFields, data=request.POST or None)
     catalog = context.catalogs['items']
     number, results = None, {}
     errors = None
     if request.POST and form.validate():
-        data = dict([(id,field.value)
+        query = dict([(id,field.value)
                      for (id,field) in form.render_fields.items()
                      if field.value is not None
                      ])
-        if not data.get('item_type'):
-            data['item_type'] = [i[1] for i in SearchFields.item_type.render_opts['options']]
+        # replace the 'start' and 'end' dates with a (start, end) tuple
+        query['date'] = (datetime.fromordinal(query.pop('start', datetime.min).toordinal()),
+                        timedelta(1) + datetime.fromordinal(query.pop('end', datetime.max-timedelta(1)).toordinal()))
+        if not query.get('item_type'):
+            query['item_type'] = [i[1] for i in SearchFields.item_type.render_opts['options']]
         try:
-            number, results = catalog.search(**data) # XXX
+            number, results = catalog.search(**query)
         except Exception, r:
             errors = r
             number, results = 0, {}
