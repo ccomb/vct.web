@@ -134,6 +134,7 @@ class IItem(Interface):
     id = TextLine(title=u'Id', description=u'Identifier of the item')
     author = TextLine(title=u'Author', description=u'The author of the item')
     #version = Int(title=u'Version', description=u'The version of the item')
+    version = Attribute(u"Version")
     item_type = Attribute(u"Item type")
 
 
@@ -147,6 +148,7 @@ class IPatientItem(Interface):
 
 class PatientItem(Folder):
     id = date = None
+    version = 0
     title = text = ''
     status = image = link = ''
     implements(IPatientItem)

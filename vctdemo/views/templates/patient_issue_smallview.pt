@@ -4,7 +4,7 @@
 
 <a href="${context.id}/">
 <span>ISSUE ${context.id}: </span>
-<span class="version">(v=0)</span>
+<span class="version">(v=${context.version})</span>
 on <span class="date">${context.date}</span>
 by: <span class="author">${context.author}</span>
 <span class="title">${context.title}</span>

@@ -168,6 +168,7 @@ def edit(context, request):
         # zope.index BUG #598776
         if context.text is None:
             context.text = u''
+        context.version += 1
         # update the catalog
         _update_catalog(catalog)
         catalog.reindex_doc(int(context.id), context)
