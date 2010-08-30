@@ -76,9 +76,6 @@ def add(context, request):
         pitem.author = authenticated_userid(request)
         context[str(id)] = pitem
         catalog = context.catalogs['items']
-        # zope.index BUG #598776
-        if pitem.text is None:
-            pitem.text = u''
         _update_catalog(catalog)
         catalog.index_doc(id, pitem)
         return HTTPFound(location=model_url(pitem, request))
