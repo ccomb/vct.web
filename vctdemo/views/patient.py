@@ -26,6 +26,16 @@ def listview(context, request):
 
 
 def add(context, request):
+
+    # demander au serveur xmlrpc, la liste des champs
+
+    # generer le formulaire a partir de la reponse xmlrpc
+
+    # if request.post blah blah
+    #   xmlrpc.issue.add({'nom': 'toto',})
+    #
+
+
     # create a patient
     patient = models.Patient()
     form = FieldSet(models.IPatient)
