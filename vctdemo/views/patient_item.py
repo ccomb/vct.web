@@ -29,6 +29,7 @@ def listview(context, request):
     """
     item_type = request.GET.get('type')
     catalog = context.catalogs['items']
+    _update_catalog(catalog)
     number, results = catalog.search(item_type=item_type)
     items = [context[i] for i in results]
 
