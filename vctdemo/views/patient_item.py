@@ -173,7 +173,17 @@ def edit(context, request):
         _update_catalog(catalog)
         catalog.reindex_doc(int(context.id), context)
         # How to return directly to the list ???
-        return HTTPFound(location=model_url(context, request))
+#        return HTTPFound(location=model_url(context, request))
+        next_page = "../list" 
+        item_type = type(context) 
+        if item_type is not None and item_type=='Action':
+            next_page += str("?type=IAction")  
+        elif item_type is not None and item_type=='Issue':     
+            next_page += str("?type=IIssue")  
+#        elif item_type == 'Observation'):     
+#            next_page += str("?type=IObservation")  
+        print next_page, "item_type = ", item_type 
+        return HTTPFound(location= next_page)
     return {'context': context,
             'request': request,
             'master': get_template('templates/master.pt'),

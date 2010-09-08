@@ -150,6 +150,7 @@ class PatientItem(Folder):
     id = date = None
     version = 0
     title = text = ''
+    item_type = ''
     status = image = link = ''
     implements(IPatientItem)
 
