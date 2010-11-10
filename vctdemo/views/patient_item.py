@@ -28,11 +28,13 @@ def listview(context, request):
     """item list (in the context of patient)
     """
     item_type = request.GET.get('type')
+    start = request.GET.get('start')
+    end = request.GET.get('end')
     if item_type is not None:
         item_type = 'I' + item_type
     catalog = context.catalogs['items']
     _update_catalog(catalog)
-    number, results = catalog.search(item_type=item_type)
+    number, results = catalog.search(item_type=item_type, )
     items = [context[i] for i in results]
 
     return {'request':request,
@@ -125,11 +127,21 @@ def search(context, request):
     catalog = context.catalogs['items']
     number, results = None, {}
     errors = None
+    query = None
     if request.POST and form.validate():
         query = dict([(id,field.value)
                      for (id,field) in form.render_fields.items()
                      if field.value is not None
                      ])
+    elif len(request.GET) > 0:
+        query = request.GET
+        if 'item_type' in query:
+            query['item_type'] = 'I' + query['item_type']
+        for d in ('start', 'end'):
+            if d in query:
+                query[d] = datetime.strptime(query[d], '%Y-%m-%d')
+
+    if query is not None:
         # replace the 'start' and 'end' dates with a (start, end) tuple
         query['date'] = (datetime.fromordinal(query.pop('start', datetime.min).toordinal()),
                         timedelta(1) + datetime.fromordinal(query.pop('end', datetime.max-timedelta(1)).toordinal()))
