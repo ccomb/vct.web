@@ -28,6 +28,8 @@ def listview(context, request):
     """item list (in the context of patient)
     """
     item_type = request.GET.get('type')
+    if item_type is not None:
+        item_type = 'I' + item_type
     catalog = context.catalogs['items']
     _update_catalog(catalog)
     number, results = catalog.search(item_type=item_type)
@@ -176,15 +178,15 @@ def edit(context, request):
         catalog.reindex_doc(int(context.id), context)
         # How to return directly to the list ???
 #        return HTTPFound(location=model_url(context, request))
-        next_page = "../list" 
-        item_type = type(context) 
+        next_page = "../list"
+        item_type = type(context)
         if item_type is not None and item_type=='Action':
-            next_page += str("?type=IAction")  
-        elif item_type is not None and item_type=='Issue':     
-            next_page += str("?type=IIssue")  
-#        elif item_type == 'Observation'):     
-#            next_page += str("?type=IObservation")  
-        print next_page, "item_type = ", item_type 
+            next_page += str("?type=IAction")
+        elif item_type is not None and item_type=='Issue':
+            next_page += str("?type=IIssue")
+#        elif item_type == 'Observation'):
+#            next_page += str("?type=IObservation")
+        print next_page, "item_type = ", item_type
         return HTTPFound(location= next_page)
     return {'context': context,
             'request': request,

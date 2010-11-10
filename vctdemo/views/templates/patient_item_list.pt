@@ -16,6 +16,10 @@
 
 Item list
 
+<div id="actions" tal:define="type python:request['webob._parsed_query_vars'][0].get('type') or 'PatientItem'">
+<a href="${patient_url}add?type=${type}" class="ui-state-default ui-corner-all">Add</a>
+</div>
+
 <ul>
   <tal:block repeat="item items">
     <li>
