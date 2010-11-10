@@ -7,8 +7,8 @@
 <head>
 </head>
 
-<body  metal:define-macro="patient_master" id="test-bg" >
-<div  metal:use-macro="master.macros['master']" id="test-bg" >
+<body  metal:define-macro="patient_master">
+<div  metal:use-macro="master.macros['master']" >
 <div id="patient_frame" class="ui-widget" metal:fill-slot="content">
 
 
@@ -22,7 +22,7 @@
               , address: ....
           </div>         
           <div id="patient_menu" class="ui-widget-header">
-                     <a href="${patient_url}list" tip="oooooooo " class="ui-state-default ui-corner-all">List all Items</a>
+                     <a href="${patient_url}list" class="ui-state-default ui-corner-all">List all Items</a>
                      <a href="${patient_url}search" class="ui-state-default ui-corner-all">Search items</a>
                      <a href="${patient_url}list?type=IIssue" class="ui-state-default ui-corner-all">Issues</a>
                      <a href="${patient_url}list?type=IObservation" class="ui-state-default ui-corner-all">Observations</a>
