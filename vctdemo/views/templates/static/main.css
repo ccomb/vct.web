@@ -41,9 +41,16 @@ margin-right: 0.5em;
 
 #patient_menu a {
 display: block;
-width: 140px;
+width: 9em;
 margin-top: 2px;
 margin-bottom: 2px;
+text-align: center;
+}
+
+#patient_menu a.sublist {
+font-size: 70%;
+margin-left: 2em;
+width: 9em;
 }
 
 .item {
