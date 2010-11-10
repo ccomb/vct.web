@@ -75,6 +75,8 @@ def add(context, request):
             id += 1
         pitem.id = str(id)
         pitem.author = authenticated_userid(request)
+        if pitem.text is None:
+            pitem.text = u''
         context[str(id)] = pitem
         catalog = context.catalogs['items']
         _update_catalog(catalog)

@@ -11,8 +11,8 @@ by: <span class="author">${context.author}</span>
       </a>
 
 <tal:block define="max 300">
-<span tal:content="python:context.text[:max]"> : </span>
-<a tal:condition="python:len(context.text)>max" href="${context.id}/"> (...read more...) </a>
+<span tal:content="python:context.text and context.text[:max]"> : </span>
+<a tal:condition="python:len(context.text or '')>max" href="${context.id}/"> (...read more...) </a>
 </tal:block>
 
 </div>
