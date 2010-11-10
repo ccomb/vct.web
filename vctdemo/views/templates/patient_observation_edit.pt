@@ -17,7 +17,8 @@
   <div class="fa_field ui-widget">
     <input class="ui-button ui-state-default ui-corner-all"
            value="Valider" type="submit" />
-  </div>
+     or  
+    <a href="javascript:history.back()">Cancel</a>  </div>
 </form>
 
 

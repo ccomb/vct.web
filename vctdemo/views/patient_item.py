@@ -52,14 +52,17 @@ def add(context, request):
         pitem = models.Action()
         item_interface = models.IAction
         template = 'patient_action_add.pt'
+        next_page = "list?type=IAction"
     elif item_type is not None and item_type=='Issue':
         pitem = models.Issue()
         item_interface = models.IIssue
         template = 'patient_issue_add.pt'
+        next_page = "list?type=IIssue"
     elif item_type is not None and item_type=='Observation':
         pitem = models.Observation()
         item_interface = models.IObservation
         template = 'patient_observation_add.pt'
+        next_page = "list?type=IObservation"
     else:
         pitem = models.PatientItem()
         item_interface = models.IPatientItem
@@ -68,6 +71,7 @@ def add(context, request):
     form = FieldSet(item_interface)
     form = form.bind(pitem, data=request.POST or None)
     if request.POST and form.validate():   # if new and valid data
+        listview(context, request)
         request.POST.pop('PatientItem--id', None)
         form.sync()
         id = len(context)
@@ -81,7 +85,8 @@ def add(context, request):
         catalog = context.catalogs['items']
         _update_catalog(catalog)
         catalog.index_doc(id, pitem)
-        return HTTPFound(location=model_url(pitem, request))
+#        return HTTPFound(location=model_url(pitem, request))
+        return HTTPFound(location= next_page)
     return render_template_to_response(join('templates', template),  # render the page
             request=request,
             context=context,
@@ -170,7 +175,17 @@ def edit(context, request):
         _update_catalog(catalog)
         catalog.reindex_doc(int(context.id), context)
         # How to return directly to the list ???
-        return HTTPFound(location=model_url(context, request))
+#        return HTTPFound(location=model_url(context, request))
+        next_page = "../list" 
+        item_type = type(context) 
+        if item_type is not None and item_type=='Action':
+            next_page += str("?type=IAction")  
+        elif item_type is not None and item_type=='Issue':     
+            next_page += str("?type=IIssue")  
+#        elif item_type == 'Observation'):     
+#            next_page += str("?type=IObservation")  
+        print next_page, "item_type = ", item_type 
+        return HTTPFound(location= next_page)
     return {'context': context,
             'request': request,
             'master': get_template('templates/master.pt'),

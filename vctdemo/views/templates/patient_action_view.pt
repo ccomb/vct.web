@@ -3,15 +3,12 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal">
 <head metal:use-macro="master.macros['head']">
 <metal:block fill-slot="headslot">
-
 <title>Viewing an action</title>
-
 </metal:block>
 </head>
+
 <body metal:use-macro="patient_master.macros['patient_master']">
 <div id="patient_content" metal:fill-slot="patient_content">
-<h3>Action= Pathology </h3>
-
 <div>Item id: <span tal:content="python:context.id" /></div>
 <div>Item title: <span tal:content="python:context.title" /></div>
 <div>Item title: <span tal:content="python:context.date" /></div>
