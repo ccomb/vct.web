@@ -1,18 +1,26 @@
 <div class="smallview action">
 
-<a href="${patient_url}/${context.id}/edit" class="ui-button ui-state-default ui-corner-all action">Edit</a>, 
+<a href="${patient_url}/${context.id}/edit" class="ui-button ui-state-default ui-corner-all action">Edit</a>
 
+<i>
+<span class="date">${context.date}</span>
+<span>by: ${context.author} (ACTION ${context.id}: version=${context.version})</span>
+</i>
 <a href="${context.id}/">
-<span>ACTION ${context.id}: </span>
-<span class="version">(v=${context.version})</span>
-on <span class="date">${context.date}</span>
-by: <span class="author">${context.author}</span>
-<span class="title">${context.title}</span>
-      </a>
+<strong>${context.title} : </strong>
+</a>
 
+<div>
+<!--
 <tal:block define="max 300">
 <span tal:content="python:context.text and context.text[:max]"> : </span>
 <a tal:condition="python:len(context.text or '')>max" href="${context.id}/"> (...read more...) </a>
 </tal:block>
+-->
+${context.text}
+<a href="${context.id}/">
+  ( see the annex ) 
+</a>
 
+</div>
 </div>

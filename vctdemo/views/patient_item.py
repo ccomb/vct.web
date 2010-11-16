@@ -71,6 +71,7 @@ def add(context, request):
         pitem = models.PatientItem()
         item_interface = models.IPatientItem
         template = 'patient_item_add.pt'
+        next_page = "list"
     pitem.date = datetime.now()
     form = FieldSet(item_interface)
     form = form.bind(pitem, data=request.POST or None)

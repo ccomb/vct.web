@@ -18,9 +18,12 @@
                        tal:content="python:context.link" /></div> <!-- for ipath -->
 
 <a href="edit">Edit</a> - 
-<a href="../list">Back to the List</a>
 
-<iframe tal:condition="python:context.link" id="external" width="99%" height="800px" tal:attributes="src python:context.link">external application</iframe>
+<iframe tal:condition="python:context.link" id="external" width="95%" height="800px" tal:attributes="src python:context.link">
+external application
+</iframe>
+
+<a href="../list">Back to the List</a>
 
 </div>
 </body>

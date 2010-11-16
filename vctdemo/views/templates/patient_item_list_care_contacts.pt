@@ -14,7 +14,7 @@
 
 <div id="patient_content" metal:fill-slot="patient_content">
 
-Item list : Care plan
+Item list : Contacts
 
 <!--
 <ul>

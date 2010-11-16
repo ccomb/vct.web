@@ -111,7 +111,7 @@
     view=".views.user.user_test"
     name="user_test"
     renderer="views/templates/user_test.pt"
-    permission="edit"
+    permission="admin"
     />
 
 <!-- PATIENT -->

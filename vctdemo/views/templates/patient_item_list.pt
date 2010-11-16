@@ -14,12 +14,20 @@
 
 <div id="patient_content" metal:fill-slot="patient_content">
 
-Item list
+Item list       
 
+
+<a href="${patient_url}add?type=Observation" class="ui-state-default ui-corner-all">Add observation</a> - 
+<a href="${patient_url}add?type=Issue" class="ui-state-default ui-corner-all">Add issue</a> - 
+<a href="${patient_url}add?type=Action" class="ui-state-default ui-corner-all">Add action</a> - 
+<a href="${patient_url}#" class="ui-state-default ui-corner-all">Add link</a> - 
+<a href="${patient_url}add?type=${type}" class="ui-state-default ui-corner-all">Add Item</a>
+
+<!--
 <div id="actions" tal:define="type python:request.GET.get('type') or 'PatientItem'">
 <a href="${patient_url}add?type=${type}" class="ui-state-default ui-corner-all">Add</a>
 </div>
-
+-->
 <ul>
   <tal:block repeat="item items">
     <li>

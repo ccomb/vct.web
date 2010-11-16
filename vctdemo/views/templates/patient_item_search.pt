@@ -4,7 +4,6 @@
 <head metal:use-macro="master.macros['head']">
 <metal:block fill-slot="headslot">
 
-<title>Searching an item</title>
 
 </metal:block>
 </head>
@@ -19,7 +18,7 @@
   <div tal:content="structure python:form.render()" />
   <div class="fa_field ui-widget">
     <input class="ui-button ui-state-default ui-corner-all"
-           value="Valider" type="submit" />
+           value="OK Search" type="submit" />
   </div>
 </form>
 
