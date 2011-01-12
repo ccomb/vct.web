@@ -14,6 +14,7 @@ from vctdemo import models
 from webob import Response
 from webob.exc import HTTPFound
 from zope.interface import providedBy
+import xmlrpclib
 
 def _update_catalog(catalog):
     """update the catalog with newer indexes to avoid deleting the db
@@ -63,6 +64,12 @@ def add(context, request):
         template = 'patient_issue_add.pt'
         next_page = "list?type=IIssue"
     elif item_type is not None and item_type=='Observation':
+        #server = xmlrpclib.ServerProxy('http://localhost:8000')
+        #model = server.get_model('observation')
+        # we must generate the form with this model
+        #
+
+        # current method:
         pitem = models.Observation()
         item_interface = models.IObservation
         template = 'patient_observation_add.pt'
@@ -75,7 +82,21 @@ def add(context, request):
     pitem.date = datetime.now()
     form = FieldSet(item_interface)
     form = form.bind(pitem, data=request.POST or None)
-    if request.POST and form.validate():   # if new and valid data
+
+    ### specific to test xmlrpc put
+    if request.POST and 'Observation--date' in request.POST:
+        server = xmlrpclib.ServerProxy('http://localhost:8000')
+        model = server.get_model('observation')
+        data = request.POST
+        newdata = {}
+        for i in data.items():
+            newdata[i[0].replace('Observation--','')] = i[1]
+        import random
+        server.put('frsecu', random.randint(0,10000), newdata)
+    ### ~specific to test xmlrpc put
+
+
+    elif request.POST and form.validate():   # if new and valid data
         listview(context, request)
         request.POST.pop('PatientItem--id', None)
         form.sync()
