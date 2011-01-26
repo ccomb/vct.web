@@ -12,3 +12,5 @@
 sandbox/
 ^vctdemo/admin$
 ^eggs/
+parts/
+.mr.developer.cfg
