@@ -22,48 +22,21 @@ def login(context, request):
     login = ''
     password = ''
 
-    users = virtual_root(context, request)['users']
-    if len(users) == 0:
-        if 'username' in request.params:
-            username = request.params.get('username')
-            password = request.params.get('password')
-            if password != request.params.get('confirm'):
-                message = u'Passwords differ!'
-            elif password == u'' or username == u'':
-                message = u'Please enter a username and password'
-            else:
-                user = User()
-                user.username = username
-                user.password = password
-                user.groups = PersistentList(GROUPS)
-                users[username] = user
-                return HTTPFound(location = '/')
-
-        return Response("""
-        <html><body><span style="color: red">%s</span><br/>
-        Please create the initial administrator:<br/>
-        <form method="POST" action="">
-        username: <input type="text" name="username"/><br/>
-        password: <input type="password" name="password"/><br/>
-        confirm password: <input type="password" name="confirm"/><br/>
-        <input type="submit" />
-        </form></body></html>
-        """ % message)
-
     if 'form.submitted' in request.params:
         login = request.params['login']
         password = request.params['password']
 
         # read the user folder
-        user = users.get(login, None)
-        if user is not None and user.password == password:
-            # shortcut for storing the logged-in user in the session
-            headers = remember(request, login)
+        server = xmlrpclib.ServerProxy('http://localhost:8000')
+        response = server.login(login, password)
+        if not response:
+            message = 'Failed login'
+        else:
+            token = response
+            headers = remember(request, token)
             return HTTPFound(location = came_from,
                              headers = headers)
-
-        message = 'Failed login'
-
+        
     return dict(
         message = message,
         url = request.application_url + '/login',

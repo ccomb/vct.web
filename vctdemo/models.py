@@ -57,31 +57,7 @@ def appmaker(zodb_root):
     return zodb_root['app_root']
 
 
-class UserContainer(Folder):  # The folder containing the users
-    pass
-
 from vctdemo.security import GROUPS
-
-class IUser(Interface):
-    username = TextLine(title=u'User name')
-    password = Password(title=u'password')
-    groups = List(title=u'groups', value_type=Choice(title=u'group', values=GROUPS))  # ??? Make a list of checkboxes
-    organization = TextLine(title=u'Organization', required=False)
-    address = TextLine(title=u'Address', required=False)
-    city = TextLine(title=u'City', required=False)
-    phone = TextLine(title=u'phone', required=False)
-
-
-class User(Persistent):
-    # IAttributeAnnotatable because our user must be able to store annotations
-    implements(IUser, IAttributeAnnotatable)
-    username = password = groups = organization = language = None
-    address = city = phone = initial_patient_view = None
-    def __init__(self):
-        # storing a list in the zodb requires PersistentList
-        self.group = PersistentList()
-        self.language = 'english'
-        #initial_patient_view = "default Start View"
 
 
 class IUserPreferences(Interface):
@@ -98,13 +74,8 @@ class UserPreferences(Persistent):
     #def __init__(self):
     #    self.language = 'english'
 
-# the annotation factory allows to create the annotation adatper
+# the annotation factory allows to create the annotation adapter
 user_preferences = factory(UserPreferences)
-
-
-# TODO : rename Patient to Record
-class PatientContainer(Folder):
-    pass
 
 
 class IPatient(Interface):
