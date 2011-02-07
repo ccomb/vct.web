@@ -3,7 +3,11 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal">
 <head metal:use-macro="master.macros['head']">
 <metal:block fill-slot="headslot">
-
+<link rel="stylesheet" href="/static/form.css" type="text/css" />
+<link rel="stylesheet" href="/static/theme.css" type="text/css" />
+<script type="text/javascript"
+          src="/static/scripts/deform.js"></script>
+  
 <title>Adding a user</title>
 
 </metal:block>
@@ -12,14 +16,10 @@
 <div id="content" metal:fill-slot="content">
 <h1>New user</h1>
 
-<form id="user_form" method="post" action="">
-  <div tal:content="structure python:form.render()" />
-  <div class="fa_field ui-widget">
-    <input class="ui-button ui-state-default ui-corner-all"
-           value="Valider" type="submit" />
-  </div>
-</form>
-
+<tal:block replace="structure python:form" />
+<script type="text/javascript">
+   deform.load()
+</script>
 
 
 </div>

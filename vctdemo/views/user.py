@@ -10,6 +10,7 @@ from repoze.catalog.indexes.text import CatalogTextIndex
 from repoze.folder import Folder
 from vctdemo import models
 from webob.exc import HTTPFound
+import xmlrpclib
 
 def listview(context, request):
     users = context.values()
@@ -21,20 +22,25 @@ def listview(context, request):
 
 
 def add(context, request):
-    user = models.User()
-    form = FieldSet(models.IUser)
-    form.password.set(renderer=PasswordFieldRenderer)
-    form = form.bind(user, data=request.POST if len(request.POST) else request.GET or None)  #???
-    if request.POST and form.validate():
-        form.sync()
-        context[user.username] = user
-        return HTTPFound(location=model_url(user, request) + '/@@prefs')
+    server = xmlrpclib.ServerProxy('http://localhost:8000')
+    form = server.get_form('user', 'html')
+    template = 'user_add_test.pt'
+
+    if request.POST:
+        data = [ i for i in request.POST.items() if i[1]!='']
+        server = xmlrpclib.ServerProxy('http://localhost:8000')
+        import random
+        response = server.put('frsecu', random.randint(0,10000), data, 'user')
+        if response is not 0:
+            form = server.get_form('user', 'html', data)
+        else:
+            return HTTPFound(location=next_page)
+            
     return {'request':request,
             'context':context,
             'master': get_template('templates/master.pt'),
             'logged_in': authenticated_userid(request),
             'form': form}
-
 
 def view(context, request):
     user_organization = "St Peter Hospital" #authenticated_userid.organization
