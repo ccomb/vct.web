@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal">
+<head metal:use-macro="master.macros['head']">
+<metal:block fill-slot="headslot">
+
+<title>Searching a patient</title>
+
+</metal:block>
+</head>
+
+<body metal:use-macro="master.macros['master']">
+<div id="main" metal:fill-slot="content">
+
+<div id="leftpanel" class="ui-widget-content">
+
+Search
+<form id="patient_search" method="post" action="">
+  <div>
+<div>
+  <label class="field_opt" for="id">Identification nr</label>
+  <input id="id" name="id" type="text" />
+</div>
+<script type="text/javascript">
+//<![CDATA[
+document.getElementById("id").focus();
+//]]>
+</script>
+<div>
+  <label class="field_opt" for="name">Last Name</label>
+  <input id="lastname" name="lastname" type="text" />
+</div>
+<div>
+  <label class="field_opt" for="firstname">First Name</label>
+  <input id="firstname" name="firstname" type="text" />
+</div>
+<div>
+  <label class="field_opt" for="birthdate">Birthdate</label>
+  <input id="birthdate" name="birthdate" type="text" />
+</div>
+<div>
+  <label class="field_opt" for="sex">Sex</label>
+  <input id="sex" name="sex" type="text" />
+</div>
+</div>
+  <div class="fa_field ui-widget">
+    <input class="ui-button ui-state-default ui-corner-all" name="Search" value="Search" type="submit" />
+  </div>
+</form>
+
+<span class="error" tal:content="errors">error string</span>
+
+</div>
+
+
+<div id="content" class="ui-widget-content">
+
+<div tal:condition="python: number is not None">
+<h4><span>There are ${number} patients</span></h4>
+
+<ul>
+  <li tal:repeat="patient patients">
+    <a href="/patient/${patient['uids']['server1']}/">${patient['uids']['server1']} : ${patient['data']['lastname']} ${patient['data']['firstname']}, ${patient['data']['birthdate']}, ${patient['data']['sex']}</a>
+  </li>
+</ul>
+</div>
+
+<div tal:condition="python: searched is not None">
+If the right patient was not found <a href="add?${add_data}">Add a new patient record</a><br/>
+If not sure, add a new record.
+</div>
+
+</div>
+</div>
+</body>
+</html>
+

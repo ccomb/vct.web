@@ -6,43 +6,32 @@ here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, 'README.txt')).read()
 CHANGES = open(os.path.join(here, 'CHANGES.txt')).read()
 
-requires = [
-    'repoze.bfg',
-    'repoze.zodbconn',
-    'repoze.tm',
-    'repoze.browserid',
-    'ZODB3',
-    'repoze.folder',
-    'FormAlchemy',
-    'fa.jquery',
-    'repoze.catalog',
-    'zope.annotation',
-    'fa.jquery',
-    ]
+requires = ['pyramid', 'WebError']
 
-setup(name='vct.demo',
-      version='0.1dev',
-      description='vct.demo',
+setup(name='vct.web',
+      version='0.0',
+      description='vct.web',
       long_description=README + '\n\n' +  CHANGES,
       classifiers=[
         "Programming Language :: Python",
-        "Framework :: BFG",
+        "Framework :: Pylons",
         "Topic :: Internet :: WWW/HTTP",
         "Topic :: Internet :: WWW/HTTP :: WSGI :: Application",
         ],
       author='',
       author_email='',
       url='',
-      keywords='web wsgi bfg',
+      keywords='web pyramid pylons',
       packages=find_packages(),
       include_package_data=True,
       zip_safe=False,
-      install_requires = requires,
-      tests_require= requires,
-      test_suite="vctdemo",
+      install_requires=requires,
+      tests_require=requires,
+      test_suite="vctweb",
       entry_points = """\
       [paste.app_factory]
-      app = vctdemo.run:app
-      """
+      main = vctweb:main
+      """,
+      paster_plugins=['pyramid'],
       )
 

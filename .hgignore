@@ -3,9 +3,9 @@
 ^include/
 ^develop-eggs/
 ^.installed.cfg$
-^vct.demo.egg-info/
+^vct.web.egg-info/
 .*\.pyc$
-^vct.demo.db$
+^vctweb.db$
 .*~$
 .*\.swp$
 ^Data.fs.*

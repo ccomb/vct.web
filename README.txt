@@ -1,4 +1,4 @@
-vct.demo README
+vct.web README
 
 
 
