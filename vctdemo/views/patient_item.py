@@ -53,41 +53,24 @@ def add(context, request):
     """add item view (in the context of patient)
     """
     item_type = request.GET.get('type')
-    server_form = None
-    if item_type is not None and item_type=='Action':
-        pitem = models.Action()
-        item_interface = models.IAction
-        template = 'patient_action_add.pt'
-        next_page = "list?type=IAction"
-    elif item_type is not None and item_type=='Issue':
-        pitem = models.Issue()
-        item_interface = models.IIssue
-        template = 'patient_issue_add.pt'
-        next_page = "list?type=IIssue"
-    elif item_type is not None and item_type=='Observation':
-        server = xmlrpclib.ServerProxy('http://localhost:8000')
-        server_form = server.get_form('observation', 'html')
-        template = 'patient_observation_add.pt'
-        next_page = "list?type=IObservation"
-        pitem = models.Observation() # unuseful now
-        item_interface = models.IObservation # unuseful now
+    form = None
+    server = xmlrpclib.ServerProxy('http://localhost:8000')
+    if item_type is not None and item_type in ('action', 'issue', 'observation'):
+        form = server.get_form('action', 'html')
+        template = 'patient_' + item_type + '_add.pt'
+        next_page = "list?type=" + item_type
     else:
-        pitem = models.PatientItem()
-        item_interface = models.IPatientItem
+        form = server.get_form('item', 'html')
         template = 'patient_item_add.pt'
         next_page = "list"
-    pitem.date = datetime.now()
-    form = FieldSet(item_interface)
-    form = form.bind(pitem, data=request.POST or None)
 
     ### specific to test xmlrpc put
     if request.POST and 'date' in request.POST:
         data = dict([ i for i in request.POST.items() if i[1]!=''])
-        server = xmlrpclib.ServerProxy('http://localhost:8000')
         import random
         response = server.put('frsecu', random.randint(0,10000), data, 'observation')
         if response is not 0:
-            server_form = server.get_form('observation', 'html', data)
+            form = server.get_form('observation', 'html', data)
         else:
             return HTTPFound(location=next_page)
     ### ~specific to test xmlrpc put
@@ -118,8 +101,7 @@ def add(context, request):
             patient_master=get_template(join('templates', 'patient_master.pt')),
             master=get_template(join('templates', 'master.pt')),
             logged_in=authenticated_userid(request),
-            form=form,
-            server_form=server_form)
+            form=form)
 
 
 class SearchFields(object):
