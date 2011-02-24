@@ -40,7 +40,6 @@
     />
 
 <!-- USER -->
-<zope:adapter factory=".models.user_preferences" />
 <zope:adapter factory=".models.relations" />
 <view
     context=".models.User"
