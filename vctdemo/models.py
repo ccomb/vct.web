@@ -60,24 +60,6 @@ def appmaker(zodb_root):
 from vctdemo.security import GROUPS
 
 
-class IUserPreferences(Interface):
-    language = Choice(title=u'preferred language', values=[
-        u'english', u'french', u'spanish', u'german', u'greek', u'turkish'], required=False)
-    initial_patient_view = TextLine(title=u'Initial Patient View', required=False)
-
-
-class UserPreferences(Persistent):
-    """adapter for user preferences
-    """
-    implements(IUserPreferences)
-    adapts(IUser)
-    #def __init__(self):
-    #    self.language = 'english'
-
-# the annotation factory allows to create the annotation adapter
-user_preferences = factory(UserPreferences)
-
-
 class IPatient(Interface):
     id = TextLine(title=u'Identification nr')
     name = TextLine(title=u'Last Name')
