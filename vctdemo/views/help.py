@@ -1,6 +1,6 @@
 from os.path import dirname, join
-from repoze.bfg.chameleon_zpt import render_template_to_response, get_template
-from repoze.bfg.security import authenticated_userid
+from pyramid.chameleon_zpt import render_template_to_response, get_template
+from pyramid.security import authenticated_userid
 
 def help_view(context, request):
     subpath = '/'.join(['templates', 'help'] + list(request.subpath))

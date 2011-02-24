@@ -1,9 +1,9 @@
 from persistent.list import PersistentList
 from pkg_resources import get_distribution
-from repoze.bfg.security import remember, forget
-from repoze.bfg.traversal import virtual_root
-from repoze.bfg.url import model_url
-from repoze.bfg.view import static
+from pyramid.security import remember, forget
+from pyramid.traversal import virtual_root
+from pyramid.url import model_url
+from pyramid.view import static
 from vctdemo import views
 from vctdemo.models import User
 from vctdemo.security import GROUPS

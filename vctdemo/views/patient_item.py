@@ -4,11 +4,11 @@ from formalchemy import FieldSet as FaFieldSet
 from formalchemy import types
 from formalchemy.ext.zope import FieldSet, Field
 from os.path import join
-from repoze.bfg.chameleon_zpt import get_template, render_template_to_response
-from repoze.bfg.security import authenticated_userid
-from repoze.bfg.traversal import virtual_root
-from repoze.bfg.url import model_url
-from repoze.bfg.view import static, render_view
+from pyramid.chameleon_zpt import get_template, render_template_to_response
+from pyramid.security import authenticated_userid
+from pyramid.traversal import virtual_root
+from pyramid.url import model_url
+from pyramid.view import static, render_view
 from repoze.catalog.indexes.field import CatalogFieldIndex
 from vctdemo import models
 from webob import Response

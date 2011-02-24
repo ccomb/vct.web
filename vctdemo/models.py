@@ -1,7 +1,7 @@
 # coding: utf-8
 from persistent import Persistent
 from persistent.list import PersistentList
-from repoze.bfg.security import Allow
+from pyramid.security import Allow
 from repoze.catalog.catalog import Catalog
 from repoze.catalog.indexes.field import CatalogFieldIndex
 from repoze.catalog.indexes.text import CatalogTextIndex

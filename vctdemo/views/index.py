@@ -1,6 +1,6 @@
-from repoze.bfg.chameleon_zpt import get_template
-from repoze.bfg.security import authenticated_userid
-from repoze.bfg.view import static
+from pyramid.chameleon_zpt import get_template
+from pyramid.security import authenticated_userid
+from pyramid.view import static
 
 static_view = static('templates/static')
 
