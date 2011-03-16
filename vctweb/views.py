@@ -45,7 +45,7 @@ def patient_add(request):
     server = xmlrpclib.ServerProxy('http://localhost:8000')
     if request.POST:
         response = server.put('', '', dict(request.POST), 'patient')
-        if not response.isdigit():
+        if type(response) is not str or not response.isdigit():
             data = [ (i,j) for (i,j) in request.POST.items() if j!='']
             form = server.get_form('patient', 'html', True, data)
         else:
