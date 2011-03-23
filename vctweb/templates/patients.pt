@@ -19,7 +19,7 @@ Search
   <div>
 <div>
   <label class="field_opt" for="id">Identification nr</label>
-  <input id="id" name="id" type="text" />
+  <input id="id" name="id" type="text" disabled="" />
 </div>
 <script type="text/javascript">
 //<![CDATA[
