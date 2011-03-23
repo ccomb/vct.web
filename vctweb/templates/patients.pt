@@ -60,7 +60,7 @@ document.getElementById("id").focus();
 
 <ul>
   <li tal:repeat="patient patients">
-    <a href="/patients/${patient['uids']['server1']}">${patient['uids']['server1']} : ${patient['data']['lastname']} ${patient['data']['firstname']}, ${patient['data']['birthdate']}, ${patient['data']['sex']}</a>
+    <a href="/patients/${patient['uids']['server1']}/">${patient['uids']['server1']} : ${patient['data']['lastname']} ${patient['data']['firstname']}, ${patient['data']['birthdate']}, ${patient['data']['sex']}</a>
   </li>
 </ul>
 </div>
