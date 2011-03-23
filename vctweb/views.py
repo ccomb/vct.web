@@ -1,6 +1,7 @@
 import xmlrpclib, urllib
 from pyramid.chameleon_zpt import get_template
 from pyramid.security import authenticated_userid
+from pyramid.url import route_url
 from webob.exc import HTTPFound
 
 
@@ -77,17 +78,31 @@ def patient_edit(request):
     else:
         nb, results = server.get_by_uid('local', patient_id, 'patient')
         form = server.get_form('patient', 'html', True, results[0]['data'].items())
+    patient = results[0]['data']
 
     return {'request':request,
             'master': get_template('templates/master.pt'),
+            'patient_master': get_template('templates/patient_master.pt'),
             'logged_in': authenticated_userid(request),
+            'patient': patient,
+            'patient_url': route_url('patient_view', request, id=patient_id),
             'errors': None,
             'form': form,
             }
 
 
 def patient_view(request):
-    raise NotImplementedError # use server.get_by_uid()
+    patient_id = request.matchdict['id']
 
+    server = xmlrpclib.ServerProxy('http://localhost:8000', use_datetime=True)
+    nb, results = server.get_by_uid('local', patient_id, 'patient')
+    return {'request':request,
+            'master': get_template('templates/master.pt'),
+            'patient_master': get_template('templates/patient_master.pt'),
+            'logged_in': authenticated_userid(request),
+            'errors': None,
+            'patient': results[0]['data'],
+            'patient_url': route_url('patient_view', request, id=patient_id),
+            }
 
 

@@ -1,4 +1,4 @@
-html { background-color: #FFF; }
+body { background-color: #FFF; }
 
 h1 {
 font-size: 120%;
@@ -11,18 +11,14 @@ padding: 0.2em;
 vertical-align: middle;
 }
 
-div#mainmenu {
+div#user {
 /*
 position: fixed;
 float: top;
 */
 width: 99%;
+border: solid 3px #2E7EAE;
 -moz-border-radius: 7px;
-}
-
-#user {
-position: absolute;
-right: 3%;
 }
 
 #patient {
@@ -84,15 +80,6 @@ font-weight: bold;
 float: right;
 }
 
-#wrapper {
-padding: 1em;
-}
-
-#leftpanel {
-float: left;
-margin-top: 1em;
-max-width: 15em;
-}
 div#loginwrapper {
 background-color: #fff;
 background-image: url('/static/images/login_background.jpg');
@@ -117,8 +104,7 @@ margin-top: 2em;
 margin-bottom: 2em;
 }
 #content {
-margin-top: 1em;
-margin-left: 16em;
+padding-left: 160px;
 }
 div#help_content {
 width: 100%;
@@ -166,6 +152,4 @@ height: 1em;
 float: right;
 }
 
-.ui-widget-content a {
-color: blue;
-}
+
