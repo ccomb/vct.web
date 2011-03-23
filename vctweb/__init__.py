@@ -8,7 +8,8 @@ def main(global_config, **settings):
     config = Configurator(root_factory=Root, settings=settings)
 
     config.add_route('home', '/', view=views.home, renderer="templates/home.pt")
-    config.add_route('patients_add', '/patients/add', view=views.patient_add, renderer="templates/patient_add.pt")
+    config.add_route('patient_add', '/patients/add', view=views.patient_add, renderer="templates/patient_add.pt")
+    config.add_route('patient_edit', '/patients/{id}', view=views.patient_edit, renderer="templates/patient_edit.pt")
     config.add_route('patients', '/patients/', view=views.patients, renderer="templates/patients.pt")
 
     config.add_static_view('static', 'vctweb:static')

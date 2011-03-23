@@ -19,7 +19,7 @@ def home(request):
 def patients(request):
     """patients search and list
     """
-    server = xmlrpclib.ServerProxy('http://localhost:8000')
+    server = xmlrpclib.ServerProxy('http://localhost:8000', use_datetime=True)
     number = searched = patients = add_data = None
 
     if request.POST and 'Search' in request.POST:
@@ -42,7 +42,7 @@ def patients(request):
 
 def patient_add(request):
     form = None
-    server = xmlrpclib.ServerProxy('http://localhost:8000')
+    server = xmlrpclib.ServerProxy('http://localhost:8000', use_datetime=True)
     if request.POST:
         response = server.put('', '', dict(request.POST), 'patient')
         if type(response) is not str or not response.isdigit():
@@ -54,6 +54,29 @@ def patient_add(request):
     else:
         data = request.POST if len(request.POST) else request.GET
         form = server.get_form('patient', 'html', False, data.items())
+
+    return {'request':request,
+            'master': get_template('templates/master.pt'),
+            'logged_in': authenticated_userid(request),
+            'errors': None,
+            'form': form,
+            }
+
+
+def patient_edit(request):
+    patient_id = request.matchdict['id']
+
+    server = xmlrpclib.ServerProxy('http://localhost:8000', use_datetime=True)
+    if request.POST:
+        response = server.put('', '', dict(request.POST), 'patient')
+        if type(response) is not str or not response.isdigit():
+            data = [ (i,j) for (i,j) in request.POST.items() if j!='']
+        else:
+            return HTTPFound(location='.')
+
+    else:
+        nb, results = server.get_by_uid('local', patient_id, 'patient')
+        form = server.get_form('patient', 'html', True, results[0]['data'].items())
 
     return {'request':request,
             'master': get_template('templates/master.pt'),
