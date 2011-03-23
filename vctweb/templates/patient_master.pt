@@ -22,21 +22,21 @@
               , address: ....
           </div>         
           <div id="patient_menu" class="ui-widget-header">
-                     <a href="${patient_url}/search" class="ui-state-default ui-corner-all">Search items</a>
-                     <a href="${patient_url}/list" class="ui-state-default ui-corner-all">List all Items</a>
-                     <a href="${patient_url}/list?type=Issue" class="ui-state-default ui-corner-all">Issues</a>
-                     <a href="${patient_url}/list?type=Observation" class="ui-state-default ui-corner-all">Observations</a>
-                     <a href="${patient_url}/list?type=Action" class="ui-state-default ui-corner-all">Actions</a>
-                     <a href="${patient_url}/list_care_contacts" class="ui-state-default ui-corner-all">Care Contacts</a>
-                     <a href="${patient_url}/list_care_plan" class="ui-state-default ui-corner-all">Care Plan</a>
-                     <a href="${patient_url}/list_care_team" class="ui-state-default ui-corner-all">Care Team</a>
+                     <a href="${patient_url}search" class="ui-state-default ui-corner-all">Search items</a>
+                     <a href="${patient_url}list" class="ui-state-default ui-corner-all">List all Items</a>
+                     <a href="${patient_url}list?type=Issue" class="ui-state-default ui-corner-all">Issues</a>
+                     <a href="${patient_url}list?type=Observation" class="ui-state-default ui-corner-all">Observations</a>
+                     <a href="${patient_url}list?type=Action" class="ui-state-default ui-corner-all">Actions</a>
+                     <a href="${patient_url}list_care_contacts" class="ui-state-default ui-corner-all">Care Contacts</a>
+                     <a href="${patient_url}list_care_plan" class="ui-state-default ui-corner-all">Care Plan</a>
+                     <a href="${patient_url}list_care_team" class="ui-state-default ui-corner-all">Care Team</a>
                      <!--
                      <a href="${patient_url}#" class="ui-state-default ui-corner-all">Other Views</a>
                      <a href="${patient_url}list_topics" class="ui-state-default ui-corner-all">Topics</a>
                      -->
-                     <a href="${patient_url}/#" class="ui-state-default ui-corner-all">Add link</a>
-                     <a href="${patient_url}/edit" class="ui-state-default ui-corner-all">Patient Administration</a>
-                     <a href="${patient_url}/.." class="ui-state-default ui-corner-all">Close Patient</a>
+                     <a href="${patient_url}#" class="ui-state-default ui-corner-all">Add link</a>
+                     <a href="${patient_url}edit" class="ui-state-default ui-corner-all">Patient Administration</a>
+                     <a href="${patient_url}.." class="ui-state-default ui-corner-all">Close Patient</a>
           </div>
 </div>
 
