@@ -49,7 +49,7 @@ def patient_items(request):
     items_ids = patient.get('items')
     items = []
     if items_ids is not None:
-       items = server.get_by_uids('local', items_ids, 'item')
+       items = server.get_by_uids('local', items_ids, 'observation')
     return {'request':request,
             'master': get_template('templates/master.pt'),
             'patient_master': get_template('templates/patient_master.pt'),
@@ -71,12 +71,19 @@ def patient_item_add(request):
     item_type = request.GET['type']
     # add the item
     if request.POST:
-        response = server.put('', '', dict(request.POST), 'item')
+        item = dict(request.POST)
+        item['patient'] = patient_id
+        response = server.put('', '', item, item_type)
         if type(response) is not str or not response.isdigit():
             data = [ (i,j) for (i,j) in request.POST.items() if j!='']
             form = server.get_form(item_type, 'html', True, data)
         else:
-            return HTTPFound(location='./list')
+            # add the item in patient
+            if 'items' not in patient:
+                patient['items'] = []
+            patient['items'].append(response)
+            response = server.put('local', patient_id, patient, 'patient')
+            return HTTPFound(location='./items')
     # display the form
     else:
         data = request.POST if len(request.POST) else request.GET
