@@ -54,8 +54,8 @@ def patient_items(request):
     items_html = []
     if items_ids is not None:
         items = server.get_by_uids('local', items_ids, 'observation')
-    for item in items[1]:
-        items_html.append(render_template('templates/patient_item_smallview.pt', item['data'], request))
+        for item in items[1]:
+            items_html.append(render_template('templates/patient_item_smallview.pt', item['data'], request))
 
     return {'request':request,
             'master': get_template('templates/master.pt'),
