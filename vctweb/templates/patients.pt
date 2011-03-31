@@ -66,8 +66,7 @@ document.getElementById("id").focus();
 </div>
 
 <div tal:condition="python: searched is not None">
-If the right patient was not found <a href="add?${add_data}">Add a new patient record</a><br/>
-If not sure, add a new record.
+If the right patient was not found <a href="add?${add_data}">Add a new patient record</a>
 </div>
 
 </div>
