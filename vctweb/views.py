@@ -55,18 +55,69 @@ def patient_items(request):
     if items_ids is not None:
         items = server.get_by_uids('local', items_ids, 'observation')
         for item in items[1]:
-            items_html.append(render_template('templates/patient_item_smallview.pt', item['data'], request))
+            items_html.append(render_template('templates/patient_item_smallview.pt', item, request))
 
     return {'request':request,
             'master': get_template('templates/master.pt'),
             'patient_master': get_template('templates/patient_master.pt'),
             'logged_in': authenticated_userid(request),
             'errors': None,
-            'patient': results[0]['data'],
+            'patient': results[0],
             'patient_url': route_url('patient_view', request, id=patient_id),
             'items': items,
             'items_html': items_html,
             'render_template': render_template,
+            }
+
+
+def patient_item_view(request):
+    item_id = request.matchdict['id']
+    server = xmlrpclib.ServerProxy('http://localhost:8000', use_datetime=True)
+    nb, results = server.get_by_uid('local', item_id)
+    item = results[0]
+    patient_id = item['data']['patient']
+    patient = server.get_by_uid('local', patient_id)[1][0]
+    return {'request':request,
+            'master': get_template('templates/master.pt'),
+            'patient_master': get_template('templates/patient_master.pt'),
+            'logged_in': authenticated_userid(request),
+            'errors': None,
+            'item': item,
+            'item_url': route_url('patient_item_view', request, id=item_id),
+            'patient': patient,
+            'patient_url': route_url('patient_view', request, id=patient_id),
+            }
+
+
+def patient_item_edit(request):
+    item_id = request.matchdict['id']
+    server = xmlrpclib.ServerProxy('http://localhost:8000', use_datetime=True)
+    nb, results = server.get_by_uid('local', item_id)
+    item = results[0]
+    typ = item['data']['type']
+    patient_id = item['data']['patient']
+    patient = server.get_by_uid('local', patient_id)[1][0]
+    if request.POST:
+        response = server.put('local', item_id, dict(request.POST), typ)
+        if type(response) is not str or not response.isdigit():
+            data = [ (i,j) for (i,j) in request.POST.items() if j!='']
+        else:
+            return HTTPFound(location='.')
+    else:
+        nb, results = server.get_by_uid('local', item_id, typ)
+        form = server.get_form(typ, 'html', True, results[0]['data'].items())
+    item = results[0]
+
+    return {'request':request,
+            'master': get_template('templates/master.pt'),
+            'patient_master': get_template('templates/patient_master.pt'),
+            'logged_in': authenticated_userid(request),
+            'patient': patient,
+            'patient_url': route_url('patient_view', request, id=patient_id),
+            'item': item,
+            'item_url': route_url('patient_item_view', request, id=item_id),
+            'errors': None,
+            'form': form,
             }
 
 
@@ -75,7 +126,7 @@ def patient_item_add(request):
     # get the patient
     patient_id = request.matchdict['id']
     nb, results = server.get_by_uid('local', patient_id, 'patient')
-    patient = results[0]['data']
+    patient = results[0]
     # get the item type to create
     item_type = request.GET['type']
     # add the item
@@ -88,10 +139,10 @@ def patient_item_add(request):
             form = server.get_form(item_type, 'html', True, data)
         else:
             # add the item in patient
-            if 'items' not in patient:
-                patient['items'] = []
-            patient['items'].append(response)
-            response = server.put('local', patient_id, patient, 'patient')
+            if 'items' not in patient['data']:
+                patient['data']['items'] = []
+            patient['data']['items'].append(response)
+            response = server.put('local', patient_id, patient['data'], 'patient')
             return HTTPFound(location='./items')
     # display the form
     else:
@@ -101,7 +152,7 @@ def patient_item_add(request):
     return {'request':request,
             'master': get_template('templates/master.pt'),
             'patient_master': get_template('templates/patient_master.pt'),
-            'patient': results[0]['data'],
+            'patient': results[0],
             'patient_url': route_url('patient_view', request, id=patient_id),
             'item_type': item_type,
             'logged_in': authenticated_userid(request),
@@ -141,10 +192,9 @@ def patient_edit(request):
             data = [ (i,j) for (i,j) in request.POST.items() if j!='']
         else:
             return HTTPFound(location='.')
-    else:
-        nb, results = server.get_by_uid('local', patient_id, 'patient')
-        form = server.get_form('patient', 'html', True, results[0]['data'].items())
-    patient = results[0]['data']
+    nb, results = server.get_by_uid('local', patient_id, 'patient')
+    patient = results[0]
+    form = server.get_form('patient', 'html', True, results[0]['data'].items())
 
     return {'request':request,
             'master': get_template('templates/master.pt'),
@@ -166,7 +216,7 @@ def patient_view(request):
             'patient_master': get_template('templates/patient_master.pt'),
             'logged_in': authenticated_userid(request),
             'errors': None,
-            'patient': results[0]['data'],
+            'patient': results[0],
             'patient_url': route_url('patient_view', request, id=patient_id),
             }
 

@@ -13,6 +13,8 @@ def main(global_config, **settings):
     config.add_route('patient_items', '/patients/{id}/items', view=views.patient_items, renderer="templates/patient_items.pt")
     config.add_route('patient_edit', '/patients/{id}/edit', view=views.patient_edit, renderer="templates/patient_edit.pt")
     config.add_route('patient_item_add', '/patients/{id}/add', view=views.patient_item_add, renderer="templates/patient_item_add.pt")
+    config.add_route('patient_item_view', '/items/{id}/', view=views.patient_item_view, renderer="templates/patient_item_view.pt")
+    config.add_route('patient_item_edit', '/items/{id}/edit', view=views.patient_item_edit, renderer="templates/patient_item_edit.pt")
     config.add_route('patients', '/patients/', view=views.patients, renderer="templates/patients.pt")
 
     config.add_static_view('static', 'vctweb:static')

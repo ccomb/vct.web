@@ -15,10 +15,10 @@
 <div id="patient" class="ui-widget ui-widget-header">
           <div id= "patient_ID">
               Patient= 
-              <span style="font-weight: bold;" tal:content="python:patient.get('lastname')"/>
-              <span style="font-weight: bold;" tal:content="python:patient.get('firstname')"/>, 
-              <span style="font-weight: bold;" tal:content="python:patient.get('birthdate')"/>, 
-              <span style="font-weight: bold;" tal:content="python:patient.get('sex')"/>
+              <span style="font-weight: bold;" tal:content="python:patient['data'].get('lastname')"/>
+              <span style="font-weight: bold;" tal:content="python:patient['data'].get('firstname')"/>, 
+              <span style="font-weight: bold;" tal:content="python:patient['data'].get('birthdate')"/>, 
+              <span style="font-weight: bold;" tal:content="python:patient['data'].get('sex')"/>
               , address: ....
           </div>         
           <div id="patient_menu" class="ui-widget-header">

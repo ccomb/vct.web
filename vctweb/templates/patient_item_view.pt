@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal">
+<head metal:use-macro="master.macros['head']">
+<metal:block fill-slot="headslot">
+
+<title>Viewing an item</title>
+
+</metal:block>
+</head>
+
+<body metal:use-macro="patient_master.macros['patient_master']">
+<div id="patient_content" metal:fill-slot="patient_content">
+
+<div>( <span tal:content="python:item['uids']['server1']" /> ) Item: <span tal:content="python:item['data']['title']" /></div>
+<div>Date: <span tal:content="python:item['data']['date']">date</span></div>
+<div>Item text: <span tal:content="structure python:item['data']['text']">text</span></div>
+
+<a href="edit">Edit</a> - 
+<a href="${patient_url}items">Back to the List</a>
+
+</div>
+</body>
+</html>
