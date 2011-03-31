@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal">
+
+<head metal:use-macro="master.macros['head']">
+<metal:block fill-slot="headslot">
+
+<title>Item list</title>
+
+</metal:block>
+</head>
+
+<body metal:use-macro="patient_master.macros['patient_master']">
+
+<div id="patient_content" metal:fill-slot="patient_content">
+
+Item list       
+
+
+<a href="${patient_url}add?type=item" class="ui-state-default ui-corner-all">Add Item</a>
+<a href="${patient_url}add?type=observation" class="ui-state-default ui-corner-all">Add observation</a> - 
+<a href="${patient_url}add?type=issue" class="ui-state-default ui-corner-all">Add issue</a> - 
+<a href="${patient_url}add?type=action" class="ui-state-default ui-corner-all">Add action</a> - 
+<a href="${patient_url}#" class="ui-state-default ui-corner-all">Add link</a> - 
+
+<!--
+<div id="actions" tal:define="type python:request.GET.get('type') or 'PatientItem'">
+<a href="${patient_url}add?type=${type}" class="ui-state-default ui-corner-all">Add</a>
+</div>
+-->
+<ul>
+  <tal:block repeat="item items">
+    <li>
+        <tal:block content="structure python:render_view(item, request, name='smallview').decode('utf-8')" />
+    </li>
+  </tal:block>
+</ul>
+
+</div>
+
+</body>
+</html>

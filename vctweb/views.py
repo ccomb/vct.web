@@ -41,6 +41,59 @@ def patients(request):
             }
 
 
+def patient_items(request):
+    server = xmlrpclib.ServerProxy('http://localhost:8000', use_datetime=True)
+    patient_id = request.matchdict['id']
+    nb, results = server.get_by_uid('local', patient_id, 'patient')
+    patient = results[0]['data']
+    items_ids = patient.get('items')
+    items = []
+    if items_ids is not None:
+       items = server.get_by_uids('local', items_ids, 'item')
+    return {'request':request,
+            'master': get_template('templates/master.pt'),
+            'patient_master': get_template('templates/patient_master.pt'),
+            'logged_in': authenticated_userid(request),
+            'errors': None,
+            'patient': results[0]['data'],
+            'patient_url': route_url('patient_view', request, id=patient_id),
+            'items': items,
+            }
+
+
+def patient_item_add(request):
+    server = xmlrpclib.ServerProxy('http://localhost:8000', use_datetime=True)
+    # get the patient
+    patient_id = request.matchdict['id']
+    nb, results = server.get_by_uid('local', patient_id, 'patient')
+    patient = results[0]['data']
+    # get the item type to create
+    item_type = request.GET['type']
+    # add the item
+    if request.POST:
+        response = server.put('', '', dict(request.POST), 'item')
+        if type(response) is not str or not response.isdigit():
+            data = [ (i,j) for (i,j) in request.POST.items() if j!='']
+            form = server.get_form(item_type, 'html', True, data)
+        else:
+            return HTTPFound(location='./list')
+    # display the form
+    else:
+        data = request.POST if len(request.POST) else request.GET
+        form = server.get_form(item_type, 'html', False, data.items())
+
+    return {'request':request,
+            'master': get_template('templates/master.pt'),
+            'patient_master': get_template('templates/patient_master.pt'),
+            'patient': results[0]['data'],
+            'patient_url': route_url('patient_view', request, id=patient_id),
+            'item_type': item_type,
+            'logged_in': authenticated_userid(request),
+            'errors': None,
+            'form': form,
+            }
+
+
 def patient_add(request):
     form = None
     server = xmlrpclib.ServerProxy('http://localhost:8000', use_datetime=True)
@@ -51,7 +104,6 @@ def patient_add(request):
             form = server.get_form('patient', 'html', True, data)
         else:
             return HTTPFound(location='.')
-
     else:
         data = request.POST if len(request.POST) else request.GET
         form = server.get_form('patient', 'html', False, data.items())
@@ -66,7 +118,6 @@ def patient_add(request):
 
 def patient_edit(request):
     patient_id = request.matchdict['id']
-
     server = xmlrpclib.ServerProxy('http://localhost:8000', use_datetime=True)
     if request.POST:
         response = server.put('', '', dict(request.POST), 'patient')
@@ -74,7 +125,6 @@ def patient_edit(request):
             data = [ (i,j) for (i,j) in request.POST.items() if j!='']
         else:
             return HTTPFound(location='.')
-
     else:
         nb, results = server.get_by_uid('local', patient_id, 'patient')
         form = server.get_form('patient', 'html', True, results[0]['data'].items())
@@ -93,7 +143,6 @@ def patient_edit(request):
 
 def patient_view(request):
     patient_id = request.matchdict['id']
-
     server = xmlrpclib.ServerProxy('http://localhost:8000', use_datetime=True)
     nb, results = server.get_by_uid('local', patient_id, 'patient')
     return {'request':request,
@@ -104,5 +153,6 @@ def patient_view(request):
             'patient': results[0]['data'],
             'patient_url': route_url('patient_view', request, id=patient_id),
             }
+
 
 
