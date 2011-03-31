@@ -17,7 +17,6 @@
 Item list       
 
 
-<a href="${patient_url}add?type=item" class="ui-state-default ui-corner-all">Add Item</a>
 <a href="${patient_url}add?type=observation" class="ui-state-default ui-corner-all">Add observation</a> - 
 <a href="${patient_url}add?type=issue" class="ui-state-default ui-corner-all">Add issue</a> - 
 <a href="${patient_url}add?type=action" class="ui-state-default ui-corner-all">Add action</a> - 
