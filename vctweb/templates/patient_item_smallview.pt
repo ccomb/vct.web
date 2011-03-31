@@ -1,0 +1,15 @@
+<div class="smallview item">
+ <a href="/items/000/edit" class="ui-button ui-state-default ui-corner-all action">Edit</a>
+<i>
+<span class="date">${date}</span>
+<span>by: author (ITEM id: version=version)</span>
+</i>
+<a href="id/">
+<strong>${title} : </strong>
+</a>
+
+<div>
+${text}
+</div>
+
+</div>

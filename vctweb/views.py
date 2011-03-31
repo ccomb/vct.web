@@ -3,6 +3,8 @@ from pyramid.chameleon_zpt import get_template
 from pyramid.security import authenticated_userid
 from pyramid.url import route_url
 from webob.exc import HTTPFound
+from pyramid.view import render_view
+from pyramid.renderers import render as render_template
 
 
 def my_view(request):
@@ -41,6 +43,7 @@ def patients(request):
             }
 
 
+
 def patient_items(request):
     server = xmlrpclib.ServerProxy('http://localhost:8000', use_datetime=True)
     patient_id = request.matchdict['id']
@@ -48,8 +51,12 @@ def patient_items(request):
     patient = results[0]['data']
     items_ids = patient.get('items')
     items = []
+    items_html = []
     if items_ids is not None:
-       items = server.get_by_uids('local', items_ids, 'observation')
+        items = server.get_by_uids('local', items_ids, 'observation')
+    for item in items[1]:
+        items_html.append(render_template('templates/patient_item_smallview.pt', item['data'], request))
+
     return {'request':request,
             'master': get_template('templates/master.pt'),
             'patient_master': get_template('templates/patient_master.pt'),
@@ -58,6 +65,8 @@ def patient_items(request):
             'patient': results[0]['data'],
             'patient_url': route_url('patient_view', request, id=patient_id),
             'items': items,
+            'items_html': items_html,
+            'render_template': render_template,
             }
 
 
