@@ -5,10 +5,11 @@ font-size: 120%;
 text-align: center;
 }
 
-a {
+a, .ui-widget-content a, .ui-widget-header a {
 text-decoration: none;
 padding: 0.2em;
 vertical-align: middle;
+color: #4d8549;
 }
 
 div#user {
