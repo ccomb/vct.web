@@ -3,6 +3,8 @@ body { background-color: #FFF; }
 h1 {
 font-size: 120%;
 text-align: center;
+display: inline-block;
+padding: 0 3em;
 }
 
 a, .ui-widget-content a, .ui-widget-header a {
@@ -105,7 +107,6 @@ margin-top: 2em;
 margin-bottom: 2em;
 }
 #content {
-padding-left: 160px;
 }
 div#help_content {
 width: 100%;
